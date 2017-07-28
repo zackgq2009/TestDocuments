@@ -1,0 +1,29 @@
+{
+	"Session":
+	[
+	{
+		"deviceId":"000000000000000",
+		"userId":"${userId}",
+		"upgrade":true,
+		"appUserId":"${installationId}",
+		"carrier":"${carrierMCC},${carrierMNC}",
+		"uuid":"${__RandomString(8,utf-8)}${__Random(10000000,99999999)}${__RandomString(8,utf-8)}${__Random(10000000,99999999)}",
+		"startTime":${__time},
+		"appId":"${appId}",
+		"sessionId":"${__RandomString(8,utf-8)}${__Random(10000000,99999999)}${__RandomString(8,utf-8)}${__Random(10000000,99999999)}",
+		"duration":${__Random(0,999999999)},
+		"national":${locale},
+		"os":"${os}",
+		"network":"${netWork}",
+		"appVersion":"${__Random(1,9)}.${__Random(0,9)}",
+	     "sdkVersion":"${__Random(0,5)}.${__Random(0,9)}.${__Random(0,9)}",
+		"osVersion":"${osVersion}",
+		"resolution":"${resolution}",
+		"deviceModel":"${model}",
+		"language":${language},
+		"push":true,
+		"userCreateTime":1452669522,
+		"channel":"${channel}"
+	}
+	]
+}

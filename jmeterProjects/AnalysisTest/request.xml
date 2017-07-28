@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testResults version="1.2">
+<httpSample t="341" it="0" lt="341" ct="219" ts="1452682262061" s="true" lb="installations" rc="200" rm="OK" tn="线程组 1-1" dt="text" de="" by="480" sc="1" ec="0" ng="1" na="1" hn="AppletekiiMac.local">
+  <responseHeader class="java.lang.String">HTTP/1.1 200 OK
+Server: nginx/1.6.3
+Date: Wed, 13 Jan 2016 10:52:47 GMT
+Content-Type: application/json
+Content-Length: 78
+Connection: keep-alive
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: X-ZCloud-AppId, X-ZCloud-APIKey, X-ZCloud-MasterKey, X-ZCloud-Hash, X-ZCloud-Version, X-ZCloud-Session-Token, Content-Type
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS
+</responseHeader>
+  <requestHeader class="java.lang.String">Connection: keep-alive
+Content-Type: application/json
+X-LAS-AppId: 56947b69a5ff7f000152f097
+X-LAS-Session-Token: CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k
+Content-Length: 464
+Host: api.maxleap.cn
+User-Agent: Apache-HttpClient/4.2.6 (java 1.5)
+</requestHeader>
+  <responseData class="java.lang.String">{&quot;objectId&quot;:&quot;56962c7fa5ff7f0001b26d4b&quot;,&quot;createdAt&quot;:&quot;2016-01-13T10:52:47.278Z&quot;}</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <cookies class="java.lang.String"></cookies>
+  <method class="java.lang.String">POST</method>
+  <queryString class="java.lang.String">{&#xd;
+	&quot;pushType&quot;:&quot;lpns&quot;,&#xd;
+	&quot;deviceId&quot;:&quot;000000000000000&quot;,&#xd;
+	&quot;carrierName&quot;:&quot;310,260&quot;,&#xd;
+	&quot;locale&quot;:&quot;us&quot;,&#xd;
+	&quot;deviceType&quot;:&quot;android&quot;,&#xd;
+	&quot;appIdentifier&quot;:&quot;com.maxleap.test.payment&quot;,&#xd;
+	&quot;installationId&quot;:&quot;-8tt-8tfftfffuut1530663082847501&quot;,&#xd;
+	&quot;appName&quot;:&quot;AnalytisisTest&quot;,&#xd;
+	&quot;timeZone&quot;:&quot;America/New_York&quot;,&#xd;
+	&quot;appVersion&quot;:&quot;3.0&quot;,&#xd;
+	&quot;sdkVersion&quot;:&quot;0.9.0&quot;,&#xd;
+	&quot;osVersion&quot;:&quot;5.0&quot;,&#xd;
+	&quot;deviceModel&quot;:&quot;google nexus 4 - 5.0.0 - api 21 - 768x1280&quot;,&#xd;
+	&quot;language&quot;:&quot;en&quot;,&#xd;
+	&quot;deviceName&quot;:&quot;vbox86p&quot;&#xd;
+}</queryString>
+  <java.net.URL>https://api.maxleap.cn/2.0/installations</java.net.URL>
+</httpSample>
+
+<httpSample t="346" it="0" lt="346" ct="190" ts="1452682275959" s="true" lb="installations" rc="200" rm="OK" tn="线程组 1-1" dt="text" de="" by="480" sc="1" ec="0" ng="1" na="1" hn="AppletekiiMac.local">
+  <responseHeader class="java.lang.String">HTTP/1.1 200 OK
+Server: nginx/1.6.3
+Date: Wed, 13 Jan 2016 10:53:01 GMT
+Content-Type: application/json
+Content-Length: 78
+Connection: keep-alive
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: X-ZCloud-AppId, X-ZCloud-APIKey, X-ZCloud-MasterKey, X-ZCloud-Hash, X-ZCloud-Version, X-ZCloud-Session-Token, Content-Type
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS
+</responseHeader>
+  <requestHeader class="java.lang.String">Connection: keep-alive
+Content-Type: application/json
+X-LAS-AppId: 56947b69a5ff7f000152f097
+X-LAS-Session-Token: CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k
+Content-Length: 464
+Host: api.maxleap.cn
+User-Agent: Apache-HttpClient/4.2.6 (java 1.5)
+</requestHeader>
+  <responseData class="java.lang.String">{&quot;objectId&quot;:&quot;56962c8da5ff7f0001b26d50&quot;,&quot;createdAt&quot;:&quot;2016-01-13T10:53:01.176Z&quot;}</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <cookies class="java.lang.String"></cookies>
+  <method class="java.lang.String">POST</method>
+  <queryString class="java.lang.String">{&#xd;
+	&quot;pushType&quot;:&quot;lpns&quot;,&#xd;
+	&quot;deviceId&quot;:&quot;000000000000000&quot;,&#xd;
+	&quot;carrierName&quot;:&quot;310,260&quot;,&#xd;
+	&quot;locale&quot;:&quot;us&quot;,&#xd;
+	&quot;deviceType&quot;:&quot;android&quot;,&#xd;
+	&quot;appIdentifier&quot;:&quot;com.maxleap.test.payment&quot;,&#xd;
+	&quot;installationId&quot;:&quot;-t88-ff-u8ff-8ff7116964026659274&quot;,&#xd;
+	&quot;appName&quot;:&quot;AnalytisisTest&quot;,&#xd;
+	&quot;timeZone&quot;:&quot;America/New_York&quot;,&#xd;
+	&quot;appVersion&quot;:&quot;3.0&quot;,&#xd;
+	&quot;sdkVersion&quot;:&quot;0.9.0&quot;,&#xd;
+	&quot;osVersion&quot;:&quot;5.0&quot;,&#xd;
+	&quot;deviceModel&quot;:&quot;google nexus 4 - 5.0.0 - api 21 - 768x1280&quot;,&#xd;
+	&quot;language&quot;:&quot;en&quot;,&#xd;
+	&quot;deviceName&quot;:&quot;vbox86p&quot;&#xd;
+}</queryString>
+  <java.net.URL>https://api.maxleap.cn/2.0/installations</java.net.URL>
+</httpSample>
+
+<httpSample t="1429" it="0" lt="1429" ct="1309" ts="1452682618501" s="true" lb="installations" rc="200" rm="OK" tn="线程组 1-1" dt="text" de="" by="480" sc="1" ec="0" ng="1" na="1" hn="AppletekiiMac.local">
+  <responseHeader class="java.lang.String">HTTP/1.1 200 OK
+Server: nginx/1.6.3
+Date: Wed, 13 Jan 2016 10:58:44 GMT
+Content-Type: application/json
+Content-Length: 78
+Connection: keep-alive
+Access-Control-Allow-Origin: *
+Access-Control-Allow-Headers: X-ZCloud-AppId, X-ZCloud-APIKey, X-ZCloud-MasterKey, X-ZCloud-Hash, X-ZCloud-Version, X-ZCloud-Session-Token, Content-Type
+Access-Control-Allow-Methods: GET, POST, DELETE, PUT, OPTIONS
+</responseHeader>
+  <requestHeader class="java.lang.String">Connection: keep-alive
+Content-Type: application/json
+X-LAS-AppId: 56947b69a5ff7f000152f097
+X-LAS-Session-Token: CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k
+Content-Length: 464
+Host: api.maxleap.cn
+User-Agent: Apache-HttpClient/4.2.6 (java 1.5)
+</requestHeader>
+  <responseData class="java.lang.String">{&quot;objectId&quot;:&quot;56962de4a5ff7f0001b26dd4&quot;,&quot;createdAt&quot;:&quot;2016-01-13T10:58:44.796Z&quot;}</responseData>
+  <responseFile class="java.lang.String"></responseFile>
+  <cookies class="java.lang.String"></cookies>
+  <method class="java.lang.String">POST</method>
+  <queryString class="java.lang.String">{&#xd;
+	&quot;pushType&quot;:&quot;lpns&quot;,&#xd;
+	&quot;deviceId&quot;:&quot;000000000000000&quot;,&#xd;
+	&quot;carrierName&quot;:&quot;310,260&quot;,&#xd;
+	&quot;locale&quot;:&quot;us&quot;,&#xd;
+	&quot;deviceType&quot;:&quot;android&quot;,&#xd;
+	&quot;appIdentifier&quot;:&quot;com.maxleap.test.payment&quot;,&#xd;
+	&quot;installationId&quot;:&quot;-t8utu-f-u88u-f-7298357012798071&quot;,&#xd;
+	&quot;appName&quot;:&quot;AnalytisisTest&quot;,&#xd;
+	&quot;timeZone&quot;:&quot;America/New_York&quot;,&#xd;
+	&quot;appVersion&quot;:&quot;3.0&quot;,&#xd;
+	&quot;sdkVersion&quot;:&quot;0.9.0&quot;,&#xd;
+	&quot;osVersion&quot;:&quot;5.0&quot;,&#xd;
+	&quot;deviceModel&quot;:&quot;google nexus 4 - 5.0.0 - api 21 - 768x1280&quot;,&#xd;
+	&quot;language&quot;:&quot;en&quot;,&#xd;
+	&quot;deviceName&quot;:&quot;vbox86p&quot;&#xd;
+}</queryString>
+  <java.net.URL>https://api.maxleap.cn/2.0/installations</java.net.URL>
+</httpSample>
+
+</testResults>

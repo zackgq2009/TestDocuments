@@ -1,0 +1,1181 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jmeterTestPlan version="1.2" properties="2.9" jmeter="3.0 r1743807">
+  <hashTree>
+    <TestPlan guiclass="TestPlanGui" testclass="TestPlan" testname="测试计划" enabled="true">
+      <stringProp name="TestPlan.comments"></stringProp>
+      <boolProp name="TestPlan.functional_mode">false</boolProp>
+      <boolProp name="TestPlan.serialize_threadgroups">false</boolProp>
+      <elementProp name="TestPlan.user_defined_variables" elementType="Arguments" guiclass="ArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+        <collectionProp name="Arguments.arguments"/>
+      </elementProp>
+      <stringProp name="TestPlan.user_define_classpath"></stringProp>
+    </TestPlan>
+    <hashTree>
+      <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="线程组" enabled="true">
+        <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
+        <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+          <boolProp name="LoopController.continue_forever">false</boolProp>
+          <intProp name="LoopController.loops">-1</intProp>
+        </elementProp>
+        <stringProp name="ThreadGroup.num_threads">1</stringProp>
+        <stringProp name="ThreadGroup.ramp_time">1</stringProp>
+        <longProp name="ThreadGroup.start_time">1476168015000</longProp>
+        <longProp name="ThreadGroup.end_time">1476168015000</longProp>
+        <boolProp name="ThreadGroup.scheduler">false</boolProp>
+        <stringProp name="ThreadGroup.duration"></stringProp>
+        <stringProp name="ThreadGroup.delay"></stringProp>
+      </ThreadGroup>
+      <hashTree>
+        <HeaderManager guiclass="HeaderPanel" testclass="HeaderManager" testname="HTTP信息头管理器" enabled="true">
+          <collectionProp name="HeaderManager.headers">
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">X-ML-AppId</stringProp>
+              <stringProp name="Header.value">${appid}</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">X-ML-Session-Token</stringProp>
+              <stringProp name="Header.value">${sessionToken}</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Header">
+              <stringProp name="Header.name">Content-Type</stringProp>
+              <stringProp name="Header.value">application/json</stringProp>
+            </elementProp>
+          </collectionProp>
+        </HeaderManager>
+        <hashTree/>
+        <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="固定定时器" enabled="true">
+          <stringProp name="ConstantTimer.delay">1000</stringProp>
+        </ConstantTimer>
+        <hashTree/>
+        <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="简单控制器" enabled="true"/>
+        <hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="installation请求" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;pushType&quot;:&quot;lpns&quot;,&#xd;
+	&quot;deviceId&quot;:&quot;${__Random(1000000000000000,9999999999999999)}&quot;,&#xd;
+	&quot;carrierName&quot;:&quot;${carrierMCC},${carrierMNC}&quot;,&#xd;
+	&quot;locale&quot;:${locale},&#xd;
+	&quot;deviceType&quot;:&quot;${os}&quot;,&#xd;
+	&quot;appIdentifier&quot;:&quot;com.maxleap.test.${appName}&quot;,&#xd;
+	&quot;installationId&quot;:&quot;${__RandomString(16,utf-8)}${__Random(1000000000000000,9999999999999999)}&quot;,&#xd;
+	&quot;appName&quot;:&quot;${appName}&quot;,&#xd;
+	&quot;timeZone&quot;:${timeZone},&#xd;
+	&quot;appVersion&quot;:&quot;${__Random(1,9)}.${__Random(0,9)}&quot;,&#xd;
+	&quot;sdkVersion&quot;:&quot;${__Random(0,5)}.${__Random(0,9)}.${__Random(0,9)}&quot;,&#xd;
+	&quot;osVersion&quot;:&quot;${osVersion}&quot;,&#xd;
+	&quot;deviceModel&quot;:&quot;${model}&quot;,&#xd;
+	&quot;language&quot;:${language},&#xd;
+	&quot;deviceName&quot;:&quot;${marketingName}&quot;&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${host}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/2.0/installations</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="正则表达式提取器" enabled="true">
+              <stringProp name="TestPlan.comments">提取创建installation之后的objectId,以后我们可以根据这个objectId查询到相应的更多信息</stringProp>
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">installationObjectId</stringProp>
+              <stringProp name="RegexExtractor.regex">&quot;objectId&quot;:&quot;(.{24})&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+              <stringProp name="Sample.scope">all</stringProp>
+              <boolProp name="RegexExtractor.default_empty_value">true</boolProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="getInstallation请求" enabled="true">
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="用户定义的变量" enabled="true">
+              <collectionProp name="Arguments.arguments"/>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${host}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/2.0/installations/${installationObjectId}</stringProp>
+            <stringProp name="HTTPSampler.method">GET</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="正则表达式提取器" enabled="true">
+              <stringProp name="TestPlan.comments">提取installationId</stringProp>
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">installationId</stringProp>
+              <stringProp name="RegexExtractor.regex">&quot;installationId&quot;:&quot;(.{32})&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+              <stringProp name="Sample.scope">all</stringProp>
+              <boolProp name="RegexExtractor.default_empty_value">true</boolProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="正则表达式提取器" enabled="true">
+              <stringProp name="TestPlan.comments">提取deviceId</stringProp>
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">deviceId</stringProp>
+              <stringProp name="RegexExtractor.regex">&quot;deviceId&quot;:&quot;(.{16})&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+              <stringProp name="Sample.scope">all</stringProp>
+              <boolProp name="RegexExtractor.default_empty_value">true</boolProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
+          <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="users请求" enabled="true">
+            <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+            <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="" elementType="HTTPArgument">
+                  <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                  <stringProp name="Argument.value">{&#xd;
+	&quot;email&quot;:&quot;tester${__Random(1000000000,9999999999)}@maxleap.com&quot;,&#xd;
+	&quot;username&quot;:&quot;tester${__Random(1000000000,9999999999)}@maxleap.com&quot;,&#xd;
+	&quot;password&quot;:&quot;123123123&quot;,&#xd;
+	&quot;installationIds&quot;:&#xd;
+	[&quot;${installationId}&quot;]&#xd;
+}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </elementProp>
+            <stringProp name="HTTPSampler.domain">${host}</stringProp>
+            <stringProp name="HTTPSampler.port"></stringProp>
+            <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+            <stringProp name="HTTPSampler.response_timeout"></stringProp>
+            <stringProp name="HTTPSampler.protocol">https</stringProp>
+            <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+            <stringProp name="HTTPSampler.path">/2.0/users</stringProp>
+            <stringProp name="HTTPSampler.method">POST</stringProp>
+            <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+            <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+            <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+            <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+            <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+            <boolProp name="HTTPSampler.monitor">false</boolProp>
+            <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+          </HTTPSamplerProxy>
+          <hashTree>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="正则表达式提取器" enabled="true">
+              <stringProp name="TestPlan.comments">提取userObjectId</stringProp>
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">userId</stringProp>
+              <stringProp name="RegexExtractor.regex">&quot;objectId&quot;:&quot;(.{24})&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+              <boolProp name="RegexExtractor.default_empty_value">true</boolProp>
+              <stringProp name="Sample.scope">all</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="正则表达式提取器" enabled="true">
+              <stringProp name="TestPlan.comments">提取username</stringProp>
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">username</stringProp>
+              <stringProp name="RegexExtractor.regex">&quot;username&quot;:&quot;(.{28})&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+              <boolProp name="RegexExtractor.default_empty_value">true</boolProp>
+              <stringProp name="Sample.scope">all</stringProp>
+            </RegexExtractor>
+            <hashTree/>
+            <RegexExtractor guiclass="RegexExtractorGui" testclass="RegexExtractor" testname="正则表达式提取器" enabled="true">
+              <stringProp name="TestPlan.comments">提取sessionToken</stringProp>
+              <stringProp name="RegexExtractor.useHeaders">false</stringProp>
+              <stringProp name="RegexExtractor.refname">userSessionToken</stringProp>
+              <stringProp name="RegexExtractor.regex">&quot;sessionToken&quot;:&quot;(.{33})&quot;</stringProp>
+              <stringProp name="RegexExtractor.template">$1$</stringProp>
+              <stringProp name="RegexExtractor.default"></stringProp>
+              <stringProp name="RegexExtractor.match_number">1</stringProp>
+              <stringProp name="Sample.scope">all</stringProp>
+              <boolProp name="RegexExtractor.default_empty_value">true</boolProp>
+            </RegexExtractor>
+            <hashTree/>
+          </hashTree>
+          <UserParameters guiclass="UserParametersGui" testclass="UserParameters" testname="用户参数" enabled="false">
+            <collectionProp name="UserParameters.names">
+              <stringProp name="460202643">libVersion</stringProp>
+              <stringProp name="1484112759">appVersion</stringProp>
+            </collectionProp>
+            <collectionProp name="UserParameters.thread_values">
+              <collectionProp name="-1171519359">
+                <stringProp name="-86789776">${__Random{0,9}.${__Random{0,9}}v}</stringProp>
+                <stringProp name="-86789776">${__Random{0,9}.${__Random{0,9}}v}</stringProp>
+              </collectionProp>
+            </collectionProp>
+            <boolProp name="UserParameters.per_iteration">true</boolProp>
+          </UserParameters>
+          <hashTree/>
+          <GenericController guiclass="LogicControllerGui" testclass="GenericController" testname="简单控制器" enabled="true"/>
+          <hashTree>
+            <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SignUp请求" enabled="true">
+              <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+              <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                <collectionProp name="Arguments.arguments">
+                  <elementProp name="" elementType="HTTPArgument">
+                    <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                    <stringProp name="Argument.value">[{&#xd;
+  &quot;distinct_id&quot;: &quot;${__UUID}&quot;,&#xd;
+  &quot;time&quot;: ${__time},&#xd;
+  &quot;type&quot;: &quot;track&quot;,&#xd;
+  &quot;event&quot;:&quot;SignUp&quot;,&#xd;
+  &quot;properties&quot;: {&#xd;
+    &quot;_lib_version&quot;: &quot;${libVersion}&quot;,&#xd;
+    &quot;_os&quot;: &quot;${os}&quot;,&#xd;
+    &quot;_screen_width&quot;: ${width},&#xd;
+    &quot;_carrier&quot;: &quot;${carrierMCC}.${carrierMNC}&quot;,&#xd;
+    &quot;_os_version&quot;: &quot;${osVersion}&quot;,&#xd;
+    &quot;_wifi&quot;: true,&#xd;
+    &quot;_installation_id&quot;: &quot;${installationId}&quot;,&#xd;
+    &quot;_screen_height&quot;: ${height},&#xd;
+    &quot;userId&quot;: &quot;${userId}&quot;,&#xd;
+    &quot;_manufacturer&quot;: &quot;${retailBranding}&quot;,&#xd;
+    &quot;_app_version&quot;: &quot;${appVersion}&quot;,&#xd;
+    &quot;_model&quot;: &quot;${model}&quot;,&#xd;
+    &quot;tel&quot;: &quot;1${__Random(0000000000,9999999999)}&quot;,&#xd;
+    &quot;_network_type&quot;: &quot;${network}&quot;&#xd;
+  }&#xd;
+}&#xd;
+]</stringProp>
+                    <stringProp name="Argument.metadata">=</stringProp>
+                  </elementProp>
+                </collectionProp>
+              </elementProp>
+              <stringProp name="HTTPSampler.domain">${host}</stringProp>
+              <stringProp name="HTTPSampler.port"></stringProp>
+              <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+              <stringProp name="HTTPSampler.response_timeout"></stringProp>
+              <stringProp name="HTTPSampler.protocol">https</stringProp>
+              <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+              <stringProp name="HTTPSampler.path">${path}</stringProp>
+              <stringProp name="HTTPSampler.method">POST</stringProp>
+              <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+              <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+              <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+              <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+              <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+              <boolProp name="HTTPSampler.monitor">false</boolProp>
+              <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+            </HTTPSamplerProxy>
+            <hashTree/>
+            <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="循环控制器" enabled="true">
+              <boolProp name="LoopController.continue_forever">true</boolProp>
+              <stringProp name="LoopController.loops">22</stringProp>
+            </LoopController>
+            <hashTree>
+              <RandomController guiclass="RandomControlGui" testclass="RandomController" testname="随机控制器" enabled="true">
+                <intProp name="InterleaveControl.style">1</intProp>
+              </RandomController>
+              <hashTree>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ViewHomePage请求" enabled="true">
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">[{&#xd;
+  &quot;distinct_id&quot;: &quot;${__UUID}&quot;,&#xd;
+  &quot;time&quot;: ${__time},&#xd;
+  &quot;type&quot;: &quot;track&quot;,&#xd;
+  &quot;event&quot;:&quot;ViewHomePage&quot;,&#xd;
+  &quot;properties&quot;: {&#xd;
+    &quot;_lib_version&quot;: &quot;${libVersion}&quot;,&#xd;
+    &quot;_os&quot;: &quot;${os}&quot;,&#xd;
+    &quot;_screen_width&quot;: ${width},&#xd;
+    &quot;_carrier&quot;: &quot;${carrierMCC}.${carrierMNC}&quot;,&#xd;
+    &quot;_os_version&quot;: &quot;${osVersion}&quot;,&#xd;
+    &quot;_wifi&quot;: true,&#xd;
+    &quot;_installation_id&quot;: &quot;${installationId}&quot;,&#xd;
+    &quot;_screen_height&quot;: ${height},&#xd;
+    &quot;userId&quot;: &quot;${userId}&quot;,&#xd;
+    &quot;_manufacturer&quot;: &quot;${retailBranding}&quot;,&#xd;
+    &quot;_app_version&quot;: &quot;${appVersion}&quot;,&#xd;
+    &quot;_model&quot;: &quot;${model}&quot;,&#xd;
+    &quot;_network_type&quot;: &quot;${network}&quot;,&#xd;
+    &quot;channel&quot;: &quot;${channels}&quot;&#xd;
+  }&#xd;
+}]</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain">${host}</stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.protocol">https</stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                  <stringProp name="HTTPSampler.path">${path}</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+                  <boolProp name="HTTPSampler.monitor">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                  <stringProp name="TestPlan.comments">浏览首页</stringProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ViewProduct请求" enabled="true">
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">[{&#xd;
+  &quot;distinct_id&quot;: &quot;${__UUID}&quot;,&#xd;
+  &quot;time&quot;: ${__time},&#xd;
+  &quot;type&quot;: &quot;track&quot;,&#xd;
+   &quot;event&quot;:&quot;ViewProduct&quot;,&#xd;
+  &quot;properties&quot;: {&#xd;
+    &quot;_lib_version&quot;: &quot;${libVersion}&quot;,&#xd;
+    &quot;_os&quot;: &quot;${os}&quot;,&#xd;
+    &quot;_screen_width&quot;: ${width},&#xd;
+    &quot;_carrier&quot;: &quot;${carrierMCC}.${carrierMNC}&quot;,&#xd;
+    &quot;productId&quot;: &quot;${productId}&quot;,&#xd;
+    &quot;_os_version&quot;: &quot;${osVersion}&quot;,&#xd;
+    &quot;_wifi&quot;: true,&#xd;
+    &quot;_installation_id&quot;: &quot;${installationId}&quot;,&#xd;
+    &quot;_screen_height&quot;: ${height},&#xd;
+    &quot;userId&quot;: &quot;${userId}&quot;,&#xd;
+    &quot;_manufacturer&quot;: &quot;${retailBranding}&quot;,&#xd;
+    &quot;_app_version&quot;: &quot;${appVersion}&quot;,&#xd;
+    &quot;_model&quot;: &quot;${model}&quot;,&#xd;
+    &quot;_network_type&quot;: &quot;${network}&quot;,&#xd;
+    &quot;productName&quot; : &quot;${productName}&quot;,&#xd;
+    &quot;productType&quot; : &quot;${productType}&quot;,&#xd;
+    &quot;shopName&quot; : &quot;${shopName}&quot;&#xd;
+  }&#xd;
+}]</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain">${host}</stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.protocol">https</stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                  <stringProp name="HTTPSampler.path">${path}</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+                  <boolProp name="HTTPSampler.monitor">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                  <stringProp name="TestPlan.comments">浏览商品</stringProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="ViewProductCategory请求" enabled="true">
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">[{&#xd;
+  &quot;distinct_id&quot;: &quot;${__UUID}&quot;,&#xd;
+  &quot;time&quot;: ${__time},&#xd;
+  &quot;type&quot;: &quot;track&quot;,&#xd;
+   &quot;event&quot;:&quot;ViewProductCategory&quot;,&#xd;
+  &quot;properties&quot;: {&#xd;
+    &quot;_lib_version&quot;: &quot;${libVersion}&quot;,&#xd;
+    &quot;_os&quot;: &quot;${os}&quot;,&#xd;
+    &quot;_screen_width&quot;: ${width},&#xd;
+    &quot;_carrier&quot;: &quot;${carrierMCC}.${carrierMNC}&quot;,   &#xd;
+    &quot;_os_version&quot;: &quot;${osVersion}&quot;,&#xd;
+    &quot;_wifi&quot;: true,&#xd;
+    &quot;_installation_id&quot;: &quot;${installationId}&quot;,&#xd;
+    &quot;_screen_height&quot;: ${height},&#xd;
+    &quot;userId&quot;: &quot;${userId}&quot;,&#xd;
+    &quot;_manufacturer&quot;: &quot;${retailBranding}&quot;,&#xd;
+    &quot;_app_version&quot;: &quot;${appVersion}&quot;,&#xd;
+    &quot;_model&quot;: &quot;${model}&quot;,&#xd;
+    &quot;_network_type&quot;: &quot;${network}&quot;,&#xd;
+    &quot;categoryId&quot;: &quot;${productCategoryId}&quot;,&#xd;
+    &quot;categoryName&quot; : &quot;${productCategoryName}&quot;, &#xd;
+    &quot;recommend&quot; : true,&#xd;
+    &quot;banner&quot;:true,&#xd;
+    &quot;seq&quot;:${productCategorySeq}&#xd;
+  }&#xd;
+}]</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain">${host}</stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.protocol">https</stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                  <stringProp name="HTTPSampler.path">${path}</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+                  <boolProp name="HTTPSampler.monitor">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                  <stringProp name="TestPlan.comments">浏览商品目录</stringProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SearchProduct请求" enabled="true">
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">[{&#xd;
+  &quot;distinct_id&quot;: &quot;${__UUID}&quot;,&#xd;
+  &quot;time&quot;: ${__time},&#xd;
+  &quot;type&quot;: &quot;track&quot;,&#xd;
+   &quot;event&quot;:&quot;SearchProduct&quot;,&#xd;
+  &quot;properties&quot;: {&#xd;
+    &quot;_lib_version&quot;: &quot;${libVersion}&quot;,&#xd;
+    &quot;_os&quot;: &quot;${os}&quot;,&#xd;
+    &quot;_screen_width&quot;: ${width},&#xd;
+    &quot;_carrier&quot;: &quot;${carrierMCC}.${carrierMNC}&quot;,&#xd;
+    &quot;_os_version&quot;: &quot;${osVersion}&quot;,&#xd;
+    &quot;_wifi&quot;: true,&#xd;
+    &quot;_installation_id&quot;: &quot;${installationId}&quot;,&#xd;
+    &quot;_screen_height&quot;: ${height},&#xd;
+    &quot;userId&quot;: &quot;${userId}&quot;,&#xd;
+    &quot;_manufacturer&quot;: &quot;${retailBranding}&quot;,&#xd;
+    &quot;_app_version&quot;: &quot;${appVersion}&quot;,&#xd;
+    &quot;_model&quot;: &quot;${model}&quot;,&#xd;
+    &quot;_network_type&quot;: &quot;${network}&quot;,&#xd;
+    &quot;keyword&quot;: &quot;test&quot;&#xd;
+  }&#xd;
+}]</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain">${host}</stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.protocol">https</stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                  <stringProp name="HTTPSampler.path">${path}</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+                  <boolProp name="HTTPSampler.monitor">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                  <stringProp name="TestPlan.comments">搜索商品</stringProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SubmitOrder请求" enabled="true">
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">[{&#xd;
+  &quot;distinct_id&quot;: &quot;${__UUID}&quot;,&#xd;
+  &quot;time&quot;: ${__time},&#xd;
+  &quot;event&quot;:&quot;SubmitOrder&quot;,&#xd;
+  &quot;type&quot;: &quot;track&quot;,&#xd;
+  &quot;properties&quot;: {&#xd;
+    &quot;_lib_version&quot;: &quot;${libVersion}&quot;,&#xd;
+    &quot;_os&quot;: &quot;${os}&quot;,&#xd;
+    &quot;_screen_width&quot;: ${width},&#xd;
+    &quot;_carrier&quot;: &quot;${carrierMCC}.${carrierMNC}&quot;,&#xd;
+    &quot;_os_version&quot;: &quot;${osVersion}&quot;,&#xd;
+    &quot;orderId&quot;: &quot;${orderId}&quot;,&#xd;
+    &quot;_wifi&quot;: true,&#xd;
+    &quot;_installation_id&quot;: &quot;${installationId}&quot;,&#xd;
+    &quot;_screen_height&quot;: ${height},&#xd;
+    &quot;userId&quot;: &quot;${userId}&quot;,&#xd;
+    &quot;_manufacturer&quot;: &quot;${retailBranding}&quot;,&#xd;
+    &quot;_app_version&quot;: &quot;${appVersion}&quot;,&#xd;
+    &quot;_model&quot;: &quot;${model}&quot;,&#xd;
+    &quot;_network_type&quot;: &quot;${network}&quot;,&#xd;
+    &quot;orderTotalPrice&quot;: ${__Random(00000,99999)},&#xd;
+    &quot;shipPrice&quot; : ${__Random(000,999)}&#xd;
+  }&#xd;
+}]</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain">${host}</stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.protocol">https</stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                  <stringProp name="HTTPSampler.path">${path}</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+                  <boolProp name="HTTPSampler.monitor">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                  <stringProp name="TestPlan.comments">提交订单</stringProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="SubmitOrderDetail请求" enabled="true">
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">[{&#xd;
+  &quot;distinct_id&quot;: &quot;${__UUID}&quot;,&#xd;
+  &quot;time&quot;: ${__time},&#xd;
+  &quot;type&quot;: &quot;track&quot;,&#xd;
+  &quot;event&quot;:&quot;SubmitOrderDetail&quot;,&#xd;
+  &quot;properties&quot;: {&#xd;
+    &quot;_lib_version&quot;: &quot;${libVersion}&quot;,&#xd;
+    &quot;_os&quot;: &quot;${os}&quot;,&#xd;
+    &quot;_screen_width&quot;: ${width},&#xd;
+    &quot;_carrier&quot;: &quot;${carrierMCC}.${carrierMNC}&quot;,&#xd;
+    &quot;productId&quot;: &quot;${productId}&quot;,&#xd;
+    &quot;_os_version&quot;: &quot;${osVersion}&quot;,&#xd;
+    &quot;orderId&quot;: &quot;${orderId}&quot;,&#xd;
+    &quot;_wifi&quot;: true,&#xd;
+    &quot;_installation_id&quot;: &quot;${installationId}&quot;,&#xd;
+    &quot;_screen_height&quot;: ${height},&#xd;
+    &quot;userId&quot;: &quot;${userId}&quot;,&#xd;
+    &quot;_manufacturer&quot;: &quot;${retailBranding}&quot;,&#xd;
+    &quot;_app_version&quot;: &quot;${appVersion}&quot;,&#xd;
+    &quot;_model&quot;: &quot;${model}&quot;,&#xd;
+    &quot;_network_type&quot;: &quot;${network}&quot;,&#xd;
+    &quot;productName&quot; : &quot;${productName}&quot;,&#xd;
+    &quot;productType&quot; : &quot;${productType}&quot;,&#xd;
+    &quot;shopName&quot; : &quot;${shopName}&quot;,&#xd;
+    &quot;productUnitPrice&quot; : ${__Random(00000,99999)},&#xd;
+    &quot;productAmount&quot; : ${__Random(00,99)},&#xd;
+    &quot;productTotalPrice&quot; : ${__Random(00000,99999)}&#xd;
+  }&#xd;
+}]</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain">${host}</stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.protocol">https</stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                  <stringProp name="HTTPSampler.path">${path}</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+                  <boolProp name="HTTPSampler.monitor">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                  <stringProp name="TestPlan.comments">提交订单详情</stringProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CancelOrder请求" enabled="true">
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">[{&#xd;
+  &quot;distinct_id&quot;: &quot;${__UUID}&quot;,&#xd;
+  &quot;time&quot;: ${__time},&#xd;
+  &quot;type&quot;: &quot;track&quot;,&#xd;
+  &quot;event&quot;:&quot;CancelOrder&quot;,&#xd;
+  &quot;properties&quot;: {&#xd;
+    &quot;_lib_version&quot;: &quot;${libVersion}&quot;,&#xd;
+    &quot;_os&quot;: &quot;${os}&quot;,&#xd;
+    &quot;_screen_width&quot;: ${width},&#xd;
+    &quot;_carrier&quot;: &quot;${carrierMCC}.${carrierMNC}&quot;,&#xd;
+    &quot;_os_version&quot;: &quot;${osVersion}&quot;,&#xd;
+    &quot;orderId&quot;: &quot;${orderId}&quot;,&#xd;
+    &quot;_wifi&quot;: true,&#xd;
+    &quot;_installation_id&quot;: &quot;${installationId}&quot;,&#xd;
+    &quot;_screen_height&quot;: ${height},&#xd;
+    &quot;userId&quot;: &quot;${userId}&quot;,&#xd;
+    &quot;_manufacturer&quot;: &quot;${retailBranding}&quot;,&#xd;
+    &quot;_app_version&quot;: &quot;${appVersion}&quot;,&#xd;
+    &quot;_model&quot;: &quot;${model}&quot;,&#xd;
+    &quot;_network_type&quot;: &quot;${network}&quot;,&#xd;
+    &quot;orderTotalPrice&quot;: ${__Random(00000,99999)},&#xd;
+    &quot;shipPrice&quot;:${__Random(000,999)},&#xd;
+    &quot;allowanceAmount&quot;: ${__Random(00000,99999)},&#xd;
+    &quot;paymentAmount&quot;: ${__Random(00000,99999)},&#xd;
+    &quot;paymentMethod&quot;: ${payMethod},&#xd;
+    &quot;cancelReason&quot;: &quot;cancelReason00000000000001&quot;,&#xd;
+    &quot;cancelTiming&quot;: &quot;payBefore&quot;&#xd;
+  }&#xd;
+}]</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain">${host}</stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.protocol">https</stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                  <stringProp name="HTTPSampler.path">${path}</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+                  <boolProp name="HTTPSampler.monitor">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                  <stringProp name="TestPlan.comments">取消订单</stringProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="CancelOrderDetail请求" enabled="true">
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">[{&#xd;
+  &quot;distinct_id&quot;: &quot;${__UUID}&quot;,&#xd;
+  &quot;time&quot;: ${__time},&#xd;
+  &quot;type&quot;: &quot;track&quot;,&#xd;
+  &quot;event&quot;:&quot;CancelOrderDetail&quot;,&#xd;
+  &quot;properties&quot;: {&#xd;
+    &quot;_lib_version&quot;: &quot;${libVersion}&quot;,&#xd;
+    &quot;_os&quot;: &quot;${os}&quot;,&#xd;
+    &quot;_screen_width&quot;: ${width},&#xd;
+    &quot;_carrier&quot;: &quot;${carrierMCC}.${carrierMNC}&quot;,&#xd;
+    &quot;productId&quot;: &quot;${productId}&quot;,&#xd;
+    &quot;_os_version&quot;: &quot;${osVersion}&quot;,&#xd;
+    &quot;orderId&quot;: &quot;${orderId}&quot;,&#xd;
+    &quot;_wifi&quot;: true,&#xd;
+    &quot;_installation_id&quot;: &quot;${installationId}&quot;,&#xd;
+    &quot;_screen_height&quot;: ${height},&#xd;
+    &quot;userId&quot;: &quot;${userId}&quot;,&#xd;
+    &quot;_manufacturer&quot;: &quot;${retailBranding}&quot;,&#xd;
+    &quot;_app_version&quot;: &quot;${appVersion}&quot;,&#xd;
+    &quot;_model&quot;: &quot;${model}&quot;,&#xd;
+    &quot;_network_type&quot;: &quot;${network}&quot;,&#xd;
+    &quot;productName&quot;: &quot;${productName}&quot;,&#xd;
+    &quot;productType&quot;: &quot;${productType}&quot;,&#xd;
+    &quot;shopName&quot;: &quot;${shopName}&quot;,&#xd;
+    &quot;productUnitPrice&quot; : ${__Random(0000,9999)},&#xd;
+    &quot;productAmount&quot; : ${__Random(00,99)},&#xd;
+    &quot;productTotalPrice&quot; : ${__Random(00000,99999)},&#xd;
+    &quot;productAllowanceAmount&quot; : ${__Random(00000,99999)},&#xd;
+    &quot;productPaymentAmount&quot; : ${__Random(00000,99999)},&#xd;
+    &quot;paymentMethod&quot; : ${payMethod},&#xd;
+    &quot;cancelReason&quot; : &quot;cancelReason00000000000001&quot;,&#xd;
+    &quot;cancelTiming&quot; : &quot;payAfter&quot;&#xd;
+  }&#xd;
+}]</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain">${host}</stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.protocol">https</stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                  <stringProp name="HTTPSampler.path">${path}</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+                  <boolProp name="HTTPSampler.monitor">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                  <stringProp name="TestPlan.comments">取消订单详情</stringProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PayOrder请求" enabled="true">
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">[{&#xd;
+  &quot;distinct_id&quot;: &quot;${__UUID}&quot;,&#xd;
+  &quot;time&quot;: ${__time},&#xd;
+  &quot;type&quot;: &quot;track&quot;,&#xd;
+  &quot;event&quot;:&quot;PayOrder&quot;,&#xd;
+  &quot;properties&quot;: {&#xd;
+    &quot;_lib_version&quot;: &quot;${libVersion}&quot;,&#xd;
+    &quot;_os&quot;: &quot;${os}&quot;,&#xd;
+    &quot;_screen_width&quot;: ${width},&#xd;
+    &quot;_carrier&quot;: &quot;${carrierMCC}.${carrierMNC}&quot;,&#xd;
+    &quot;orderId&quot;: &quot;${orderId}&quot;,&#xd;
+    &quot;_os_version&quot;: &quot;${osVersion}&quot;,&#xd;
+    &quot;_wifi&quot;: true,&#xd;
+    &quot;_installation_id&quot;: &quot;${installationId}&quot;,&#xd;
+    &quot;_screen_height&quot;: ${height},&#xd;
+    &quot;userId&quot;: &quot;${userId}&quot;,&#xd;
+    &quot;_manufacturer&quot;: &quot;${retailBranding}&quot;,&#xd;
+    &quot;_app_version&quot;: &quot;${appVersion}&quot;,&#xd;
+    &quot;_model&quot;: &quot;${model}&quot;,&#xd;
+    &quot;_network_type&quot;: &quot;${network}&quot;,&#xd;
+    &quot;orderTotalPrice&quot;: ${__Random(00000,99999)},&#xd;
+    &quot;shipPrice&quot; : ${__Random(000,999)},&#xd;
+    &quot;allowanceAmount&quot; : ${__Random(00000,99999)},&#xd;
+    &quot;allowanceType&quot; : &quot;allowance&quot;,&#xd;
+    &quot;paymentAmount&quot; : ${__Random(00000,99999)},&#xd;
+    &quot;paymentMethod&quot; : ${payMethod}&#xd;
+  }&#xd;
+}]</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain">${host}</stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.protocol">https</stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                  <stringProp name="HTTPSampler.path">${path}</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+                  <boolProp name="HTTPSampler.monitor">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                  <stringProp name="TestPlan.comments">支付订单</stringProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PayOrderDetail请求" enabled="true">
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">[{&#xd;
+  &quot;distinct_id&quot;: &quot;${__UUID}&quot;,&#xd;
+  &quot;time&quot;: ${__time},&#xd;
+  &quot;type&quot;: &quot;track&quot;,&#xd;
+  &quot;event&quot;:&quot;PayOrderDetail&quot;,&#xd;
+  &quot;properties&quot;: {&#xd;
+    &quot;_lib_version&quot;: &quot;${libVersion}&quot;,&#xd;
+    &quot;_os&quot;: &quot;${os}&quot;,&#xd;
+    &quot;_screen_width&quot;: ${width},&#xd;
+    &quot;_carrier&quot;: &quot;${carrierMCC}.${carrierMNC}&quot;,&#xd;
+    &quot;productId&quot;: &quot;${productId}&quot;,&#xd;
+    &quot;orderId&quot;: &quot;${orderId}&quot;,&#xd;
+    &quot;_os_version&quot;: &quot;${osVersion}&quot;,&#xd;
+    &quot;_wifi&quot;: true,&#xd;
+    &quot;_installation_id&quot;: &quot;${installationId}&quot;,&#xd;
+    &quot;_screen_height&quot;: ${height},&#xd;
+    &quot;userId&quot;: &quot;${userId}&quot;,&#xd;
+    &quot;_manufacturer&quot;: &quot;${retailBranding}&quot;,&#xd;
+    &quot;_app_version&quot;: &quot;${appVersion}&quot;,&#xd;
+    &quot;_model&quot;: &quot;${model}&quot;,&#xd;
+    &quot;shopName&quot; : &quot;${shopName}&quot;,&#xd;
+    &quot;_network_type&quot;: &quot;${network}&quot;,&#xd;
+    &quot;productName&quot;: &quot;${productName}&quot;,&#xd;
+    &quot;productType&quot;: &quot;${productType}&quot;,&#xd;
+    &quot;productUnitPrice&quot;: ${__Random(0000,9999)},&#xd;
+    &quot;productAmount&quot;:${__Random(000,999)},&#xd;
+    &quot;productTotalPrice&quot; : ${__Random(00000,99999)},&#xd;
+    &quot;productAllowanceAmount&quot; : ${__Random(00000,99999)},&#xd;
+    &quot;productAllowanceType&quot; : &quot;allowance&quot;,&#xd;
+    &quot;productPaymentAmount&quot; : ${__Random(00000,99999)},&#xd;
+    &quot;paymentMethod&quot;   : ${payMethod}&#xd;
+  }&#xd;
+}]</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain">${host}</stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.protocol">https</stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                  <stringProp name="HTTPSampler.path">${path}</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+                  <boolProp name="HTTPSampler.monitor">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                  <stringProp name="TestPlan.comments">PayOrderDetail</stringProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="PayProductCategory请求" enabled="true">
+                  <boolProp name="HTTPSampler.postBodyRaw">true</boolProp>
+                  <elementProp name="HTTPsampler.Arguments" elementType="Arguments">
+                    <collectionProp name="Arguments.arguments">
+                      <elementProp name="" elementType="HTTPArgument">
+                        <boolProp name="HTTPArgument.always_encode">false</boolProp>
+                        <stringProp name="Argument.value">[{&#xd;
+  &quot;distinct_id&quot;: &quot;${__UUID}&quot;,&#xd;
+  &quot;time&quot;: ${__time},&#xd;
+  &quot;type&quot;: &quot;track&quot;,&#xd;
+  &quot;event&quot;:&quot;PayProductCategory&quot;,&#xd;
+  &quot;properties&quot;: {&#xd;
+    &quot;_lib_version&quot;: &quot;${libVersion}&quot;,&#xd;
+    &quot;_os&quot;: &quot;${os}&quot;,&#xd;
+    &quot;_screen_width&quot;: ${width},&#xd;
+    &quot;_carrier&quot;: &quot;${carrierMCC}.${carrierMNC}&quot;,&#xd;
+    &quot;productId&quot;: &quot;${productId}&quot;,&#xd;
+    &quot;orderId&quot;: &quot;${orderId}&quot;,&#xd;
+    &quot;_os_version&quot;: &quot;${osVersion}&quot;,&#xd;
+    &quot;_wifi&quot;: true,&#xd;
+    &quot;_installation_id&quot;: &quot;${installationId}&quot;,&#xd;
+    &quot;_screen_height&quot;: ${height},&#xd;
+    &quot;userId&quot;: &quot;${userId}&quot;,&#xd;
+    &quot;_manufacturer&quot;: &quot;${retailBranding}&quot;,&#xd;
+    &quot;_app_version&quot;: &quot;${appVersion}&quot;,&#xd;
+    &quot;_model&quot;: &quot;${model}&quot;,&#xd;
+    &quot;shopName&quot; : &quot;${shopName}&quot;,&#xd;
+    &quot;_network_type&quot;: &quot;${network}&quot;,&#xd;
+    &quot;productName&quot;: &quot;${productName}&quot;,&#xd;
+    &quot;productType&quot;: &quot;${productType}&quot;,&#xd;
+    &quot;productUnitPrice&quot;: ${__Random(0000,9999)},&#xd;
+    &quot;productAmount&quot;:${__Random(00,99)},&#xd;
+    &quot;productTotalPrice&quot; : ${__Random(00000,99999)},&#xd;
+    &quot;productAllowanceAmount&quot; : ${__Random(00000,99999)},&#xd;
+    &quot;productAllowanceType&quot; : &quot;allowance&quot;,&#xd;
+    &quot;productPaymentAmount&quot; : ${__Random(00000,99999)},&#xd;
+    &quot;paymentMethod&quot;   : ${payMethod}&#xd;
+  }&#xd;
+}]</stringProp>
+                        <stringProp name="Argument.metadata">=</stringProp>
+                      </elementProp>
+                    </collectionProp>
+                  </elementProp>
+                  <stringProp name="HTTPSampler.domain">${host}</stringProp>
+                  <stringProp name="HTTPSampler.port"></stringProp>
+                  <stringProp name="HTTPSampler.connect_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.response_timeout"></stringProp>
+                  <stringProp name="HTTPSampler.protocol">https</stringProp>
+                  <stringProp name="HTTPSampler.contentEncoding"></stringProp>
+                  <stringProp name="HTTPSampler.path">${path}</stringProp>
+                  <stringProp name="HTTPSampler.method">POST</stringProp>
+                  <boolProp name="HTTPSampler.follow_redirects">true</boolProp>
+                  <boolProp name="HTTPSampler.auto_redirects">false</boolProp>
+                  <boolProp name="HTTPSampler.use_keepalive">true</boolProp>
+                  <boolProp name="HTTPSampler.DO_MULTIPART_POST">false</boolProp>
+                  <stringProp name="HTTPSampler.implementation">HttpClient4</stringProp>
+                  <boolProp name="HTTPSampler.monitor">false</boolProp>
+                  <stringProp name="HTTPSampler.embedded_url_re"></stringProp>
+                  <stringProp name="TestPlan.comments">支付商品目录</stringProp>
+                </HTTPSamplerProxy>
+                <hashTree/>
+                <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="product" enabled="true">
+                  <stringProp name="filename">product.csv</stringProp>
+                  <stringProp name="fileEncoding"></stringProp>
+                  <stringProp name="variableNames">productId,productName,productType</stringProp>
+                  <stringProp name="delimiter">,</stringProp>
+                  <boolProp name="quotedData">false</boolProp>
+                  <boolProp name="recycle">true</boolProp>
+                  <boolProp name="stopThread">false</boolProp>
+                  <stringProp name="shareMode">shareMode.all</stringProp>
+                </CSVDataSet>
+                <hashTree/>
+                <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="shop" enabled="true">
+                  <stringProp name="filename">shop.csv</stringProp>
+                  <stringProp name="fileEncoding"></stringProp>
+                  <stringProp name="variableNames">shopName</stringProp>
+                  <stringProp name="delimiter">,</stringProp>
+                  <boolProp name="quotedData">false</boolProp>
+                  <boolProp name="recycle">true</boolProp>
+                  <boolProp name="stopThread">false</boolProp>
+                  <stringProp name="shareMode">shareMode.all</stringProp>
+                </CSVDataSet>
+                <hashTree/>
+                <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="productCategory" enabled="true">
+                  <stringProp name="filename">productCategory.csv</stringProp>
+                  <stringProp name="fileEncoding"></stringProp>
+                  <stringProp name="variableNames">productCategoryId,productCategoryName,productCategorySeq</stringProp>
+                  <stringProp name="delimiter">,</stringProp>
+                  <boolProp name="quotedData">false</boolProp>
+                  <boolProp name="recycle">true</boolProp>
+                  <boolProp name="stopThread">false</boolProp>
+                  <stringProp name="shareMode">shareMode.all</stringProp>
+                </CSVDataSet>
+                <hashTree/>
+                <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="paySource" enabled="true">
+                  <stringProp name="filename">paySource.csv</stringProp>
+                  <stringProp name="fileEncoding"></stringProp>
+                  <stringProp name="variableNames">paySource,payMethod</stringProp>
+                  <stringProp name="delimiter">,</stringProp>
+                  <boolProp name="quotedData">false</boolProp>
+                  <boolProp name="recycle">true</boolProp>
+                  <boolProp name="stopThread">false</boolProp>
+                  <stringProp name="shareMode">shareMode.all</stringProp>
+                </CSVDataSet>
+                <hashTree/>
+              </hashTree>
+            </hashTree>
+            <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="orderId变量" enabled="true">
+              <collectionProp name="Arguments.arguments">
+                <elementProp name="orderId" elementType="Argument">
+                  <stringProp name="Argument.name">orderId</stringProp>
+                  <stringProp name="Argument.value">${__Random(0000000000,9999999999)}</stringProp>
+                  <stringProp name="Argument.metadata">=</stringProp>
+                </elementProp>
+              </collectionProp>
+            </Arguments>
+            <hashTree/>
+          </hashTree>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="channels" enabled="true">
+            <stringProp name="filename">channels.csv</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames">channels</stringProp>
+            <stringProp name="delimiter">,</stringProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="versions" enabled="true">
+            <collectionProp name="Arguments.arguments">
+              <elementProp name="libVersion" elementType="Argument">
+                <stringProp name="Argument.name">libVersion</stringProp>
+                <stringProp name="Argument.value">${__Random(0,9)}.${__Random(0,9)}v</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+              <elementProp name="appVersion" elementType="Argument">
+                <stringProp name="Argument.name">appVersion</stringProp>
+                <stringProp name="Argument.value">${__Random(0,9)}.${__Random(0,9)}v</stringProp>
+                <stringProp name="Argument.metadata">=</stringProp>
+              </elementProp>
+            </collectionProp>
+          </Arguments>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="os&amp;osVersion" enabled="true">
+            <stringProp name="filename">osType.csv</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames">os,osVersion</stringProp>
+            <stringProp name="delimiter">,</stringProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="screenResolution" enabled="true">
+            <stringProp name="filename">resolution.csv</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames">height,width</stringProp>
+            <stringProp name="delimiter">,</stringProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="carrier" enabled="true">
+            <stringProp name="filename">carrier.csv</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames">carrierMCC,carrierMNC</stringProp>
+            <stringProp name="delimiter">,</stringProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="deviceModel" enabled="true">
+            <stringProp name="filename">deviceModel.csv</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames">retailBranding,marketingName,device,model</stringProp>
+            <stringProp name="delimiter">,</stringProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="netType" enabled="true">
+            <stringProp name="filename">netType.csv</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames">network</stringProp>
+            <stringProp name="delimiter">,</stringProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="localFile" enabled="true">
+            <stringProp name="filename">localFile.csv</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames">locale,timeZone,language</stringProp>
+            <stringProp name="delimiter">,</stringProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+          <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="appName" enabled="true">
+            <stringProp name="filename">appName.csv</stringProp>
+            <stringProp name="fileEncoding"></stringProp>
+            <stringProp name="variableNames">appName</stringProp>
+            <stringProp name="delimiter">,</stringProp>
+            <boolProp name="quotedData">false</boolProp>
+            <boolProp name="recycle">true</boolProp>
+            <boolProp name="stopThread">false</boolProp>
+            <stringProp name="shareMode">shareMode.all</stringProp>
+          </CSVDataSet>
+          <hashTree/>
+        </hashTree>
+        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="PROenvironments" enabled="true">
+          <collectionProp name="Arguments.arguments">
+            <elementProp name="host" elementType="Argument">
+              <stringProp name="Argument.name">host</stringProp>
+              <stringProp name="Argument.value">api.maxleap.cn</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="appid" elementType="Argument">
+              <stringProp name="Argument.name">appid</stringProp>
+              <stringProp name="Argument.value">580d6ebd7e2c79000745a312</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="sessionToken" elementType="Argument">
+              <stringProp name="Argument.name">sessionToken</stringProp>
+              <stringProp name="Argument.value">riPz2G8i-Z0znTKxZVGsHLmxqSCZjxHmplgCQj4A__4</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="path" elementType="Argument">
+              <stringProp name="Argument.name">path</stringProp>
+              <stringProp name="Argument.value">/2.0/track/event</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Argument">
+              <stringProp name="Argument.name"></stringProp>
+              <stringProp name="Argument.value">575f5b7ba5ff7f0001111fae</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+            <elementProp name="" elementType="Argument">
+              <stringProp name="Argument.name"></stringProp>
+              <stringProp name="Argument.value">wuzjmzzhxZXiMSFJIk4ql_Z5wVAxzRHmsxBWhHr-l5k</stringProp>
+              <stringProp name="Argument.metadata">=</stringProp>
+            </elementProp>
+          </collectionProp>
+        </Arguments>
+        <hashTree/>
+        <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="察看结果树" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+        <ResultCollector guiclass="StatVisualizer" testclass="ResultCollector" testname="聚合报告" enabled="true">
+          <boolProp name="ResultCollector.error_logging">false</boolProp>
+          <objProp>
+            <name>saveConfig</name>
+            <value class="SampleSaveConfiguration">
+              <time>true</time>
+              <latency>true</latency>
+              <timestamp>true</timestamp>
+              <success>true</success>
+              <label>true</label>
+              <code>true</code>
+              <message>true</message>
+              <threadName>true</threadName>
+              <dataType>true</dataType>
+              <encoding>false</encoding>
+              <assertions>true</assertions>
+              <subresults>true</subresults>
+              <responseData>false</responseData>
+              <samplerData>false</samplerData>
+              <xml>false</xml>
+              <fieldNames>true</fieldNames>
+              <responseHeaders>false</responseHeaders>
+              <requestHeaders>false</requestHeaders>
+              <responseDataOnError>false</responseDataOnError>
+              <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+              <assertionsResultsToSave>0</assertionsResultsToSave>
+              <bytes>true</bytes>
+              <threadCounts>true</threadCounts>
+              <idleTime>true</idleTime>
+            </value>
+          </objProp>
+          <stringProp name="filename"></stringProp>
+        </ResultCollector>
+        <hashTree/>
+      </hashTree>
+    </hashTree>
+  </hashTree>
+</jmeterTestPlan>
