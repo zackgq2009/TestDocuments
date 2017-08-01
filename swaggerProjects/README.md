@@ -7,6 +7,6 @@
 3.接下来我主要关注如何更有效率的编辑我们接口的`JSON`文件   
 4.在文档中我们需要配置多个参数，有些参数一旦设置啦，基本不会怎么变动了，例如swagger的`版本号`、`host`、`schemes`等。但有些参数内容我们要根据接口的变化来实时更新，例如：`paths`下的内容以及我们为其设置的`definitions`。  
 5.先介绍一些不怎么变动的参数  
-| Field Name    |      Type |                                                                                               Description |
-| :-------------|----------:|:---------------------------------------------------------------------------------------------------------:|
-| swagger       | String    |Required. Specifies the Swagger Specification version being used. It can be used by the Swagger UI and other clients to interpret the API listing. The value MUST be "2.0".|
+| Field Name    |      Type |                                                                                               Description |  
+| :-------------|----------:|:---------------------------------------------------------------------------------------------------------:|  
+| swagger       | String    | **Required.** Specifies the Swagger Specification version being used. It can be used by the Swagger UI and other clients to interpret the API listing. The value MUST be "2.0".|  
