@@ -3,7 +3,7 @@
 > 之前写过关于soapui的使用总结，但是在测试工作中，只是进行业务层面上的接口测试是完全不能满足云服务提供商的要求。因为提到云服务，大家们肯定会想到‘高并发’、‘灾备’、‘异步’、‘阻塞’等名词，而且当这家云服务公司还具备大数据分析方面的服务时，单一的业务数据就显得那么弱不禁风啦！这个时候我们需要创建出多样的、复杂的，但还有规律可寻的大量数据。虽然soapui以及postman这些接口工具也都具备重复调接口进行测试的功能，但是灵活性都不是很好，那么我就试试看用开源的Jmeter来一次测试。
 **以下内容都是基于jmeter-3.1版本**
 
-![IndexPage](https://github.com/zackgq2009/jmeterTestFiles/blob/master/jmeterPictures/jmeterIndexPage.png)
+![IndexPage](https://github.com/zackgq2009/TestDocuments/jmeterProjects/jmeterPictures/jmeterIndexPage.png)
 
 ## Jmeter 使用环境
 
@@ -34,7 +34,7 @@ Set the ramp-up period（线程增加的时间长度，例如：设置了100个�
 Set the number of times to execute the test（运行圈数）
 Version 1.9 introduces a test run scheduler. （在1.9版本之后，我们可以设置一个定时的线程组，其中包括线程组的开始时间，结束时间，持续时间以及开始之后持续多长时间）
 
-![ThreadGroupPage](https://github.com/zackgq2009/jmeterTestFiles/blob/master/jmeterPictures/ThreadGroupPage.png)
+![ThreadGroupPage](https://github.com/zackgq2009/TestDocuments/jmeterProjects/jmeterPictures/ThreadGroupPage.png)
 
 ### 控制器(Controllers)
 
@@ -46,7 +46,7 @@ Samplers tell JMeter to send requests to a server and wait for a response. They 
 
 ### 采样器（Samplers）
 
-![Samplers](https://github.com/zackgq2009/jmeterTestFiles/blob/master/jmeterPictures/Samplers.png)
+![Samplers](https://github.com/zackgq2009/TestDocuments/jmeterProjects/jmeterPictures/Samplers.png)
 
 ```JMeter samplers include:
 FTP Request
@@ -60,13 +60,13 @@ WebService (SOAP) Request
 
 ### 逻辑控制器（Logical Controllers）
 
-![LogicalControllers](https://github.com/zackgq2009/jmeterTestFiles/blob/master/jmeterPictures/LogicalControllers.png)
+![LogicalControllers](https://github.com/zackgq2009/TestDocuments/jmeterProjects/jmeterPictures/LogicalControllers.png)
 
 Logic Controllers let you customize the logic that JMeter uses to decide when to send requests. Logic Controllers can change the order of requests coming from their child elements. They can modify the requests themselves, cause JMeter to repeat requests, etc. (逻辑控制器是用来定制我们请求的发送逻辑，可以更改请求的顺序。我们可以在逻辑控制器的子目录下创建采样器，这样的话，这些控制器就直接控制这些子采样器)
 
 ### 一个完整的Jmeter项目结构
 
-![jmeterTree](https://github.com/zackgq2009/jmeterTestFiles/blob/master/jmeterPictures/jmeterTree.png)
+![jmeterTree](https://github.com/zackgq2009/TestDocuments/jmeterProjects/jmeterPictures/jmeterTree.png)
 
 一个包括采样器，以及不同逻辑控制器的样例：（其中所有层次结构也应与jmeter中保持一致）  
 - Test Plan
@@ -93,7 +93,7 @@ Environment variables: `JVM_ARGS - optional java args, e.g. -Dprop=val`
 windows系统中:`set JVM_ARGS="-Xms1024m -Xmx1024m -Dpropname=propvalue" jmeter -t test.jmx …`
 Unix系统中:`JVM_ARGS="-Xms512m -Xmx512m" jmeter etc.`
 
-![MAC run Jmeter](https://github.com/zackgq2009/jmeterTestFiles/blob/master/jmeterPictures/startJmeter.png)
+![MAC run Jmeter](https://github.com/zackgq2009/TestDocuments/jmeterProjects/jmeterPictures/startJmeter.png)
 
 ### MAC run Jmeter GUI Mode
 
