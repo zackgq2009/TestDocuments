@@ -6,13 +6,14 @@
 2. **swagger**服务不是本人搭建的，具体如何搭建，官网应该有相应的说明文档，只需要知道`index.html`中指定的`URL`是哪个文件，这个文件是什么格式的（**swagger**支持`JSON`跟`YAML`两种格式）
 3.接下来我主要关注如何更有效率的编辑我们接口的`JSON`文件   
 4.在文档中我们需要配置多个参数，有些参数一旦设置啦，基本不会怎么变动了，例如swagger的`版本号`、`host`、`schemes`等。但有些参数内容我们要根据接口的变化来实时更新，例如：`paths`下的内容以及我们为其设置的`definitions`。  
-5.先介绍一些不怎么变动的参数  
-Field Name | Type | Description
------------| ---- | -----------
-swagger    | String | **Required.** Specifies the Swagger Specification version being used. It can be used by the Swagger UI and other clients to interpret the API listing. The value MUST be "2.0".
-info       | Info Object | **Required.** Provides metadata about the API. The metadata can be used by the clients if needed.
-host | String | The host (name or ip) serving the API. This MUST be the host only and does not include the scheme nor sub-paths. It MAY include a port. If the host is not included, the host serving the documentation is to be used (including the port). The host does not support path templating.
-basePath | String | The base path on which the API is served, which is relative to the host. If it is not included, the API is served directly under the host. The value MUST start with a leading slash (/). The basePath does not support path templating.
-schemes | [String] | The transfer protocol of the API. Values MUST be from the list: "http","https", "ws", "wss". If the schemes is not included, the default scheme to be used is the one used to access the Swagger definition itself.
-consumes | [string] | A list of MIME types the APIs can consume. This is global to all APIs but can be overridden on specific API calls. Value MUST be as described under Mime Types.
-produces | [string] | A list of MIME types the APIs can produce. This is global to all APIs but can be overridden on specific API calls. Value MUST be as described under Mime Types.
+5.先介绍一些不怎么变动的参数:
+
+| Field Name | Type | Description |
+| -----------| ---- | ----------- |
+| swagger    | String | **Required.** Specifies the Swagger Specification version being used. It can be used by the Swagger UI and other clients to interpret the API listing. The value MUST be "2.0". |
+| info       | Info Object | **Required.** Provides metadata about the API. The metadata can be used by the clients if needed. |
+| host | String | The host (name or ip) serving the API. This MUST be the host only and does not include the scheme nor sub-paths. It MAY include a port. If the host is not included, the host serving the documentation is to be used (including the port). The host does not support path templating. |
+| basePath | String | The base path on which the API is served, which is relative to the host. If it is not included, the API is served directly under the host. The value MUST start with a leading slash (/). The basePath does not support path templating. |
+| schemes | [String] | The transfer protocol of the API. Values MUST be from the list: "http","https", "ws", "wss". If the schemes is not included, the default scheme to be used is the one used to access the Swagger definition itself. |
+| consumes | [string] | A list of MIME types the APIs can consume. This is global to all APIs but can be overridden on specific API calls. Value MUST be as described under Mime Types. |
+| produces | [string] | A list of MIME types the APIs can produce. This is global to all APIs but can be overridden on specific API calls. Value MUST be as described under Mime Types. |
