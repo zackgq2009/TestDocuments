@@ -187,11 +187,13 @@
 | required | boolean | Determines whether this parameter is mandatory. If the parameter is in "path", this property is required and its value MUST be true. Otherwise, the property MAY be included and its default value is false.|
 
 If `in` is "body":如果in是body的时候，除上边四个参数外，只能设置schema这个参数啦
+
 | Field Name | Type | Description |
 | ---------- | ---- | ----------- |
 | schema | Schema Object | **Required.** The schema defining the type used for the body parameter.|
 
 If `in` is any value other than "body":如果in不是body的时候，还可以配置一下参数
+
 | Field Name | Type | Description |
 | ---------- | ---- | ----------- |
 | type | string | **Required.** The type of the parameter. Since the parameter is not located at the request body, it is limited to simple types (that is, not an object). The value MUST be one of "string", "number", "integer", "boolean", "array" or "file". If type is "file", the consumes MUST be either "multipart/form-data", " application/x-www-form-urlencoded" or both and the parameter MUST be in "formData".(当`type`为`array`时，接下来的参数设置有有些特殊啦！)|
@@ -199,13 +201,30 @@ If `in` is any value other than "body":如果in不是body的时候，还可以�
 | allowEmptyValue | boolean | Sets the ability to pass empty-valued parameters. This is valid only for either query or formData parameters and allows you to send a parameter with a name only or an empty value. Default value is false.|
 | collectionFormat | string | Determines the format of the array if type array is used. Possible values are:csv - comma separated values foo,bar; ssv - space separated values foo bar; tsv - tab separated values foo\tbar; pipes - pipe separated values foo|bar; multi - corresponds to multiple parameter instances instead of multiple values for a single instance foo=bar&foo=baz. This is valid only for parameters in "query" or "formData"; Default value is csv.|
 | default | * | Declares the value of the parameter that the server will use if none is provided, for example a "count" to control the number of results per page might default to 100 if not supplied by the client in the request. (Note: "default" has no meaning for required parameters.) See https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-6.2. Unlike JSON Schema this value MUST conform to the defined type for this parameter.|
-| maximum | number | See https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-5.1.2.|
-| minimum | number | See https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-5.1.3.|
-| enum | [*] | See https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-5.5.1.|
+| maximum | number | See https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-5.1.2. |
+| minimum | number | See https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-5.1.3. |
+| enum | [*] | See https://tools.ietf.org/html/draft-fge-json-schema-validation-00#section-5.5.1. |
 
 `Parameter Object`下还有其他一些参数，有一些参数不怎么常用，我也就不一一介绍啦，如果需要用到的话，请看这里：https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#parameterObject
 
 11.我们的`Operation Object`下可以看到两种比较特殊的结构，一种是`in`是`body`类型时，其下需要设置`Schema Object`，另一种就是该`parameter object`的`type`是`array`时，它后边需要紧跟`items`这个参数，那么我这边就介绍下'Schema Object'跟`Items Object`
+
+```
+**Schema Object**
+
+The Schema Object allows the definition of input and output data types. These types can be objects, but also primitives and arrays. This object is based on the JSON Schema Specification Draft 4 and uses a predefined subset of it. On top of this subset, there are extensions provided by this specification to allow for more complete documentation.
+```
+
+为了在swagger上凸显出接口传递的数据内容，我们一般都是通过`Schema Object`来定义其内容，我们可以在`'schema'`参数后直接编写其内容，也可以在`Definitions Object`中编写好内容，然后再调用。
+![schema]()
+
+`Schema Object`一般`type`都是`object`，所以在配置时，`"type": "object"`之后紧跟`"properties"`这个参数，然后在`properties`后再编写其内容。
+
+`Schema Object`内容编写跟`Parameter Object`相类似，如果有什么疑问，可以查看这里：https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#schemaObject
+
+然后，我们说一下`Items Object`，当用户定义一个`Parameter Object`的`type`是`array`时，后边就紧跟着`'items'`这个参数，在`items`参数内可以直接定义数组内的类型，可以是字符串，也可以是数字，当数组内是`object`的话，可以在items内编写`properties`。`properties`包含的内容就是数组中object的结构。
+
+`Items Object`一般都是紧随`type`是`array`的，内容编写也跟`Parameter Object`相类似，如果有什么疑问，可以查看这里：https://github.com/OAI/OpenAPI-Specification/blob/master/versions/2.0.md#itemsObject
 
 12.我们在设置接口中的参数时，一定要明确标注每一个参数的`数据类型`，因为`强类型语言`对数据类型有严格要求，那么swagger中是如何来规范`数据类型`的：
 
@@ -222,3 +241,76 @@ If `in` is any value other than "body":如果in不是body的时候，还可以�
 | date | string | date | As defined by full-date |
 | dateTime | string | date-time | As defined by date-time |
 | password | string | password | Used to hint UIs the input needs to be obscured |
+
+13.`Responses Object`是描述接口的单个响应，在`Response Object`中包含以下类型的内容：
+
+| Field Name | Type | Description |
+| ---------- | ---- | ----------- |
+| description | string | **Required.** A short description of the response. GFM syntax can be used for rich text representation. |
+| schema | Schema Object | A definition of the response structure. It can be a primitive, an array or an object. If this field does not exist, it means no content is returned as part of the response. As an extension to the Schema Object, its root type value may also be "file". This SHOULD be accompanied by a relevant produces mime-type. |
+| headers | Headers Object | A list of headers that are sent with the response. |
+| examples | Example Object | An example of the response message. |
+
+四个response的例子：
+
+Response of an array of a complex type:
+
+```
+{
+  "description": "A complex object array response",
+  "schema": {
+    "type": "array",
+    "items": {
+      "$ref": "#/definitions/VeryComplexType"
+    }
+  }
+}
+```
+
+Response with a string type:
+
+```
+{
+  "description": "A simple string response",
+  "schema": {
+    "type": "string"
+  }
+}
+```
+
+Response with headers:
+
+```
+{
+  "description": "A simple string response",
+  "schema": {
+    "type": "string"
+  },
+  "headers": {
+    "X-Rate-Limit-Limit": {
+      "description": "The number of allowed requests in the current period",
+      "type": "integer"
+    },
+    "X-Rate-Limit-Remaining": {
+      "description": "The number of remaining requests in the current period",
+      "type": "integer"
+    },
+    "X-Rate-Limit-Reset": {
+      "description": "The number of seconds left in the current period",
+      "type": "integer"
+    }
+  }
+}
+```
+
+Response with no return value:
+
+```
+{
+  "description": "object created"
+}
+```
+
+14.`Definitions Object`
+
+15.`Patterned Objects`
