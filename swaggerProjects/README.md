@@ -216,7 +216,7 @@ The Schema Object allows the definition of input and output data types. These ty
 ```
 
 为了在swagger上凸显出接口传递的数据内容，我们一般都是通过`Schema Object`来定义其内容，我们可以在`'schema'`参数后直接编写其内容，也可以在`Definitions Object`中编写好内容，然后再调用。
-![schema]()
+![schema](https://github.com/zackgq2009/TestDocuments/blob/master/swaggerProjects/swaggerPictures/schemeObject.png)
 
 `Schema Object`一般`type`都是`object`，所以在配置时，`"type": "object"`之后紧跟`"properties"`这个参数，然后在`properties`后再编写其内容。
 
