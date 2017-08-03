@@ -311,6 +311,134 @@ Response with no return value:
 }
 ```
 
-14.`Definitions Object`
+14.`Definitions Object`算是一个具有服务性质的对象，它被定义出来就是服务于其他对象的，如果它不被其他对象所调用，它就被孤立出来了，没有实际意义。
 
-15.`Patterned Objects`
+`Definitions Object`可以服务于`Parameter`、`Responses`、`Security`,所以`Definitions Object`旗下又有`Parameters Definitions Object`、`Responses Definitions Object`、`Security Definitions Object`
+
+相应的不同`Definitions Object`有不同的格式，来一一举个例子：
+
+**Definition Object**
+
+| Field Pattern | Type | Description |
+| ------------- | ---- | ----------- |
+| {name} | Schema Object | A single definition, mapping a "name" to the schema it defines. |
+
+**Definitions Object Example**
+
+```
+{
+  "Category": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "format": "int64"
+      },
+      "name": {
+        "type": "string"
+      }
+    }
+  },
+  "Tag": {
+    "type": "object",
+    "properties": {
+      "id": {
+        "type": "integer",
+        "format": "int64"
+      },
+      "name": {
+        "type": "string"
+      }
+    }
+  }
+}
+```
+
+**Parameters Definitions Object**
+
+| Field Pattern | Type | Description |
+| ------------- | ---- | ----------- |
+| {name} | Parameter Object | A single parameter definition, mapping a "name" to the parameter it defines. |
+
+**Parameters Definition Object Example**
+
+```
+{
+  "skipParam": {
+    "name": "skip",
+    "in": "query",
+    "description": "number of items to skip",
+    "required": true,
+    "type": "integer",
+    "format": "int32"
+  },
+  "limitParam": {
+    "name": "limit",
+    "in": "query",
+    "description": "max records to return",
+    "required": true,
+    "type": "integer",
+    "format": "int32"
+  }
+}
+```
+
+**Responses Definitions Object**
+
+| Field Pattern | Type | Description |
+| ------------- | ---- | ----------- |
+| {name} | Response Object | A single response definition, mapping a "name" to the response it defines. |
+
+**Responses Definitions Object Example**
+
+```
+{
+  "NotFound": {
+    "description": "Entity not found."
+  },
+  "IllegalInput": {
+  	"description": "Illegal input for operation."
+  },
+  "GeneralError": {
+  	"description": "General Error",
+  	"schema": {
+  		"$ref": "#/definitions/GeneralError"
+  	}
+  }
+}
+```
+
+**Security Definitions Object**
+
+| Field Pattern | Type | Description |
+| ------------- | ---- | ----------- |
+| {name} | Security Schema Object | A single security scheme definition, mapping a "name" to the scheme it defines. |
+
+**Security Definitions Object Example**
+
+```
+{
+  "api_key": {
+    "type": "apiKey",
+    "name": "api_key",
+    "in": "header"
+  },
+  "petstore_auth": {
+    "type": "oauth2",
+    "authorizationUrl": "http://swagger.io/api/oauth/dialog",
+    "flow": "implicit",
+    "scopes": {
+      "write:pets": "modify pets in your account",
+      "read:pets": "read your pets"
+    }
+  }
+}
+```
+
+这些定义好的`Definitions Object`，我们均可以通过`"$ref" : "#/definitions/[objectName]"`来调用
+
+15.`Patterned Objects`是一个特殊的对象，它是用来扩展`Swagger`架构的，一个对象下的参数如果一旦不能满足你的需求，我们就可以通过`Patterned Object`来扩展啦
+
+| Field Pattern | Type | Description |
+| ------------- | ---- | ----------- |
+| ^x- | Any | Allows extensions to the Swagger Schema. The field name MUST begin with x-, for example, x-internal-id. The value can be null, a primitive, an array or an object. See Vendor Extensions for further details. |
