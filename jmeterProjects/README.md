@@ -52,6 +52,10 @@ Version 1.9 introduces a test run scheduler. （在1.9版本之后，我们可�
 
 ![ThreadGroupPage](https://github.com/zackgq2009/TestDocuments/blob/master/jmeterProjects/jmeterPictures/ThreadGroupPage.png)
 
+```
+我们可以通过GUI页面中鼠标右键点击线程组，来选择三种不同的运行模式，一种是直接`start`，第二种是`Start no pauses`，第三种就是`Validate`（一种验证模式），这种验证模式的参数设置，需要用户在`user.properties`中找到相应的参数进行设置。
+```
+
 ### 控制器(Controllers)
 
 JMeter has two types of Controllers: Samplers and Logical Controllers. These drive the processing of a test. (两种控制器，一种就是采样器，另一种就是逻辑控制器)
