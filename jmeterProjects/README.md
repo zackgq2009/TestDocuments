@@ -121,6 +121,14 @@ Unix系统中:`JVM_ARGS="-Xms512m -Xmx512m" jmeter etc.`
 
 ### run Jmeter in Non-GUI Mode
 
-#SSL
+### SSL
 
 ssl manager可以选择ssl证书
+
+### WorkBench
+
+```
+The WorkBench simply provides a place to temporarily store test elements while not in use, for copy/paste purposes, or any other purpose you desire. When you save your test plan, WorkBench items are not saved with it by default unless you check "Save Workbench" option. Your WorkBench can be saved independently, if you like (right-click on WorkBench and choose Save).
+```
+
+**工作台**是测试计划下默认就存在的一个元素，他存在的意义就是临时帮你保存那些你一时用不上的对象，包括控制器、采样器、监听器等等。在保存测试计划的时候，默认不会把工作台也一同保存下来，我们需要勾选工作台下方的`Save WorkBench`来进行保存。而且工作台与线程组唯一的区别就是工作台下可以添加三个“非测试元件”，其中包括`HTTP(S) Test Script Recorder`、`HTTP Mirror Server`、`Property Display`
