@@ -90,6 +90,7 @@ Logic Controllers let you customize the logic that JMeter uses to decide when to
 
 一个包括采样器，以及不同逻辑控制器的样例：（其中所有层次结构也应与jmeter中保持一致）  
 - Test Plan
+    - setUp Thread Group
     - Thread Group
         - Once Only Controller
             - Login Request (an HTTP Request)
@@ -100,10 +101,43 @@ Logic Controllers let you customize the logic that JMeter uses to decide when to
             - HTTP default request (Configuration Element)
         - HTTP default request (Configuration Element)
         - Cookie Manager (Configuration Element)
+    - testDown Thread Group
+    - WorkBench
 
 The Thread Group has a built-in Logic Controller.
 （线程组里边有一个内置的逻辑控制器）  
 比如上边的例子：`Load Search Page(HTTP Sampler)`这个采样器是直接加载在线程组下边的，它与其他的逻辑控制器平级，并且不受其他逻辑控制器的影响，它自身的运行只收到线程组内置控制器的影响。
+
+### WorkBench
+
+```
+The WorkBench simply provides a place to temporarily store test elements while not in use, for copy/paste purposes, or any other purpose you desire. When you save your test plan, WorkBench items are not saved with it by default unless you check "Save Workbench" option. Your WorkBench can be saved independently, if you like (right-click on WorkBench and choose Save).
+```
+
+**工作台** 是测试计划下默认就存在的一个元素，他存在的意义就是临时帮你保存那些你一时用不上的对象，包括控制器、采样器、监听器等等。在保存测试计划的时候，默认不会把工作台也一同保存下来，我们需要勾选工作台下方的`Save WorkBench`来进行保存。而且工作台与线程组唯一的区别就是工作台下可以添加三个“非测试元件”，其中包括`HTTP(S) Test Script Recorder`、`HTTP Mirror Server`、`Property Display`
+
+### Debug Sampler && Debug PostProcessor
+
+```
+The Debug Sampler generates a sample containing the values of all JMeter variables and/or properties.  
+The Debug PostProcessor creates a subSample with the details of the previous Sampler properties, JMeter variables, properties and/or System Properties.  
+The values can be seen in the [View Results Tree](http://jmeter.apache.org/usermanual/component_reference.html#View_Results_Tree) Listener Response Data pane.
+```
+
+说实话，我还不是很了解这两个对象的作用，主要是工作中还没有用到这块。
+
+### Test Fragment
+
+```
+The Test Fragment is used in conjunction with the Include Controller and **Module Controller**.
+```
+
+我们在使用jmeter中需要对`Module Controller`要有一定的了解，他会很好的帮我们整理采样器。
+
+### setUp Thread Group && tearDown Thread Group
+
+**线程组** 其实是有三种的，一种就是我们最常用的普通线程组，我们在测试计划下创建线程组才能为其创建其他的采样器、控制器以及监听器等。然而`setUp`&`tearDown`其实跟正常的线程组没有什么区别，唯一的区别就是`setUp`是在所有的线程组之前运行，`tearDown`则是在所有的线程组之后运行（`tearDown Thread Groups`还有个特殊的开关，在测试计划页面中。并且其他线程组在运行过程中‘被停止’了之后，不管是否勾选了开关，`tearDown`都不会运行，只有其他线程组正常运行完之后，才能根据开关进行tearDown的运行）。
+
 
 ## Jmeter 多种模式的运行方式
 
@@ -113,9 +147,106 @@ Environment variables: `JVM_ARGS - optional java args, e.g. -Dprop=val`
 windows系统中:`set JVM_ARGS="-Xms1024m -Xmx1024m -Dpropname=propvalue" jmeter -t test.jmx …`
 Unix系统中:`JVM_ARGS="-Xms512m -Xmx512m" jmeter etc.`
 
+```
+_    ____   _    ____ _   _ _____       _ __  __ _____ _____ _____ ____
+/ \  |  _ \ / \  / ___| | | | ____|     | |  \/  | ____|_   _| ____|  _ \
+/ _ \ | |_) / _ \| |   | |_| |  _|    _  | | |\/| |  _|   | | |  _| | |_) |
+/ ___ \|  __/ ___ \ |___|  _  | |___  | |_| | |  | | |___  | | | |___|  _ <
+/_/   \_\_| /_/   \_\____|_| |_|_____|  \___/|_|  |_|_____| |_| |_____|_| \_\ 3.1 r1770033
+
+Copyright (c) 1999-2016 The Apache Software Foundation
+
+
+To list all command line options, open a command prompt and type:
+
+jmeter.bat(Windows)/jmeter.sh(Linux) -?
+
+--------------------------------------------------
+
+To run Apache JMeter in GUI mode, open a command prompt and type:
+
+jmeter.bat(Windows)/jmeter.sh(Linux) [-p property-file]
+
+--------------------------------------------------
+
+To run Apache JMeter in NON_GUI mode:
+Open a command prompt (or Unix shell) and type:
+
+jmeter.bat(Windows)/jmeter.sh(Linux) -n -t test-file [-p property-file] [-l results-file] [-j log-file]
+
+--------------------------------------------------
+
+To run Apache JMeter in NON_GUI mode and generate a report at end :
+Open a command prompt (or Unix shell) and type:
+
+jmeter.bat(Windows)/jmeter.sh(Linux) -n -t test-file [-p property-file] [-l results-file] [-j log-file] -e -o [Path to output folder]
+
+--------------------------------------------------
+To generate a Report from existing CSV file:
+Open a command prompt (or Unix shell) and type:
+
+jmeter.bat(Windows)/jmeter.sh(Linux) -g [csv results file] -o [path to output folder (empty or not existing)]
+
+--------------------------------------------------
+
+To tell Apache JMeter to use a proxy server:
+Open a command prompt and type:
+
+jmeter.bat(Windows)/jmeter.sh(Linux) -H [your.proxy.server] -P [your proxy server port]
+
+---------------------------------------------------
+
+To run Apache JMeter in server mode:
+Open a command prompt and type:
+
+jmeter-server.bat(Windows)/jmeter-server(Linux)
+
+---------------------------------------------------
+```
+
 ![MAC run Jmeter](https://github.com/zackgq2009/TestDocuments/blob/master/jmeterProjects/jmeterPictures/startJmeter.png)
 
-### MAC run Jmeter GUI Mode
+### Windows run Jmeter（因为windows上没有太多使用经验，所以在这边只好列出来相应指令说明）
+
+`**GUI mode should only be used for creating the test script, NON GUI mode must be used for load testing**`
+
+There are some additional scripts in the bin directory that you may find useful. Windows script files (the .CMD files require Win2K or later):
+
+`jmeter.bat`  
+    run JMeter (in GUI mode by default)
+
+`jmeterw.cmd`  
+    run JMeter without the windows shell console (in GUI mode by default)
+
+`jmeter-n.cmd`  
+    drop a JMX file on this to run a non-GUI test
+
+`jmeter-n-r.cmd`  
+    drop a JMX file on this to run a non-GUI test remotely
+
+`jmeter-t.cmd`  
+    drop a JMX file on this to load it in GUI mode
+
+`jmeter-server.bat`  
+    start JMeter in server mode
+
+`mirror-server.cmd`  
+    runs the JMeter Mirror Server in non-GUI mode
+
+`shutdown.cmd`  
+    Run the Shutdown client to stop a non-GUI instance gracefully
+
+`stoptest.cmd`  
+Run the Shutdown client to stop a non-GUI instance abruptly
+
+`The special name LAST can be used with jmeter-n.cmd, jmeter-t.cmd and jmeter-n-r.cmd and means the last test plan that was run interactively.`
+
+The environment variable JVM_ARGS can be used to override JVM settings in the jmeter.bat script. For example:
+
+```
+set JVM_ARGS="-Xms1024m -Xmx1024m -Dpropname=propvalue"
+jmeter -t test.jmx …
+```
 
 ### run Jmeter in GUI Mode
 
@@ -127,10 +258,4 @@ Unix系统中:`JVM_ARGS="-Xms512m -Xmx512m" jmeter etc.`
 
 同样的，`SSL`证书也可以在`system.properties`中相应配置。并且正确的秘钥必须是第一个。
 
-### WorkBench
-
-```
-The WorkBench simply provides a place to temporarily store test elements while not in use, for copy/paste purposes, or any other purpose you desire. When you save your test plan, WorkBench items are not saved with it by default unless you check "Save Workbench" option. Your WorkBench can be saved independently, if you like (right-click on WorkBench and choose Save).
-```
-
-**工作台** 是测试计划下默认就存在的一个元素，他存在的意义就是临时帮你保存那些你一时用不上的对象，包括控制器、采样器、监听器等等。在保存测试计划的时候，默认不会把工作台也一同保存下来，我们需要勾选工作台下方的`Save WorkBench`来进行保存。而且工作台与线程组唯一的区别就是工作台下可以添加三个“非测试元件”，其中包括`HTTP(S) Test Script Recorder`、`HTTP Mirror Server`、`Property Display`
+## Jmeter中的使用技巧--总结
