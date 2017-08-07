@@ -382,7 +382,7 @@ JMeter automatically finds classes from jars in the following directories:
 
 接下来我们可以在jmeter中创建WebSocket Sample啦
 
-[websocketPicture](https://github.com/zackgq2009/TestDocuments/blob/master/jmeterProjects/jmeterPictures/websocketPage.png)
+![websocketPicture](https://github.com/zackgq2009/TestDocuments/blob/master/jmeterProjects/jmeterPictures/websocketPage.png)
 
 ```
 WebSocket Sampler下所有控件的解释：
