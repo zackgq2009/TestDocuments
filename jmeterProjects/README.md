@@ -252,7 +252,7 @@ jmeter -t test.jmx …
 
 ### run Jmeter in Non-GUI Mode
 
-### SSL Manager
+## SSL Manager
 
 用户可以在`Option -> SSL Manager`中选择需要的SSL证书，证书应该是`.p12`格式的`PKCS12`文件。并且`JSSE`库会要求输入密码。
 
