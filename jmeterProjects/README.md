@@ -248,9 +248,155 @@ set JVM_ARGS="-Xms1024m -Xmx1024m -Dpropname=propvalue"
 jmeter -t test.jmx …
 ```
 
-### run Jmeter in GUI Mode
+### Un*x run Jmeter（mac算是其中的）
 
-### run Jmeter in Non-GUI Mode
+Un*x script files; should work on most Linux/Unix systems:
+
+`jmeter`  
+    run JMeter (in GUI mode by default). Defines some JVM settings which may not work for all JVMs.
+`jmeter-server`  
+    start JMeter in server mode (calls jmeter script with appropriate parameters)
+`jmeter.sh`  
+    very basic JMeter script (You may need to adapt JVM options like memory settings).
+`mirror-server.sh`  
+    runs the JMeter Mirror Server in non-GUI mode
+`shutdown.sh`  
+    Run the Shutdown client to stop a non-GUI instance gracefully
+`stoptest.sh`  
+    Run the Shutdown client to stop a non-GUI instance abruptly
+
+It may be necessary to edit the jmeter shell script if some of the JVM options are not supported by the JVM you are using. The JVM_ARGS environment variable can be used to override or set additional JVM options, for example:
+
+```
+JVM_ARGS="-Xms1024m -Xmx1024m" jmeter -t test.jmx [etc.]
+```
+
+will override the HEAP settings in the script.
+
+#### Non-GUI 模式下各个参数的含义（Command Line mode）
+
+照官方文档的说明，NON_GUI模式是为了跑压力测试，而且GUI模式则为了调试测试脚本的。那么我们在GUI模式下编辑好相关用例，然后通过`./jmeter`并制定`jmx`文件来跑压力测试。那么我们需要了解下指令中各个参数的含义。
+
+For load testing, you must run JMeter in this mode (Without the GUI) to get the optimal results from it. To do so, use the following command options:
+
+`-n`  
+    This specifies JMeter is to run in non-gui mode
+`-t`  
+    [name of JMX file that contains the Test Plan].
+`-l`  
+    [name of JTL file to log sample results to].
+`-j`  
+    [name of JMeter run log file].
+`-r`  
+    Run the test in the servers specified by the JMeter property "remote_hosts"
+`-R`  
+    [list of remote servers] Run the test in the specified remote servers
+`-g`  
+    [path to CSV file] generate report dashboard only
+`-e`  
+    generate report dashboard after load test
+`-o`  
+    output folder where to generate the report dashboard after load test. Folder must not exist or be empty
+
+The script also lets you specify the optional firewall/proxy server information:
+
+`-H`  
+    [proxy server hostname or ip address]
+`-P`  
+    [proxy server port]
+
+**Example**
+
+```
+jmeter -n -t my_test.jmx -l log.jtl -H my.proxy.server -P 8000
+```
+
+If the property `jmeterengine.stopfail.system.exit` is set to true (default is false), then JMeter will invoke `System.exit(1)` if it cannot stop all threads. Normally this is not necessary.
+
+#### Server Mode
+
+```
+For distributed testing, run JMeter in server mode on the remote node(s), and then control the server(s) from the GUI. You can also use non-GUI mode to run remote tests. To start the server(s), run jmeter-server[.bat] on each server host.
+```
+
+服务器模式就是为了解决单机无法实现的‘压力’需求，我们可以在多台机器上运行Jmeter的服务器模式，然后在自己的机器上运行测试脚本，让这些分布式的服务器来跑这些测试脚本。（比方说，我们需要一个100万的并发量测试，但是单机运行能力是无法实现这个需求的，所以可以借助服务器模式，分布一万台机器，然后让这个一万台服务器运行一个并发量是100的测试脚本，那么最终实现了100万的并发量的压力测试）
+
+`remote server`是我们的服务器，`proxy server`是我们的代理服务器。我们不管是通过GUI还是NON-GUI都可以来协调远程的服务器。
+
+The script also lets you specify the optional firewall/proxy server information:
+
+`-H`
+    [proxy server hostname or ip address]
+`-P`
+    [proxy server port]
+
+Example:
+
+```
+jmeter-server -H my.proxy.server -P 8000
+```
+
+If you want the server to exit after a single test has been run, then define the JMeter property `server.exitaftertest=true`.(我们可以让分布式服务器在执行完单个测试脚本之后就停止运行)
+
+To run the test from the client in non-GUI mode, use the following command:
+
+```
+jmeter -n -t testplan.jmx -r [-Gprop=val] [-Gglobal.properties] [-X]
+```
+
+where:
+
+`-G`  
+    is used to define JMeter properties to be set in the servers
+`-X`  
+    means exit the servers at the end of the test
+`-R server1,server2`  
+    can be used instead of `-r` to provide a list of servers to start. Overrides remote_hosts, but does not define the property.
+
+If the property `jmeterengine.remote.system.exit` is set to true (default is false), then JMeter will invoke `System.exit(0)` after stopping RMI at the end of a test. Normally this is not necessary.
+
+### Jmeter's Classpath
+
+对于测试人员来说，有的时候jmeter自带的采样器无法满足需求，这个时候我们就需要借助第三方库或者是开发人员提供的库。又或者jmeter自带的库已经过时，已经无法满足我们的测试计划啦。我们需要知道jmeter所依赖的库都放到哪里啦~
+
+JMeter automatically finds classes from jars in the following directories:
+
+`JMETER_HOME/lib`
+    used for utility jars
+`JMETER_HOME/lib/ext`
+    used for JMeter components and plugins
+
+比方我在测试过程中会用到WebSocket，而jmeter本身是不带ws协议的采样器的，所以我们需要借助于第三方的库:
+
+[第三方库的地址](https://github.com/maciejzaleski/JMeter-WebSocketSampler)，下载好之后放到`/lib/ext`目录下。
+
+然后，我们还需要下载以下依赖包：  
+* jetty-http-9.1.1.v20140108.jar
+* jetty-io-9.1.1.v20140108.jar
+* jetty-util-9.1.1.v20140108.jar
+* websocket-api-9.1.1.v20140108.jar
+* websocket-client-9.1.1.v20140108.jar
+* websocket-common-9.1.1.v20140108.jar
+
+这些依赖也需要放到/lib/ext目录下
+
+接下来我们可以在jmeter中创建WebSocket Sample啦
+
+[websocketPicture](https://github.com/zackgq2009/TestDocuments/blob/master/jmeterProjects/jmeterPictures/websocketPage.png)
+
+```
+WebSocket Sampler下所有控件的解释：
+* Server Name or IP – WebSocket endpoint (the host, where server-side WebSocket component lives)
+* Port Number – the port that theWebSocker server listens to. Usually HTTP port 80
+* Timeout: Connection – maximum time in milliseconds for setting up a connection. Sampler fails if exceeded. Response – same for response message
+* Implementation – the only available is RFC6455(v13) – the latest version of the WebSocket protocol standard
+* Protocol – WebSocket protocol to use: A ws prefix identifies the WebSocket connection. A wss prefix identifies the WebSocket Secure connection
+* Streaming Connection – indicates whether the TCP session will remain. If checked – the connection will persist, if left unchecked – the connection will be closed after the first response
+* Request Data – defines outgoing messages
+* Response Pattern – Sampler will wait for a response to contain the pattern defined (or till response timeout occurs)
+* Close Connection Pattern – basically the same as “Response Pattern” but the connection will be closed instead
+* Message Backlog – identifies maximum length of response messages to keep(backlog的数量是设置该websocket保留显示的最多消息的数量，在观察树listener中查看响应，响应中的消息数量则是受backlog控制的)
+```
 
 ## SSL Manager
 
