@@ -400,6 +400,66 @@ WebSocket Sampler下所有控件的解释：
 * Close Connection Pattern – basically the same as “Response Pattern” but the connection will be closed instead
 * Message Backlog – identifies maximum length of response messages to keep(backlog的数量是设置该websocket保留显示的最多消息的数量，在观察树listener中查看响应，响应中的消息数量则是受backlog控制的)
 
+### Using Jmeter behind a proxy
+
+正如上边我们在运行`服务器模式`时那样，我们可以选择指定的防火墙/代理服务器以及端口。
+
+> If you are testing from behind a firewall/proxy server, you may need to provide JMeter with the firewall/proxy server hostname and port number. To do so, run the jmeter[.bat] file from a command line with the following parameters:
+
+`-H`  
+  [proxy server hostname or ip address]
+
+`-P`  
+  [proxy server port]
+
+`-N`
+  [nonproxy hosts] (e.g. `*.apache.org|localhost`)
+
+`-u`  
+  [username for proxy authentication - if required]
+
+`-a`  
+  [password for proxy authentication - if required]
+
+Example:
+
+```
+jmeter -H my.proxy.server -P 8000 -u username -a password -N localhost
+```
+
+You can also use `--proxyHost`, `--proxyPort`, `--username`, and `--password` as parameter names
+
+> Parameters provided on a command-line may be visible to other users on the system.
+If the proxy host and port are provided, then JMeter sets the following System properties:
+
+* ttp.proxyHost
+* http.proxyPort
+* https.proxyHost
+* https.proxyPort
+
+If a nonproxy host list is provided, then JMeter sets the following System properties:
+
+* http.nonProxyHosts
+* https.nonProxyHosts
+
+So if you don't wish to set both http and https proxies, you can define the relevant properties in `system.properties` instead of using the command-line parameters.
+
+Proxy Settings can also be defined in a Test Plan, using either the `HTTP Request Defaults` configuration or the `HTTP Request` sampler elements.
+
+我们还可以通过jmeter加上代理服务器进行测试脚本的录制，由于这块我没有用过，所以关于
+
+> JMeter also has its own in-built Proxy Server, the HTTP(S) Test Script Recorder. This is only used for recording HTTP or HTTPS browser sessions. This is not to be confused with the proxy settings described above, which are used when JMeter makes HTTP or HTTPS requests itself.
+
+## Configuring Jmeter
+
+### Overriding Properties Via the command line
+
+## Logging and error messages
+
+## Full list of command-line options
+
+## Remote Testing
+
 ## SSL Manager
 
 用户可以在`Option -> SSL Manager`中选择需要的SSL证书，证书应该是`.p12`格式的`PKCS12`文件。并且`JSSE`库会要求输入密码。
