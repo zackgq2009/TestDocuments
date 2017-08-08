@@ -242,14 +242,19 @@ Un*x script files; should work on most Linux/Unix systems:
 
 `jmeter`  
     run JMeter (in GUI mode by default). Defines some JVM settings which may not work for all JVMs.
+
 `jmeter-server`  
     start JMeter in server mode (calls jmeter script with appropriate parameters)
+
 `jmeter.sh`  
     very basic JMeter script (You may need to adapt JVM options like memory settings).
+
 `mirror-server.sh`  
     runs the JMeter Mirror Server in non-GUI mode
+
 `shutdown.sh`  
     Run the Shutdown client to stop a non-GUI instance gracefully
+
 `stoptest.sh`  
     Run the Shutdown client to stop a non-GUI instance abruptly
 
@@ -269,20 +274,28 @@ For load testing, you must run JMeter in this mode (Without the GUI) to get the 
 
 `-n`  
     This specifies JMeter is to run in non-gui mode
+
 `-t`  
     [name of JMX file that contains the Test Plan].
+
 `-l`  
     [name of JTL file to log sample results to].
+
 `-j`  
     [name of JMeter run log file].
+
 `-r`  
     Run the test in the servers specified by the JMeter property "remote_hosts"
+
 `-R`  
     [list of remote servers] Run the test in the specified remote servers
+
 `-g`  
     [path to CSV file] generate report dashboard only
+
 `-e`  
     generate report dashboard after load test
+
 `-o`  
     output folder where to generate the report dashboard after load test. Folder must not exist or be empty
 
@@ -290,6 +303,7 @@ The script also lets you specify the optional firewall/proxy server information:
 
 `-H`  
     [proxy server hostname or ip address]
+
 `-P`  
     [proxy server port]
 
@@ -313,6 +327,7 @@ The script also lets you specify the optional firewall/proxy server information:
 
 `-H`
     [proxy server hostname or ip address]
+
 `-P`
     [proxy server port]
 
@@ -334,8 +349,10 @@ where:
 
 `-G`  
     is used to define JMeter properties to be set in the servers
+
 `-X`  
     means exit the servers at the end of the test
+
 `-R server1,server2`  
     can be used instead of `-r` to provide a list of servers to start. Overrides remote_hosts, but does not define the property.
 
@@ -349,6 +366,7 @@ JMeter automatically finds classes from jars in the following directories:
 
 `JMETER_HOME/lib`
     used for utility jars
+
 `JMETER_HOME/lib/ext`
     used for JMeter components and plugins
 
