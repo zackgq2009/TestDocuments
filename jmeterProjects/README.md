@@ -23,9 +23,7 @@ Jmeter一直是一款非常优秀的压力测试工具，可以设置线程数�
 
 测试计划就是项目的‘根’，其他所有的对象都是建立在测试计划之上的。在‘测试计划’中可以为整个测试过程设置全局变量，例如：
 
-```
- For example the variable `SERVER` could be defined as `www.example.com`, and the rest of the test plan could refer to it as `${SERVER}`. This simplifies changing the name later.
-```
+> For example the variable `SERVER` could be defined as `www.example.com`, and the rest of the test plan could refer to it as `${SERVER}`. This simplifies changing the name later.
 
 但是测试计划中的全局变量有可能会被用户添加的`User Defined Variables`中的变量所覆盖掉，所有变量的值都是‘就新原则’，如果变量名一样的情况下，均以最后一次定义的值为准。
 
@@ -33,9 +31,7 @@ Jmeter一直是一款非常优秀的压力测试工具，可以设置线程数�
 
 在测试计划中可以根据测试内容的特殊化，来添加特定的JAR包，还可以通过在`jmeter.properties`中编辑来添加依赖的类。
 
-```
-JMeter properties also provides an entry for loading additional classpaths. In `jmeter.properties`, edit `"user.classpath"` or `"plugin_dependency_paths"` to include additional libraries. See `JMeter's Classpath` and `Configuring JMeter` for details.
-```
+> JMeter properties also provides an entry for loading additional classpaths. In `jmeter.properties`, edit `"user.classpath"` or `"plugin_dependency_paths"` to include additional libraries. See `JMeter's Classpath` and `Configuring JMeter` for details.
 
 ### 线程组（Thread Group）
 
@@ -52,9 +48,7 @@ Version 1.9 introduces a test run scheduler. （在1.9版本之后，我们可�
 
 ![ThreadGroupPage](https://github.com/zackgq2009/TestDocuments/blob/master/jmeterProjects/jmeterPictures/ThreadGroupPage.png)
 
-```
-我们可以通过GUI页面中鼠标右键点击线程组，来选择三种不同的运行模式，一种是直接`start`，第二种是`Start no pauses`，第三种就是`Validate`（一种验证模式），这种验证模式的参数设置，需要用户在`user.properties`中找到相应的参数进行设置。
-```
+> 我们可以通过GUI页面中鼠标右键点击线程组，来选择三种不同的运行模式，一种是直接`start`，第二种是`Start no pauses`，第三种就是`Validate`（一种验证模式），这种验证模式的参数设置，需要用户在`user.properties`中找到相应的参数进行设置。
 
 ### 控制器(Controllers)
 
@@ -110,27 +104,21 @@ The Thread Group has a built-in Logic Controller.
 
 ### WorkBench
 
-```
-The WorkBench simply provides a place to temporarily store test elements while not in use, for copy/paste purposes, or any other purpose you desire. When you save your test plan, WorkBench items are not saved with it by default unless you check "Save Workbench" option. Your WorkBench can be saved independently, if you like (right-click on WorkBench and choose Save).
-```
+> The WorkBench simply provides a place to temporarily store test elements while not in use, for copy/paste purposes, or any other purpose you desire. When you save your test plan, WorkBench items are not saved with it by default unless you check "Save Workbench" option. Your WorkBench can be saved independently, if you like (right-click on WorkBench and choose Save).
 
 **工作台** 是测试计划下默认就存在的一个元素，他存在的意义就是临时帮你保存那些你一时用不上的对象，包括控制器、采样器、监听器等等。在保存测试计划的时候，默认不会把工作台也一同保存下来，我们需要勾选工作台下方的`Save WorkBench`来进行保存。而且工作台与线程组唯一的区别就是工作台下可以添加三个“非测试元件”，其中包括`HTTP(S) Test Script Recorder`、`HTTP Mirror Server`、`Property Display`
 
 ### Debug Sampler && Debug PostProcessor
 
-```
-The Debug Sampler generates a sample containing the values of all JMeter variables and/or properties.  
+> The Debug Sampler generates a sample containing the values of all JMeter variables and/or properties.  
 The Debug PostProcessor creates a subSample with the details of the previous Sampler properties, JMeter variables, properties and/or System Properties.  
 The values can be seen in the [View Results Tree](http://jmeter.apache.org/usermanual/component_reference.html#View_Results_Tree) Listener Response Data pane.
-```
 
 说实话，我还不是很了解这两个对象的作用，主要是工作中还没有用到这块。
 
 ### Test Fragment
 
-```
-The Test Fragment is used in conjunction with the Include Controller and **Module Controller**.
-```
+> The Test Fragment is used in conjunction with the Include Controller and **Module Controller**.
 
 我们在使用jmeter中需要对`Module Controller`要有一定的了解，他会很好的帮我们整理采样器。
 
@@ -315,9 +303,7 @@ If the property `jmeterengine.stopfail.system.exit` is set to true (default is f
 
 #### Server Mode
 
-```
-For distributed testing, run JMeter in server mode on the remote node(s), and then control the server(s) from the GUI. You can also use non-GUI mode to run remote tests. To start the server(s), run jmeter-server[.bat] on each server host.
-```
+> For distributed testing, run JMeter in server mode on the remote node(s), and then control the server(s) from the GUI. You can also use non-GUI mode to run remote tests. To start the server(s), run jmeter-server[.bat] on each server host.
 
 服务器模式就是为了解决单机无法实现的‘压力’需求，我们可以在多台机器上运行Jmeter的服务器模式，然后在自己的机器上运行测试脚本，让这些分布式的服务器来跑这些测试脚本。（比方说，我们需要一个100万的并发量测试，但是单机运行能力是无法实现这个需求的，所以可以借助服务器模式，分布一万台机器，然后让这个一万台服务器运行一个并发量是100的测试脚本，那么最终实现了100万的并发量的压力测试）
 
@@ -384,8 +370,7 @@ JMeter automatically finds classes from jars in the following directories:
 
 ![websocketPicture](https://github.com/zackgq2009/TestDocuments/blob/master/jmeterProjects/jmeterPictures/websocketPage.png)
 
-```
-WebSocket Sampler下所有控件的解释：
+WebSocket Sampler下所有控件的解释：  
 * Server Name or IP – WebSocket endpoint (the host, where server-side WebSocket component lives)
 * Port Number – the port that theWebSocker server listens to. Usually HTTP port 80
 * Timeout: Connection – maximum time in milliseconds for setting up a connection. Sampler fails if exceeded. Response – same for response message
@@ -396,7 +381,6 @@ WebSocket Sampler下所有控件的解释：
 * Response Pattern – Sampler will wait for a response to contain the pattern defined (or till response timeout occurs)
 * Close Connection Pattern – basically the same as “Response Pattern” but the connection will be closed instead
 * Message Backlog – identifies maximum length of response messages to keep(backlog的数量是设置该websocket保留显示的最多消息的数量，在观察树listener中查看响应，响应中的消息数量则是受backlog控制的)
-```
 
 ## SSL Manager
 
