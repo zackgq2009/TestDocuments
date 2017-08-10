@@ -3,7 +3,7 @@
 >在写这篇总结之前，已经用了好久的soapui。写这篇文章的目的：一是想把自己长时间使用过程中发现的技巧以及使用方法更有条理的整理出来，二是帮助其他测试工程师更好的使用soapui这个工具。  
 **以下内容都是基于soapui-5.3.0版本**
 
-![indexPage](https://github.com/zackgq2009/soapuiTestDocuments/blob/master/readmepictures/indexPage.png)
+![indexPage](https://github.com/zackgq2009/TestDocuments/blob/master/soapuiProjects/readmepictures/indexPage.png)
 
 -----------------------
 -[SoapUI使用环境](#SoapUI使用环境)  
@@ -27,6 +27,12 @@ SoapUI-5.3.0是一个完善的稳定版本。[for MAC 下载地址](https://b537
 ## SoapUI官方文档
 
 [官网文档](https://www.soapui.org/soapui-projects/soapui-projects.html)基本上为用户提供了一个较为完善的使用说明，照着文档上的步骤，我们可以很顺利的实现一个简单的测试流。而且本人在使用SoapUI中遇到什么问题也都是从官方文档中一步一步、慢慢的整理出解决方案的。
+
+## SoapUI来实现Mock
+
+在开发阶段经常遇到客户端的开发进度严重依赖服务端接口的实现，如果服务端由于各种原因推迟交付相应接口，那么客户端就要整体往后延期。测试阶段也会遇到由于某个服务存在异常，客户端的测试也会延期。这个时候我们就需要一个`Mock Server`来帮助我们继续下去。
+
+## SoapUI 项目结构
 
 ## REST APIs
 
