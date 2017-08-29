@@ -68,10 +68,15 @@ SOAPUI中各个层级模块之间的关系，以及层级的作用。
 
 首先我们需要先知道可以在哪些地方配置参数，然后在哪些地方可以调用这些参数，最后再来说如何调用这些参数。  
 1. 在`Project`层级上，我们就可以配置参数了。这层的参数，我们全局都可以调用。我们只需要在`Project`的`Overview`窗口中的`Properties`上添加、编辑、删除参数。然后我们在所有可以文本输入的地方都可以调用这些参数。调用方法：`${#Project#name}`  
-2. 在`Service`一层上我们无法配置参数，或者换一种说法，这一层上我们配置的参数是一种比较特殊的参数，无需我们手动调用，在特定的模块中就会看得到的。这种参数就是`Endpoints`，我们在`Service`中可以配置多个`endpoint`，在配置这些endpoint时，也可以调用project中的参数，然后配置好的endpoint，在`request`以及`teststep`模块中都会看的到的。无需手动调用，只需要打开`endpoint`下拉菜单，选取任意配置好的`endpoint`。  
+2. 在`Service`一层上我们无法配置参数，或者换一种说法，这一层上我们配置的是一种比较特殊的参数，无需我们手动调用，在特定的模块中就会看得到的。这种参数就是`Endpoints`，我们在`Service`中可以配置多个`endpoint`，在配置这些endpoint时，也可以调用project中的参数，然后配置好的endpoint，在`request`以及`teststep`模块中都会看的到的。无需手动调用，只需要打开`endpoint`下拉菜单，选取任意配置好的`endpoint`。  
 3. 在`Resource`层级上，我们可以配置`Resource parameters`，在这里配置的参数，其实也是无需手动调用的，因为当用户配置好`Resource Parameters`之后，这些参数会自动出现在`request`模块中。**需要说一下，`Resource Path`跟`Resource Parameter`的`Value`中都可以调用`Project`级别的参数，并且`Resource Parameters`的参数有一个比较特殊的属性，就是`Style`（下边我们会单独说一下style这个属性的）。**  
 4. 在`Method`层级上，我们可以配置`Method Parameters`，这个参数其实跟`Resource parameters`相类似，只是作用域有所不同，正如名称一样，一个作用域是`Resource`级别的，另一个则是`Method`级别的。除作用域之外，其他属性都基本一致。  
 5. 在`Request`层级上，我们可以配置任意参数。**需要说明一下，虽然在`request`中可以添加参数，但是这些参数有个属性就是`Level`，这个属性只有两种值，一种是`Resource`另一种是`Method`，也就是说明添加的参数其实作用域还是resource跟method层级的。** 对于`Request`模块来说，他已经是最底层的模块了，更常见的则是调用参数。`Request`模块中最大的特点就是可以去配置`body`的内容，在请求体中我们可以调用project中配置的参数值。调用方法还是：`${#Project#name}`  
+6. 在`testSuite`层级上，我们可以像在`Project`上一样配置任意参数，这些参数可以在此suite下的`testCase`以及`testSteps`中调用。调用方法是：`${#TestSuite#name}`。  
+7. 在`testCase`层级上，配置参数的方法跟`testSuite`一样，除了这里参数的作用域小于`testSuite`之外，其他基本无差别。调用的方法是：`${#TestCase#name}`  
+8. `testStep`的内容跟`request`的内容基本无差别。所以我们在这里就像配置`request`一样进行参数的配置。只是在`testStep`中可以调用`testSuite`以及`testCase`中的参数。  
+9. `Properties TestStep`是一种比较特殊的`testStep`，所以在这边补充说明一下。在`Properties TestStep`中我们可以添加任意参数，并且这些参数可以调用`Project`、`TestSuite`以及`TestCase`中定义好的参数。但由于它隶属于`testStep`，所以`Properties TestStep`的作用域是“它以后的所有testStep”。  
+10. 在SoapUI中，不管是哪个模块都可以调用本地系统环境变量，调用方法是：`${#System#name}`
 
 
 ## REST-APIs
