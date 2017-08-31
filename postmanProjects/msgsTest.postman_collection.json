@@ -1,0 +1,303 @@
+{
+	"variables": [],
+	"info": {
+		"name": "msgsTest",
+		"_postman_id": "e28cdb9d-89c9-66c9-4646-725b186ff928",
+		"description": "站内信接口测试",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/admin/msgs",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/admin/msgs",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "--D2nEBcrbXT8beEvwM4ECJNAEBwoxHlhh9WhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"title\":\"Test\",\"type\": 0,\n\"content\":\"The message content for testing......\",\n\"receivers\":[\"qguo@maxleap.com\"]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/admin/msgs?type=0&limit=10&skip=20",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/admin/msgs?type=0&limit=100&skip=0",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "--D2nEBcrbXT8beEvwM4ECJNAEBwoxHlhh9WhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "获取站内信列表"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/admin/msgs/{id}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/admin/msgs/56c2c4d6a5ff7f0001c592d7",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "--D2nEBcrbXT8beEvwM4ECJNAEBwoxHlhh9WhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "获取站内信的详细信息"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/admin/msgs/{id}",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/admin/msgs/568231056e91210001502cfa",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "Lm1bckeriwjPy5ECVglXKPdbH7CtPhHljhpWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"title\":\"Test002\",\n    \"content\":\"The message content for test002\"\n}"
+				},
+				"description": "更新站内信的信息"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/admin/msgs/{id}",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/admin/msgs/568231056e91210001502cfa",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "Lm1bckeriwjPy5ECVglXKPdbH7CtPhHljhpWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "删掉单条站内信"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/admin/msgs/batchDelete",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/admin/msgs/batchDelete",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "Lm1bckeriwjPy5ECVglXKPdbH7CtPhHljhpWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"ids\":[\"568236406e91210001502daa\",\"5682366c6e91210001502f0a\"]}"
+				},
+				"description": "批量删除站内信"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/msgs/count?status=0",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/msgs/count?status=0",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "开发者获取未读的信息数量（count）"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/msgs?type=0&limit=10&skip=20",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/msgs?type=0&limit=10&skip=0",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "--D2nEBcrbXT8beEvwM4ECJNAEBwoxHlhh9WhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "开发者获取信息列表（按收信的时间倒序）"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/msgs/{id}",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/msgs/56823a61e9db730001220e3c",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "1eHwAapfyKgRufiBaoKNf63vyuCt_hHlkDdGncfGhBs",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "开发者获取站内信的详细信息"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/msgs/read/{id}",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/msgs/status/56823a61e9db730001220e3c",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "1eHwAapfyKgRufiBaoKNf63vyuCt_hHlkDdGncfGhBs",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"status\": 1}"
+				},
+				"description": "开发者修改单条消息的状态"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/msgs/status/batch",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/msgs/status/batch",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "1eHwAapfyKgRufiBaoKNf63vyuCt_hHlkDdGncfGhBs",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ids\":[\"56823a61e9db730001220e3c\",\"56823a266e912100015031cb\",\"567ceacbe9db730001b94870\"],\n    \"status\":0\n}"
+				},
+				"description": "开发者批量修改消息的状态"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/msgs/{id}",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/msgs/56823a61e9db730001220e3c",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "1eHwAapfyKgRufiBaoKNf63vyuCt_hHlkDdGncfGhBs",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "开发者删除单条站内信"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/msgs/batchDelete",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/msgs/batchDelete",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "1eHwAapfyKgRufiBaoKNf63vyuCt_hHlkDdGncfGhBs",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"ids\":[\"56823a266e912100015031cb\",\"567ceacbe9db730001b94870\"]\n}"
+				},
+				"description": "开发者批量删除站内信"
+			},
+			"response": []
+		}
+	]
+}

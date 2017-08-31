@@ -1,0 +1,361 @@
+{
+	"variables": [],
+	"info": {
+		"name": "FileRestAPI",
+		"_postman_id": "694a7e84-91af-9600-9c14-b1dcbf78467e",
+		"description": "public and private files\nupload download copy move delete",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://cs.leap.as/2.0/files/{name}",
+			"request": {
+				"url": "https://csuat.maxleap.cn/2.0/files/test001",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "57fe00b19a19d600018d9652",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "1eHwAapfyKgRufiBaoKNf63vyuCt_hHlkDdGncfGhBs",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "LICENSE"
+						}
+					]
+				},
+				"description": "upload public files"
+			},
+			"response": []
+		},
+		{
+			"name": "https://cs.leap.as/2.0/files",
+			"request": {
+				"url": "https://csuat.maxleap.cn/2.0/files",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "55d1480860b291cc25a651cd",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "MV7B1sWZmN0JACWokgVfhE1EvFDonBHkhulWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Fid",
+						"value": "",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": "download public files\nif there is 'X-LAS-Fid', can get the file of this name\n\nif not ,can get all files of this appid"
+			},
+			"response": []
+		},
+		{
+			"name": "https://cs.leap.as/2.0/files",
+			"request": {
+				"url": "https://csuat.maxleap.cn/2.0/files",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "55d1480860b291cc25a651cd",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "MV7B1sWZmN0JACWokgVfhE1EvFDonBHkhulWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Fid",
+						"value": "",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": "delete the file of the name"
+			},
+			"response": []
+		},
+		{
+			"name": "https://cs.leap.as/2.0/privateFiles/fileop/{name}",
+			"request": {
+				"url": "https://csuat.maxleap.cn/2.0/privateFiles/fileop/privatefile001.jpg",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "57fe00b19a19d600018d9652",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "1eHwAapfyKgRufiBaoKNf63vyuCt_hHlkDdGncfGhBs",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"type": "file",
+							"src": "pom.xml"
+						}
+					]
+				},
+				"description": "upload private files"
+			},
+			"response": []
+		},
+		{
+			"name": "https://cs.leap.as/2.0/privateFiles/fileop/{name}",
+			"request": {
+				"url": "https://cs.leap.as/2.0/privateFiles/fileop/privatefile001.jpg",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "55d1480860b291cc25a651cd",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "MV7B1sWZmN0JACWokgVfhE1EvFDonBHkhulWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": "download private files"
+			},
+			"response": []
+		},
+		{
+			"name": "https://cs.leap.as/2.0/privateFiles/fileop/{name}",
+			"request": {
+				"url": "https://cs.leap.as/2.0/privateFiles/fileop/privatefile001.jpg",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "55d1480860b291cc25a651cd",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "MV7B1sWZmN0JACWokgVfhE1EvFDonBHkhulWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": "delete private files"
+			},
+			"response": []
+		},
+		{
+			"name": "https://cs.leap.as/2.0/privateFiles/copy",
+			"request": {
+				"url": "https://cs.leap.as/2.0/privateFiles/copy?from_path=/privatefile001.jpg&to_path=/privatefile002.jpg",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "55d1480860b291cc25a651cd",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "MV7B1sWZmN0JACWokgVfhE1EvFDonBHkhulWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "copy private files"
+			},
+			"response": []
+		},
+		{
+			"name": "https://cs.leap.as/2.0/privateFiles/move",
+			"request": {
+				"url": "https://cs.leap.as/2.0/privateFiles/move?from_path=/privatefile001.jpg&to_path=/privatefile003.jpg",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "55d1480860b291cc25a651cd",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "MV7B1sWZmN0JACWokgVfhE1EvFDonBHkhulWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "move private files"
+			},
+			"response": []
+		},
+		{
+			"name": "https://cs.leap.as/2.0/privateFiles/createFolder/{name}",
+			"request": {
+				"url": "https://cs.leap.as/2.0/privateFiles/createFolder/{name}",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "55d1480860b291cc25a651cd",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "MV7B1sWZmN0JACWokgVfhE1EvFDonBHkhulWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": "create private folder"
+			},
+			"response": []
+		},
+		{
+			"name": "https://cs.leap.as/2.0/privateFiles/metaData/{name}",
+			"request": {
+				"url": "https://cs.leap.as/2.0/privateFiles/metaData/",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "55d1480860b291cc25a651cd",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "MV7B1sWZmN0JACWokgVfhE1EvFDonBHkhulWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": "check metaData"
+			},
+			"response": []
+		},
+		{
+			"name": "http://csuat.leap.as/2.0/privateFiles/statistics",
+			"request": {
+				"url": "http://csuat.leap.as/2.0/privateFiles/statistics/",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "557e31bcc10ed4d2becf5e95",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "fn_uvsT5zSN8PiYu2kjLF5KQllD_YBHkkxueXGSSU4o",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

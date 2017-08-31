@@ -1,0 +1,241 @@
+{
+	"variables": [],
+	"info": {
+		"name": "orgsTest",
+		"_postman_id": "dd44d763-db69-385f-6f2f-afb4d5ee309a",
+		"description": "针对开发者管理下边的接口进行统一测试",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/orgs/queryWithCreator?limit=20&skip=10&email={email}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/orgs/queryWithCreator?limit=200&skip=0",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "--D2nEBcrbXT8beEvwM4ECJNAEBwoxHlhh9WhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "获取公司信息列表"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/orgs/queryWithCreator/{id}",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/orgs/queryWithCreator/5641b10b3330920001f1f7a3",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "Lm1bckeriwjPy5ECVglXKPdbH7CtPhHljhpWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "获取公司详细信息"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/orgs/disable",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/orgs/disable",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "Lm1bckeriwjPy5ECVglXKPdbH7CtPhHljhpWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"orgIds\": [\"5641b10b3330920001f1f7a3\"]\n}"
+				},
+				"description": "禁用公司账号"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/orgs/enable",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/orgs/enable",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "Lm1bckeriwjPy5ECVglXKPdbH7CtPhHljhpWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"orgIds\":[\"5641b10b3330920001f1f7a3\"]\n}"
+				},
+				"description": "启用公司账号"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/orgs/{id}usages?start=20151208&end=20151222&appId=565c1641e9db730001d5a183",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/orgs/566aa6c6a5ff7f0001b3996a/usages?start=20151008&end=20161222",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "--D2nEBcrbXT8beEvwM4ECJNAEBwoxHlhh9WhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "公司账户使用概况"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/orgs/{id}/orgUsers",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/orgs/566aa6c6a5ff7f0001b3996a/orgUsers",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "--D2nEBcrbXT8beEvwM4ECJNAEBwoxHlhh9WhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "公司下的账号列表"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/orgs/{id}/apps",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/orgs/566aa6c6a5ff7f0001b3996a/apps",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "--D2nEBcrbXT8beEvwM4ECJNAEBwoxHlhh9WhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "公司下的应用列表"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/orgUsers/enable",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/orgUsers/enable",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "Lm1bckeriwjPy5ECVglXKPdbH7CtPhHljhpWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"orgUserIds\":[\"567cef1fe9db7300018f8434\"]}"
+				},
+				"description": "启用OrgUser账号"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/orgUsers/disable",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/orgUsers/disable",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "Lm1bckeriwjPy5ECVglXKPdbH7CtPhHljhpWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"orgUserIds\":[\"567cef1fe9db7300018f8434\"]}"
+				},
+				"description": "禁用OrgUser账号"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/orgUsers/activate",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/orgUsers/activate",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "Lm1bckeriwjPy5ECVglXKPdbH7CtPhHljhpWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"orgUserIds\":[\"567cef1fe9db7300018f8434\"]}"
+				},
+				"description": "激活OrgUser账号"
+			},
+			"response": []
+		}
+	]
+}

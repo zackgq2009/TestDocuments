@@ -1,0 +1,271 @@
+{
+	"variables": [],
+	"info": {
+		"name": "subsAPI",
+		"_postman_id": "0ce9705d-b983-a733-fcf3-506988b551e5",
+		"description": "订阅管理",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://apidev.leap.as/2.0/subs",
+			"request": {
+				"url": "http://apidev.leap.as/2.0/subs",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "1eHwAapfyKgRufiBaoKNf9ElaOCHiBHlt2RWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"mail\":\"13585609415@163.com\",\n  \"appIds\":[\"565c1641e9db730001d5a183\",\"5641b1ae04495f0001a8104d\",\"5649ad51ce1f6d0001cc46ef\",\"564d6a6153e70e00012cf262\",\"564d46d953e70e00012cf24e\",\"565bc14ce9db730001d5a168\"],\n  \"modules\":[\n   {\n    \"taskType\":1,\n    \"period\":[\"Daily\",\"Weekly\",\"Monthly\"]\n   },\n   {\n       \"taskType\":2,\n       \"moduleName\":\"NewIssueEvent\",\n       \"type\":\"Event\",\n       \"content\":\"New Issue Event\"\n   }\n  ]\n}"
+				},
+				"description": "创建一个订阅"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apidev.leap.as/2.0/subs",
+			"request": {
+				"url": "http://apidev.leap.as/2.0/subs/5660f16f04495f0001ff9cc6",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "1eHwAapfyKgRufiBaoKNf9ElaOCHiBHlt2RWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "查看一个订阅"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apidev.leap.as/2.0/subs",
+			"request": {
+				"url": "http://apidev.leap.as/2.0/subs/565ffb0cea2c890001b2a1d9",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "1eHwAapfyKgRufiBaoKNf9ElaOCHiBHlt2RWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"modules\": [\n    {\n      \"taskType\": 1,\n      \"period\": [\n        \"Daily\",\n        \"Weekly\",\n        \"Monthly\",\n        \"minutes_1\"\n      ]\n    }\n  ]\n}"
+				},
+				"description": "更新订阅"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apidev.leap.as/2.0/subs",
+			"request": {
+				"url": "http://apidev.leap.as/2.0/subs/5660f16f04495f0001ff9cc6",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "1eHwAapfyKgRufiBaoKNf9ElaOCHiBHlt2RWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "删除一个订阅"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apidev.leap.as/2.0/subs/query",
+			"request": {
+				"url": "http://apidev.leap.as/2.0/subs/query",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "1eHwAapfyKgRufiBaoKNf9ElaOCHiBHlt2RWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "查看订阅列表下所有订阅"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apidev.leap.as/2.0/subMods",
+			"request": {
+				"url": "http://apidev.leap.as/2.0/subMods",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "1eHwAapfyKgRufiBaoKNf9ElaOCHiBHlt2RWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "获取当前用户可见的模块列表"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apidev.leap.as/2.0/subMods",
+			"request": {
+				"url": "http://apidev.leap.as/2.0/subMods",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "Lm1bckeriwjPy5ECVglXKJVC-4A_3xHlmF9eEGQSzNM",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"taskType\":3,\n    \"moduleName\":\"NewIssueEvent001\",\n    \"type\":\"Event001\",\n    \"content\":\"New Issue Event001\",\n    \"roles\":[\"ProductManager\"]\n  }"
+				},
+				"description": "在模块列表中增加新的模块"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apidev.leap.as/2.0/subMods/query",
+			"request": {
+				"url": "http://apidev.leap.as/2.0/subMods/query",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "Lm1bckeriwjPy5ECVglXKJVC-4A_3xHlmF9eEGQSzNM",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n  }"
+				},
+				"description": "通过查询条件查询当前用户哪些模块可见"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apidev.leap.as/2.0/subMods/{objectId}",
+			"request": {
+				"url": "http://apidev.leap.as/2.0/subMods/564d4eca002f301ebe1c701c",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "Lm1bckeriwjPy5ECVglXKJVC-4A_3xHlmF9eEGQSzNM",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "通过objectId查询相应模块"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apidev.leap.as/2.0/subMods/{objectId}",
+			"request": {
+				"url": "http://apidev.leap.as/2.0/subMods/56612b9004495f0001dab226",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "Lm1bckeriwjPy5ECVglXKJVC-4A_3xHlmF9eEGQSzNM",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"taskType\":4}"
+				},
+				"description": "通过objectId更新模块内容"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apidev.leap.as/2.0/subMods/{objectId}",
+			"request": {
+				"url": "http://apidev.leap.as/2.0/subMods/56612b9004495f0001dab226",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "Lm1bckeriwjPy5ECVglXKJVC-4A_3xHlmF9eEGQSzNM",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "通过objectId删除相应模块"
+			},
+			"response": []
+		}
+	]
+}

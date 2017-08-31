@@ -1,0 +1,2293 @@
+{
+	"variables": [],
+	"info": {
+		"name": "parrot",
+		"_postman_id": "32935b1f-78af-4ec9-b8b1-89c4bc6ae188",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "个人",
+			"description": "",
+			"item": [
+				{
+					"name": "搜索",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "创建用户",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"installs\": []\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "用户详情",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "设置用户自定义属性",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo/attributes",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"隔壁老王\",\n    \"age\": 46,\n    \"gender\": \"male\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "更新用户自定义属性",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo/attributes",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"隔壁老王\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "获取用户自定义属性",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo/attributes",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "获取用户某个自定义属性",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo/attributes/name",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "删除用户自定义属性",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo/attributes",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "删除用户安装ID",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo/installs",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"installs\": [\"install1\",\"install2\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "加好友",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo/friends/bar",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "批量新增好友",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo/friends",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"friends\": [\"bar\",\"baz\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "解除好友关系",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo/friends/bar",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "好友列表",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo/friends?detail",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "好友信息",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo/friends/bar",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "获取好友历史聊天记录",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo/friends/bar/chats",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "清空好友历史聊天记录",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo/friends/bar/chats",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "当前已经加入的群组列表",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo/groups?detail",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "当前已经加入的聊天室列表",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo/rooms?detail",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "attachment",
+									"value": "",
+									"type": "file"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "获取陌生人列表",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo/strangers?detail",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "获取某个陌生人",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo/strangers/bar",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "获取陌生人聊天记录",
+					"request": {
+						"url": "http://{{parrot.server}}/ctx/foo/strangers/bar/chats",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "敏感词过滤",
+			"description": "",
+			"item": [
+				{
+					"name": "分词",
+					"request": {
+						"url": "http://{{parrot.server}}/dirty/segment?tag",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"习近平和曹操在操场上猛烈地操刘备淫荡的小穴\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "敏感词屏蔽",
+					"request": {
+						"url": "http://{{parrot.server}}/dirty/reformat",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"江泽民、习近平和曹操在操场上猛烈地操刘备淫荡的小穴。\",\n    \"replace\": \"*\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "敏感词测试",
+					"request": {
+						"url": "http://{{parrot.server}}/dirty/test",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": \"习近平\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "游客",
+			"description": "",
+			"item": [
+				{
+					"name": "创建游客",
+					"request": {
+						"url": "http://{{parrot.server}}/passengers",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"小红\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "获取游客信息",
+					"request": {
+						"url": "http://{{parrot.server}}/passengers/e816e3dc41fa4f5b85994348f3380b94",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "查询游客聊天记录",
+					"request": {
+						"url": "http://{{parrot.server}}/passengers/58550388f9434168bf2019317b649265/chats/foo",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "系统消息",
+			"description": "",
+			"item": [
+				{
+					"name": "给所有人发送系统消息",
+					"request": {
+						"url": "http://{{parrot.server}}/system",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\": {\n        \"media\": 0,\n        \"body\": \"hello all!\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "给单个用户发送系统消息",
+					"request": {
+						"url": "http://{{parrot.server}}/system/foo",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\":{\n        \"media\": 0,\n        \"body\": \"hello foo!\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "给单个群组发送系统消息",
+					"request": {
+						"url": "http://{{parrot.server}}/system/b313c8af604a44f690ff9528b309ca1d?group",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\":{\n        \"media\": 0,\n        \"body\": \"hello group members!\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "给单个聊天室发送系统消息",
+					"request": {
+						"url": "http://{{parrot.server}}/system/a6ca4361f2124792bc0343e3f5c476a8?room",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"content\":{\n        \"media\": 0,\n        \"body\": \"hello room members!\"\n    }\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "群组",
+			"description": "",
+			"item": [
+				{
+					"name": "搜索",
+					"request": {
+						"url": "http://{{parrot.server}}/groups",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "创建聊天群组",
+					"request": {
+						"url": "http://{{parrot.server}}/groups",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"owner\": \"foo\",\n    \"name\": \"mygroup\",\n    \"members\": [\"bar\",\"baz\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "解散群组",
+					"request": {
+						"url": "http://{{parrot.server}}/groups/b313c8af604a44f690ff9528b309ca1d",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "获取群组信息",
+					"request": {
+						"url": "http://{{parrot.server}}/groups/46b9c7cc4fc6428185a2e3a1c1f9e26e",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "变更群组管理员",
+					"request": {
+						"url": "http://{{parrot.server}}/groups/46b9c7cc4fc6428185a2e3a1c1f9e26e/owner",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"owner\": \"baz\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "覆盖更新群组成员",
+					"request": {
+						"url": "http://{{parrot.server}}/groups/46b9c7cc4fc6428185a2e3a1c1f9e26e/members",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"members\": [\"baz\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "新增群组成员 ( batch )",
+					"request": {
+						"url": "http://{{parrot.server}}/groups/46b9c7cc4fc6428185a2e3a1c1f9e26e/members",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"members\": [\"baz\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "新增群组成员 ( single )",
+					"request": {
+						"url": "http://{{parrot.server}}/groups/46b9c7cc4fc6428185a2e3a1c1f9e26e/members/baz",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "移除群组成员 ( batch )",
+					"request": {
+						"url": "http://{{parrot.server}}/groups/46b9c7cc4fc6428185a2e3a1c1f9e26e/members",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"members\": [\"baz\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "移除群组成员 ( single )",
+					"request": {
+						"url": "http://{{parrot.server}}/groups/46b9c7cc4fc6428185a2e3a1c1f9e26e/members/baz",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"members\": [\"baz\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "获取群组历史聊天记录",
+					"request": {
+						"url": "http://{{parrot.server}}/groups/db86cd76326d457da38ab05303722876/chats",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "清空群组历史聊天记录",
+					"request": {
+						"url": "http://{{parrot.server}}/groups/35802e7cc8b546f2b51558f44fecc0ea/chats",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "获取群组自定义属性",
+					"request": {
+						"url": "http://{{parrot.server}}/groups/46b9c7cc4fc6428185a2e3a1c1f9e26e/attributes",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "设置群组自定义属性",
+					"request": {
+						"url": "http://{{parrot.server}}/groups/46b9c7cc4fc6428185a2e3a1c1f9e26e/attributes",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"company\": \"maxleap\",\n    \"star\": 5\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "覆盖更新群组自定义属性",
+					"request": {
+						"url": "http://{{parrot.server}}/groups/46b9c7cc4fc6428185a2e3a1c1f9e26e/attributes",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rate\": \"100%\"\n}"
+						},
+						"description": "执行全量覆盖更新"
+					},
+					"response": []
+				},
+				{
+					"name": "删除群组自定义属性",
+					"request": {
+						"url": "http://{{parrot.server}}/groups/46b9c7cc4fc6428185a2e3a1c1f9e26e/attributes",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "获取单个群组自定义属性",
+					"request": {
+						"url": "http://{{parrot.server}}/groups/46b9c7cc4fc6428185a2e3a1c1f9e26e/attributes/star",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "聊天室",
+			"description": "",
+			"item": [
+				{
+					"name": "搜索",
+					"request": {
+						"url": "http://{{parrot.server}}/rooms",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "创建聊天室",
+					"request": {
+						"url": "http://{{parrot.server}}/rooms",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"name\": \"room_test\",\n    \"members\": [\"foo\",\"bar\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "获取聊天室",
+					"request": {
+						"url": "http://{{parrot.server}}/rooms/c0eebb302b1345fd983345336dd4eaa6",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "更新聊天室",
+					"request": {
+						"url": "http://{{parrot.server}}/rooms/c0eebb302b1345fd983345336dd4eaa6",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"description\": \"this is a test room,wahahahahahahahaha\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "移除聊天室成员",
+					"request": {
+						"url": "http://{{parrot.server}}/rooms/c0eebb302b1345fd983345336dd4eaa6/members",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"members\": [\"baz\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "添加聊天室成员",
+					"request": {
+						"url": "http://{{parrot.server}}/rooms/c0eebb302b1345fd983345336dd4eaa6/members",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"members\": [\"baz\"]\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "解散聊天室",
+					"request": {
+						"url": "http://{{parrot.server}}/rooms/c0eebb302b1345fd983345336dd4eaa6",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "获取当前所有聊天室信息",
+					"request": {
+						"url": "http://{{parrot.server}}/rooms?sort=-size,-ts&limit=10&skip=1&search=333",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "获取聊天室自定义属性",
+					"request": {
+						"url": "http://{{parrot.server}}/rooms/c0eebb302b1345fd983345336dd4eaa6/attributes",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "获取单个聊天室自定义属性",
+					"request": {
+						"url": "http://{{parrot.server}}/rooms/c0eebb302b1345fd983345336dd4eaa6/attributes/company",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "设置聊天室自定义属性",
+					"request": {
+						"url": "http://{{parrot.server}}/rooms/c0eebb302b1345fd983345336dd4eaa6/attributes",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"company\": \"maxleap\",\n    \"star\": 5\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "覆盖更新聊天室自定义属性",
+					"request": {
+						"url": "http://{{parrot.server}}/rooms/c0eebb302b1345fd983345336dd4eaa6/attributes",
+						"method": "PUT",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"rate\": \"100%\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "删除聊天室自定义属性",
+					"request": {
+						"url": "http://{{parrot.server}}/rooms/c0eebb302b1345fd983345336dd4eaa6/attributes",
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "设置与监控",
+			"description": "",
+			"item": [
+				{
+					"name": "查询配置",
+					"request": {
+						"url": "http://{{parrot.server}}/profile",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "更新配置",
+					"request": {
+						"url": "http://{{parrot.server}}/profile",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"dirtyWordsReplace\": \"*\"\n}"
+						},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "主要信息",
+					"request": {
+						"url": "http://{{parrot.server}}/info",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "监控概览",
+					"request": {
+						"url": "http://{{parrot.server}}/info/metric",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "每小时登录数",
+					"request": {
+						"url": "http://{{parrot.server}}/info/metric/hourly/login",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "每天登录数",
+					"request": {
+						"url": "http://{{parrot.server}}/info/metric/daily/login",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "每小时消息数",
+					"request": {
+						"url": "http://{{parrot.server}}/info/metric/hourly/message",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "每天消息数",
+					"request": {
+						"url": "http://{{parrot.server}}/info/metric/daily/message",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "每小时群组创建数",
+					"request": {
+						"url": "http://{{parrot.server}}/info/metric/hourly/newgroup",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "每天群组创建数",
+					"request": {
+						"url": "http://{{parrot.server}}/info/metric/daily/newgroup",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "每小时聊天用户数",
+					"request": {
+						"url": "http://{{parrot.server}}/info/metric/hourly/speaker",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "每天聊天用户数",
+					"request": {
+						"url": "http://{{parrot.server}}/info/metric/daily/speaker",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "每日在线人数峰值",
+					"request": {
+						"url": "http://{{parrot.server}}/info/metric/daily/toponline",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "每小时在线人数峰值",
+					"request": {
+						"url": "http://{{parrot.server}}/info/metric/hourly/toponline",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "所有小时指标",
+					"request": {
+						"url": "http://{{parrot.server}}/info/metric/hourly",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				},
+				{
+					"name": "所有每天指标",
+					"request": {
+						"url": "http://{{parrot.server}}/info/metric/daily",
+						"method": "GET",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "{{parrot.appid}}",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "{{parrot.sign}}",
+								"description": ""
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"description": ""
+							}
+						],
+						"body": {},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "附件",
+			"description": "",
+			"item": [
+				{
+					"name": "上传附件",
+					"request": {
+						"url": "http://imuat.maxleap.cn/attachment",
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-ML-AppId",
+								"value": "57c7e96742c2ff00010fd53c",
+								"description": ""
+							},
+							{
+								"key": "X-ML-Request-Sign",
+								"value": "777d8117389fb0a7052e536973eec7c7,1472719414",
+								"description": ""
+							}
+						],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "attachment",
+									"value": "",
+									"type": "file"
+								}
+							]
+						},
+						"description": ""
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "虚拟机",
+			"request": {
+				"url": "http://{{parrot.server}}/vm?mb",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "临时维护-1",
+			"request": {
+				"url": "http://{{parrot.server}}/maintain",
+				"method": "POST",
+				"header": [],
+				"body": {},
+				"description": "迁移数据1"
+			},
+			"response": []
+		}
+	]
+}

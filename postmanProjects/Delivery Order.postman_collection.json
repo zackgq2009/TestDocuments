@@ -1,0 +1,161 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Delivery Order",
+		"_postman_id": "f015c564-0800-2554-3cc3-70c27aa7de0d",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://wonapi.maxleap.cn/1.0/orders",
+			"request": {
+				"url": "https://wonapi.maxleap.cn/1.0/orders?limit=100&order=-createdAt",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessiontoken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"applyCardNum\": \"4392258318334689\",\n\t\"applyBalance\": 1,\n\t\"applyName\": \"郭卿\"\n}"
+				},
+				"description": "cha'xun查询wei'jie'dan查询未接单de查询未接单的ding'dan"
+			},
+			"response": []
+		},
+		{
+			"name": "https://wonapi.maxleap.cn/1.0/ordersDelivery/{{sysUserId}}/orders",
+			"request": {
+				"url": "https://wonapi.maxleap.cn/1.0/ordersDelivery/{{sysUserId}}/orders",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessiontoken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"applyCardNum\": \"4392258318334689\",\n\t\"applyBalance\": 1,\n\t\"applyName\": \"郭卿\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://wonapi.maxleap.cn/1.0/ordersDelivery/take",
+			"request": {
+				"url": "https://wonapi.maxleap.cn/1.0/ordersDelivery/take",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessiontoken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"orderId\":24,\n\t\"sysUserId\":{{sysUserId}}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://wonapi.maxleap.cn/1.0/ordersDelivery/finish",
+			"request": {
+				"url": "https://wonapi.maxleap.cn/1.0/ordersDelivery/finish",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessiontoken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"orderId\":24,\n\t\"sysUserId\":{{sysUserId}}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://wonapi.maxleap.cn/1.0/ordersDelivery/cancel",
+			"request": {
+				"url": "https://wonapi.maxleap.cn/1.0/ordersDelivery/cancel",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessiontoken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"orderId\":24,\n\t\"sysUserId\":{{sysUserId}}\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

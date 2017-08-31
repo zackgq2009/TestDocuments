@@ -1,0 +1,321 @@
+{
+	"variables": [],
+	"info": {
+		"name": "CloudCode APIs",
+		"_postman_id": "16fa60fd-dea8-5fac-0129-ea59f4949e75",
+		"description": "针对cloudcode所有的接口，其中一些接口已经过时或者是us服务器上使用的",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "获取云代码中所有jar包文件",
+			"request": {
+				"url": "https://{{apiServer}}/2.0/console/hosting",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "553738ce60b2812d5a849f15",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-APIKey",
+						"value": "dkdVNjR6YndCb2hDUWRZVkt4M2Nvdw",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Client-Version",
+						"value": "2.0",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "https://{{apiServer}}/2.0/console/hosting"
+			},
+			"response": []
+		},
+		{
+			"name": "获取jar包文件中的global.json内容信息",
+			"request": {
+				"url": "https://{{apiServer}}/2.0/console/config",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "553738ce60b2812d5a849f15",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-APIKey",
+						"value": "dkdVNjR6YndCb2hDUWRZVkt4M2Nvdw",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Client-Version",
+						"value": "2.0",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "https://{{apiServer}}/2.0/console/config"
+			},
+			"response": []
+		},
+		{
+			"name": "获取云代码中所有的jobName",
+			"request": {
+				"url": "https://{{apiServer}}/2.0/console/jobNames",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "553738ce60b2812d5a849f15",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-APIKey",
+						"value": "dkdVNjR6YndCb2hDUWRZVkt4M2Nvdw",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Client-Version",
+						"value": "2.0",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "https://{{apiServer}}/2.0/console/jobNames"
+			},
+			"response": []
+		},
+		{
+			"name": "查看所有或者不同状态的云日志信息",
+			"request": {
+				"url": "https://{{apiServer}}/2.0/console/logs/all?limit=2&skip=1&count=true",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "553738ce60b2812d5a849f15",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-APIKey",
+						"value": "dkdVNjR6YndCb2hDUWRZVkt4M2Nvdw",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Client-Version",
+						"value": "2.0",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "https://{{apiServer}}/2.0/console/logs/all?limit=2&skip=1&count=true\nhttps://api.leap.as/2.0/console/logs/{level}"
+			},
+			"response": []
+		},
+		{
+			"name": "上传云代码的jar包文件",
+			"request": {
+				"url": "https://{{apiServer}}/2.0/cloudcode/upload",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "553738ce60b2812d5a849f15",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-APIKey",
+						"value": "dkdVNjR6YndCb2hDUWRZVkt4M2Nvdw",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Client-Version",
+						"value": "2.0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": "https://{{apiServer}}/2.0/cloudcode/upload"
+			},
+			"response": []
+		},
+		{
+			"name": "获取所有上传的云代码版本",
+			"request": {
+				"url": "https://{{apiServer}}/2.0/cloudcode/versions",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "553738ce60b2812d5a849f15",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-APIKey",
+						"value": "dkdVNjR6YndCb2hDUWRZVkt4M2Nvdw",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Client-Version",
+						"value": "2.0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": "https://{{apiServer}}/2.0/cloudcode/versions"
+			},
+			"response": []
+		},
+		{
+			"name": "部署云代码",
+			"request": {
+				"url": "https://{{apiServer}}/2.0/cloudcode/deploy",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "553738ce60b2812d5a849f15",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-APIKey",
+						"value": "dkdVNjR6YndCb2hDUWRZVkt4M2Nvdw",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Client-Version",
+						"value": "2.0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"version\":\"0.2.1\"}"
+				},
+				"description": "https://{{apiServer}}/2.0/cloudcode/deploy"
+			},
+			"response": []
+		},
+		{
+			"name": "停止云代码",
+			"request": {
+				"url": "https://{{apiServer}}/2.0/cloudcode/unDeploy",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "553738ce60b2812d5a849f15",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-APIKey",
+						"value": "dkdVNjR6YndCb2hDUWRZVkt4M2Nvdw",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Client-Version",
+						"value": "2.0",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"version\":\"0.2.0\"}"
+				},
+				"description": "https://{{apiServer}}/2.0/cloudcode/unDeploy"
+			},
+			"response": []
+		},
+		{
+			"name": "使用云代码的job",
+			"request": {
+				"url": "https://{{apiServer}}/2.0/jobs/{name}",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "553738ce60b2812d5a849f15",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-APIKey",
+						"value": "dkdVNjR6YndCb2hDUWRZVkt4M2Nvdw",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "https://{{apiServer}}/2.0/jobs/{name}"
+			},
+			"response": []
+		},
+		{
+			"name": "使用云代码的function",
+			"request": {
+				"url": "https://{{apiServer}}/2.0/functions/{name}",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "553738ce60b2812d5a849f15",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-APIKey",
+						"value": "dkdVNjR6YndCb2hDUWRZVkt4M2Nvdw",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"hanmeimei\"}"
+				},
+				"description": "https://{{apiServer}}/2.0/functions/{name}"
+			},
+			"response": []
+		}
+	]
+}

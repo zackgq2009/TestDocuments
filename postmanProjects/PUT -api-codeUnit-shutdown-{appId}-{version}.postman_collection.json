@@ -1,0 +1,33 @@
+{
+	"variables": [],
+	"info": {
+		"name": "PUT /api/codeUnit/shutdown/{appId}/{version}",
+		"_postman_id": "77ff55cb-803d-dfd0-2ea7-f355d95b8a0b",
+		"description": "关闭应用所有容器",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://10.10.10.176:5050/api/codeUnit/shutdown/{appId}/{version}",
+			"request": {
+				"url": "http://10.10.10.176:5050/api/codeUnit/shutdown/555d467660b277963a91cadd/0.2.3",
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.leap.as/2.0/api/codeUnit/shutdown/{appId}/{version}",
+			"request": {
+				"url": "https://api.leap.as/2.0/api/codeUnit/shutdown/553738ce60b2812d5a849f15/0.2.1",
+				"method": "PUT",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

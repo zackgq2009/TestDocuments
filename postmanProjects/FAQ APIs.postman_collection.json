@@ -1,0 +1,443 @@
+{
+	"variables": [],
+	"info": {
+		"name": "FAQ APIs",
+		"_postman_id": "72cc106c-f934-39aa-cd32-5e8b7160dfa7",
+		"description": "针对FAQ服务提供的接口",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://api.maxleap.as/2.0/help/faq/section",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/help/faq/section",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "获取FAQ列表信息"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/help/faq/section",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/help/faq/section",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"createdAt\": \"2016-02-17T08:40:40.965Z\",\n    \"appId\": \"56c13790a5ff7f0001e2b127\",\n    \"langCode\": \"en\",\n    \"langName\": \"English\",\n    \"title\": \"test002\",\n    \"seq\": 3814795854073,\n    \"updatedAt\": \"2016-02-17T08:40:40.965Z\"\n}"
+				},
+				"description": "添加一个全新的faq section"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/help/faq/section/{objectId}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/help/faq/section/56c43190a5ff7f0001c3b6be",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"description": "根据objectId删除相应的faq section"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/help/faq/section/{objectId}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/help/faq/section/56c13790a5ff7f0001e2b136",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "根据objectId获取相应的faq section"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/help/faq/section/{objectId}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/help/faq/section/56c13790a5ff7f0001e2b136",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"title\": \"testUpdateSection\"\n}"
+				},
+				"description": "根据objectId更新相应的faq section"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/help/faq/section/app",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/help/faq/section/app",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"description": "通过post方法，根据查询条件查询相应的section"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/help/faq/section/seq/{objectId}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/help/faq/section/seq/56c13790a5ff7f0001e2b138",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"preSeq\":10000.0,\n    \"nextSeq\":20000.0\n}"
+				},
+				"description": "根据objectId更新相应的section的seq"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/help/faq/item",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/help/faq/item",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "查看所有的FAQ item"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/help/faq/item",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/help/faq/item",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"langCode\": \"en\",\n    \"templates\": [],\n    \"sectionId\": \"56c13790a5ff7f0001e2b138\",\n    \"title\": \"test001\",\n    \"content\": \"<p>test001</p>\",\n    \"platform\": [\n      \"0\",\n      \"1\"\n    ],\n    \"orgId\": \"566aa6c6a5ff7f0001b3996a\",\n    \"tags\": [],\n    \"userTemplate\": null,\n    \"appId\": null,\n    \"langName\": \"English\",\n    \"attach\": null,\n    \"seq\": 243245345\n  }"
+				},
+				"description": "创建一个全新的FAQ item"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/help/faq/item/{objectId}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/help/faq/item/56c44270a5ff7f0001c3c167",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"description": "根据objectId删除相应的faq item"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/help/faq/item/{objectId}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/help/faq/item/56c44342a5ff7f0001c3c1eb",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "根据objectId获取相应的faq item"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/help/faq/item/{objectId}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/help/faq/item/56c44342a5ff7f0001c3c1eb",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "  {\n    \"title\": \"test00111111111111\"\n  }"
+				},
+				"description": "根据objectId更新相应的faq item"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/help/faq/item/count",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/help/faq/item/count",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "统计出所有faq item的数量"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/help/faq/item/seq/{objectId}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/help/faq/item/seq/56c44520a5ff7f0001c3c307",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"preSeq\":10000,\n  \"nextSeq\":20001\n}"
+				},
+				"description": "根据objectId更新相应的seq"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/help/faq/searchItem",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/help/faq/searchItem",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "根据条件查询相应的faq item"
+			},
+			"response": []
+		}
+	]
+}

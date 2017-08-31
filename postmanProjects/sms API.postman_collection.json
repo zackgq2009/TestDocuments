@@ -1,0 +1,301 @@
+{
+	"variables": [],
+	"info": {
+		"name": "sms API",
+		"_postman_id": "300d545e-019c-703e-2f15-17e77c3629c7",
+		"description": "短信服务中用于发送短信的接口",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://apiuat.leap.as/2.0/requestSmsCode",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/requestSmsCode",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "566e96c3169e7d000169c323",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-MasterKey",
+						"value": "N2VkazR3QlJYcGZnczhUZVVlbXY2QQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"mobilePhone\":\"13585609415\"\n}"
+				},
+				"description": "获取短信验证码"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.leap.as/2.0/verifySmsCode",
+			"request": {
+				"url": "http://apiuat.leap.as/2.0/verifySmsCode",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56665bdee519c20001febc30",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-MasterKey",
+						"value": "RUp0djJ2ZnpIQTRjaWV3a1J5U3pxUQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"mobilePhone\":\"18964079527\",\n \"smsCode\":\"407368\"\n}"
+				},
+				"description": "提交验证码"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.leap.as/2.0/requestLoginSmsCode",
+			"request": {
+				"url": "http://apiuat.leap.as/2.0/requestLoginSmsCode",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56665bdee519c20001febc30",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-MasterKey",
+						"value": "RUp0djJ2ZnpIQTRjaWV3a1J5U3pxUQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"mobilePhone\":\"18964079527\"\n}"
+				},
+				"description": "获取验证并登陆验证码"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.leap.as/2.0/loginByMobilePhone",
+			"request": {
+				"url": "http://apiuat.leap.as/2.0/loginByMobilePhone",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56665bdee519c20001febc30",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-MasterKey",
+						"value": "RUp0djJ2ZnpIQTRjaWV3a1J5U3pxUQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"mobilePhone\":\"18964079527\",\n \"\":\"\"\n}"
+				},
+				"description": "验证并登录"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.leap.as/2.0/requestMobilePhoneVerify",
+			"request": {
+				"url": "http://apiuat.leap.as/2.0/requestMobilePhoneVerify",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56665bdee519c20001febc30",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-MasterKey",
+						"value": "RUp0djJ2ZnpIQTRjaWV3a1J5U3pxUQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"mobilePhone\":\"18964079527\"\n}"
+				},
+				"description": "主动请求发送手机验证码"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.leap.as/2.0/verifyMobilePhone",
+			"request": {
+				"url": "http://apiuat.leap.as/2.0/verifyMobilePhone",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56665bdee519c20001febc30",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-MasterKey",
+						"value": "RUp0djJ2ZnpIQTRjaWV3a1J5U3pxUQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"mobilePhone\":\"18964079527\",\n \"smsCode\":\"383819\"\n}"
+				},
+				"description": "主动验证手机号"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.leap.as/2.0/requestPasswordResetBySmsCode",
+			"request": {
+				"url": "http://apiuat.leap.as/2.0/requestPasswordResetBySmsCode",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56665bdee519c20001febc30",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-MasterKey",
+						"value": "RUp0djJ2ZnpIQTRjaWV3a1J5U3pxUQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"mobilePhone\":\"18964079527\"\n}"
+				},
+				"description": "获取重置密码的验证码"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.leap.as/2.0/resetPasswordBySmsCode",
+			"request": {
+				"url": "http://apiuat.leap.as/2.0/resetPasswordBySmsCode",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56665bdee519c20001febc30",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-MasterKey",
+						"value": "RUp0djJ2ZnpIQTRjaWV3a1J5U3pxUQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"mobilePhone\":\"18964079527\"\n}"
+				},
+				"description": "验证重设验证码，并设置新密码"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.leap.as/2.0/orgUsers/requestPasswordResetBySmsCode",
+			"request": {
+				"url": "http://apiuat.leap.as/2.0/orgUsers/requestPasswordResetBySmsCode",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"mobilePhone\":\"18964079527\"\n}"
+				},
+				"description": "开发者请求发送手机验证码"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.leap.as/2.0/orgUsers/loginByMobilePhone",
+			"request": {
+				"url": "http://apiuat.leap.as/2.0/orgUsers/loginByMobilePhone",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56665bdee519c20001febc30",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-MasterKey",
+						"value": "RUp0djJ2ZnpIQTRjaWV3a1J5U3pxUQ",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"mobilePhone\":\"18964079527\"\n}"
+				},
+				"description": "开发者请求手机验证并登录"
+			},
+			"response": []
+		}
+	]
+}

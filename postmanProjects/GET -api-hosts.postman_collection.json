@@ -1,0 +1,33 @@
+{
+	"variables": [],
+	"info": {
+		"name": "GET /api/hosts",
+		"_postman_id": "41fda8f7-3649-77da-2a9b-d1934ae232c4",
+		"description": "获取所有的Docker Host信息",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://10.10.10.176:5050/api/hosts",
+			"request": {
+				"url": "http://10.10.10.176:5050/api/hosts",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.leap.as/2.0/api/hosts",
+			"request": {
+				"url": "https://api.leap.as/2.0/api/hosts",
+				"method": "GET",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

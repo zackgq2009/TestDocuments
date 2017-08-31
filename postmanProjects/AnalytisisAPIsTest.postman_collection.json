@@ -1,0 +1,101 @@
+{
+	"variables": [],
+	"info": {
+		"name": "AnalytisisAPIsTest",
+		"_postman_id": "a2cd3df4-83a2-eca7-7df8-31ab3c223046",
+		"description": "数据分析的各个接口",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/2.0/installations",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/installations",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "56947b69a5ff7f000152f097",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\t\"pushType\":\"lpns\",\n\t\"deviceId\":\"000000000000000\",\n\t\"carrierName\":\"310,260\",\n\t\"locale\":\"us\",\n\t\"deviceType\":\"android\",\n\t\"appIdentifier\":\"com.maxleap.test.payment\",\n\t\"installationId\":\"dd419989d53a4779a6a35b214c861a60\",\n\t\"appName\":\"test-payment\",\n\t\"timeZone\":\"America\\/New_York\",\n\t\"appVersion\":\"3.0\",\n\t\"sdkVersion\":\"0.9.0\",\n\t\"osVersion\":\"5.0\",\n\t\"deviceModel\":\"google nexus 4 - 5.0.0 - api 21 - 768x1280\",\n\t\"language\":\"en\",\n\t\"deviceName\":\"vbox86p\"\n}"
+				},
+				"description": "/2.0/installations"
+			},
+			"response": []
+		},
+		{
+			"name": "/2.0/ana/at",
+			"request": {
+				"url": "https://ana.maxleap.cn/2.0/ana/at",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "56947b69a5ff7f000152f097",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n{\r\n\t\"os\":\"ios\",\r\n\t\"productId\":\"goldCoin\",\r\n\t\"type\":\"inapp\",\r\n\t\"priceAmount\":66737577,\r\n\t\"priceCurrency\":\"USD\",\r\n\t\"status\":\"0\",\r\n\t\"installationId\":\"tuutf-tt-uft8ft-6842618762411655\",\r\n\t\"appId\":\"56947b69a5ff7f000152f097\",\r\n\t\"channel\":\"App Store\",\r\n\t\"language\":\"en\",\r\n\t\"paySource\":\"google play\",\r\n\t\"appVersion\":\"6.7\",\r\n\t\"uuid\":\"t88tfu-t25458269tuuu8t--40346382\",\r\n\t\"userId\":\"56962811169e7d00012e1767\",\r\n\t\"national\":\"us\",\r\n\t\"transactionId\":\"f8u8u8tff790345178-f-uuf8uu841790117\",\r\n\t\"sessionId\":\"-tt8-8f-729368798uu8ttu852453699\",\r\n\t\"userCreateTime\":1452669522,\r\n\t\"isVirtualCurrency\":\"1\",\r\n\t\"virtualCurrencyAmount\":96417,\r\n\t\"mission\":\"关卡48\"\r\n},\r\n{\r\n\t\"os\":\"ios\",\r\n\t\"productId\":\"goldCoin\",\r\n\t\"type\":\"inapp\",\r\n\t\"priceAmount\":2294347035,\r\n\t\"priceCurrency\":\"USD\",\r\n\t\"status\":\"3\",\r\n\t\"installationId\":\"tttfu-t8utuuuutt4777748510212509\",\r\n\t\"appId\":\"56947b69a5ff7f000152f097\",\r\n\t\"channel\":\"App Store\",\r\n\t\"language\":\"en\",\r\n\t\"paySource\":\"google play\",\r\n\t\"appVersion\":\"8.6\",\r\n\t\"uuid\":\"-ut8uftf474819778tt-t8-t70465647\",\r\n\t\"userId\":\"56962811169e7d00012e1767\",\r\n\t\"national\":\"us\",\r\n\t\"transactionId\":\"ttuft-fuf583399043f88ftuf-8663506978\",\r\n\t\"sessionId\":\"ft-88tf-84058970-u-t88t897465943\",\r\n\t\"userCreateTime\":1452669522,\r\n\t\"isVirtualCurrency\":\"1\",\r\n\t\"virtualCurrencyAmount\":77412,\r\n\t\"mission\":\"关卡56\"\r\n}\r\n]"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "/2.0/payments",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/payments",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "56947b69a5ff7f000152f097",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n{\r\n\t\"os\":\"ios\",\r\n\t\"productId\":\"goldCoin\",\r\n\t\"type\":\"inapp\",\r\n\t\"priceAmount\":66737577,\r\n\t\"priceCurrency\":\"USD\",\r\n\t\"status\":\"0\",\r\n\t\"installationId\":\"tuutf-tt-uft8ft-6842618762411655\",\r\n\t\"appId\":\"56947b69a5ff7f000152f097\",\r\n\t\"channel\":\"App Store\",\r\n\t\"language\":\"en\",\r\n\t\"paySource\":\"google play\",\r\n\t\"appVersion\":\"6.7\",\r\n\t\"uuid\":\"t88tfu-t25458269tuuu8t--40346382\",\r\n\t\"userId\":\"56962811169e7d00012e1767\",\r\n\t\"national\":\"us\",\r\n\t\"transactionId\":\"f8u8u8tff790345178-f-uuf8uu841790117\",\r\n\t\"sessionId\":\"-tt8-8f-729368798uu8ttu852453699\",\r\n\t\"userCreateTime\":1452669522,\r\n\t\"isVirtualCurrency\":\"1\",\r\n\t\"virtualCurrencyAmount\":96417,\r\n\t\"mission\":\"关卡48\"\r\n},\r\n{\r\n\t\"os\":\"ios\",\r\n\t\"productId\":\"goldCoin\",\r\n\t\"type\":\"inapp\",\r\n\t\"priceAmount\":2294347035,\r\n\t\"priceCurrency\":\"USD\",\r\n\t\"status\":\"3\",\r\n\t\"installationId\":\"tttfu-t8utuuuutt4777748510212509\",\r\n\t\"appId\":\"56947b69a5ff7f000152f097\",\r\n\t\"channel\":\"App Store\",\r\n\t\"language\":\"en\",\r\n\t\"paySource\":\"google play\",\r\n\t\"appVersion\":\"8.6\",\r\n\t\"uuid\":\"-ut8uftf474819778tt-t8-t70465647\",\r\n\t\"userId\":\"56962811169e7d00012e1767\",\r\n\t\"national\":\"us\",\r\n\t\"transactionId\":\"ttuft-fuf583399043f88ftuf-8663506978\",\r\n\t\"sessionId\":\"ft-88tf-84058970-u-t88t897465943\",\r\n\t\"userCreateTime\":1452669522,\r\n\t\"isVirtualCurrency\":\"1\",\r\n\t\"virtualCurrencyAmount\":77412,\r\n\t\"mission\":\"关卡56\"\r\n}\r\n]"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

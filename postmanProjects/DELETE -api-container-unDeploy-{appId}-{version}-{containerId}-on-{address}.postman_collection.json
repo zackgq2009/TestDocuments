@@ -1,0 +1,33 @@
+{
+	"variables": [],
+	"info": {
+		"name": "DELETE /api/container/unDeploy/{appId}/{version}/{containerId}/on/{address}",
+		"_postman_id": "dcec8c8d-2f5d-eea1-9c35-de6c456192df",
+		"description": "卸载指定deployer中的某个版本的CloudCode容器",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://10.10.10.176:5050/api/container/unDeploy/{appId}/{version}/{containerId}/on/{address}",
+			"request": {
+				"url": "http://10.10.10.176:5050/api/container/unDeploy/555d467660b277963a91cadd/0.2.7/830170ab967dd24a80ac031a33d9c898ad9abb1a2fc74acf84dc23346a78ca96/on/475436978",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.leap.as/2.0/api/container/unDeploy/{appId}/{version}/{containerId}/on/{address}",
+			"request": {
+				"url": "https://api.leap.as/2.0/api/container/unDeploy/553738ce60b2812d5a849f15/0.2.2/37e728d6655626e83d776d72f21ecb1a1315e7d907196a20ac392c4060b0354e/on/cloudcode4",
+				"method": "DELETE",
+				"header": [],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

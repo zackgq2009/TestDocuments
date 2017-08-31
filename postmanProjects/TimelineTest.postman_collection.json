@@ -1,0 +1,71 @@
+{
+	"variables": [],
+	"info": {
+		"name": "TimelineTest",
+		"_postman_id": "60e7fcfb-7082-2975-ed3a-d6530aedbacd",
+		"description": "eventType:0,1,2,3,4,5\n0-->signup\n1-->signin\n2-->signout\n3-->session_start\n4-->payment\n5-->custom event",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/analytics/at",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/analytics/at",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "565bc14ce9db730001d5a168",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-MasterKey",
+						"value": "a0tMZlpNZjBrY3o2aUZhd0pqVWVZUQ",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"TimeLineEvent\":[\n{\n\"uuid\":\"556002f4f60d47bd80343b8c467bad34\",\n\"appId\":\"565bc14ce9db730001d5a168\",\n\"userId\":\"5672250fe9db730001f15418\",\n\"appUserId\":\"d493d2f38fc743108bcf5b5bb0a9dea8\",\n\"deviceId\":\"000000000000000\",\n\"channel\":\"google_play\",\n\"appVersion\":\"3.0\",\n\"os\":\"5.0\",\n\"eventType\":1,\n\"eventId\":\"signin\",\n\"eventName\":\"signin\",\n\"eventNickName\":\"signin\",\n\"deviceModel\":\"google nexus 4 - 5.0.0 - api 21 - 768x1280\",\n\"timestamp\":1450321091,\n\"national\":\"us\"\n},\n{\n\"uuid\":\"556002f4f60d47bd80343b8c467bad35\",\n\"appId\":\"565bc14ce9db730001d5a168\",\n\"userId\":\"5672250fe9db730001f15418\",\n\"appUserId\":\"d493d2f38fc743108bcf5b5bb0a9dea8\",\n\"deviceId\":\"000000000000000\",\n\"channel\":\"google_play\",\n\"appVersion\":\"3.0\",\n\"os\":\"5.0\",\n\"eventType\":2,\n\"eventId\":\"signout\",\n\"eventName\":\"signout\",\n\"eventNickName\":\"signout\",\n\"deviceModel\":\"google nexus 4 - 5.0.0 - api 21 - 768x1280\",\n\"timestamp\":1450321101,\n\"national\":\"us\"\n},\n{\n\"uuid\":\"556002f4f60d47bd80343b8c467bad36\",\n\"appId\":\"565bc14ce9db730001d5a168\",\n\"userId\":\"5672250fe9db730001f15418\",\n\"appUserId\":\"d493d2f38fc743108bcf5b5bb0a9dea8\",\n\"deviceId\":\"000000000000000\",\n\"channel\":\"google_play\",\n\"appVersion\":\"3.0\",\n\"os\":\"5.0\",\n\"eventType\":3,\n\"eventId\":\"session_start\",\n\"eventName\":\"session_start\",\n\"eventNickName\":\"session_start\",\n\"deviceModel\":\"google nexus 4 - 5.0.0 - api 21 - 768x1280\",\n\"timestamp\":1450321111,\n\"national\":\"us\"\n}\n]\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "http://apiuat.maxleap.cn/2.0/payments",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/payments",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "56de2eaaa5ff7f0001a98695",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-MasterKey",
+						"value": "WVptX1JmVmtlYjlJcHlPWGNTbnI0dw",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n    \"os\":\"android\",\n    \"productId\":\"金币\",\n    \"type\":\"inapp\",\n    \"priceAmount\":19990000,\n    \"priceCurrency\":\"USD\",\n    \"status\":0,\n    \"installationId\":\"2b138cb697c047869c3b45780c2a9769\",\n    \"appId\":\"56de2eaaa5ff7f0001a98695\",\n    \"channel\":\"google_play\",\n    \"language\":\"en\",\n    \"paySource\":\"google play\",\n    \"appVersion\":\"3.0\",\n    \"uuid\":\"23931b823594430ab6783c6cc77c3792\",\n    \"userId\":\"56de3495a5ff7f0001a98a9b\",\n    \"national\":\"us\",\n    \"transactionId\":\"147a1504-7c22-4b0a-b1a9-d05383913b34\",\n    \"sessionId\":\"49a9af14406845aa8f975f7a7936ea60\",\n    \"userCreateTime\":1450845224,\n    \"isVirtualCurrency\":\"1\",\n    \"virtualCurrencyAmount\":8000,\n    \"mission\":\"关卡1\"\n    },\n    {\n    \"os\":\"android\",\n    \"productId\":\"金币\",\n    \"type\":\"inapp\",\n    \"priceAmount\":19990000,\n    \"priceCurrency\":\"USD\",\n    \"status\":3,\n    \"installationId\":\"2b138cb697c047869c3b45780c2a9769\",\n    \"appId\":\"56de2eaaa5ff7f0001a98695\",\n    \"channel\":\"google_play\",\n    \"language\":\"en\",\n    \"paySource\":\"google play\",\n    \"appVersion\":\"3.0\",\n    \"uuid\":\"cd813bdeee454dcba1f285ceb0960791\",\n    \"userId\":\"56de3495a5ff7f0001a98a9b\",\n    \"national\":\"us\",\n    \"transactionId\":\"147a1504-7c22-4b0a-b1a9-d05383913b34\",\n    \"sessionId\":\"49a9af14406845aa8f975f7a7936ea60\",\n    \"userCreateTime\":1450845224,\n    \"isVirtualCurrency\":\"1\",\n    \"virtualCurrencyAmount\":8000,\n    \"mission\":\"关卡1\"\n    }\n]"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

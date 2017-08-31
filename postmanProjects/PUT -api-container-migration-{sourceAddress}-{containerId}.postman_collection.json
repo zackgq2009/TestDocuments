@@ -1,0 +1,51 @@
+{
+	"variables": [],
+	"info": {
+		"name": "PUT /api/container/migration/{sourceAddress}/{containerId}",
+		"_postman_id": "164187c9-547d-a111-f28c-ac77e7dcf7fa",
+		"description": "迁移指定deployer中的cloudcode容器到另一个deployer上",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://10.10.10.176:5050/api/container/migration/{sourceAddress}/{containerId}",
+			"request": {
+				"url": "http://10.10.10.176:5050/api/container/migration/475436979/43e08dc4bc38fdae8f2f66134b16d2277d911a27dc46d7dd0803ab25c1d74a00",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"targetAddress\":\"475436979\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.leap.as/2.0/api/container/migration/{sourceAddress}/{containerId}",
+			"request": {
+				"url": "https://api.leap.as/2.0/api/container/migration/cloudcode4/37e728d6655626e83d776d72f21ecb1a1315e7d907196a20ac392c4060b0354e",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"targetAddress\":\"cloudcode5\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,98 @@
+{
+	"variables": [],
+	"info": {
+		"name": "SegmentTest",
+		"_postman_id": "d8f14826-a003-a723-8f0f-c06da43127fe",
+		"description": "Test content about /marketing/in-app and /cconfigs/keys",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://api.leap.as/2.0/marketing/in-app",
+			"request": {
+				"url": "https://api.leap.as/2.0/marketing/in-app",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "55d1480860b291cc25a651cd",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "MV7B1sWZmN0JACWokgVfhE1EvFDonBHkhulWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"installId\":\"d0937f321ba44ac8a158afb8c3049621\"\n}"
+				},
+				"description": "marketing in-app API test"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.leap.as/2.0/cconfigs/keys",
+			"request": {
+				"url": "https://api.leap.as/2.0/cconfigs/keys",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "55d1480860b291cc25a651cd",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "MV7B1sWZmN0JACWokgVfhE1EvFDonBHkhulWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"appId\":\"55d1480860b291cc25a651cd\",\n\"keys\":[\"EventTest\"],\n\"installId\":\"4ff9ab1cb2d445aa8323e21c5491b232\"\n}"
+				},
+				"description": "cloudconfigs test"
+			},
+			"response": []
+		},
+		{
+			"name": "http://api.appcube.io/2.0/segs/install/",
+			"request": {
+				"url": "http://api.appcube.io/2.0/segs/install/138c6b687ec64bf1b2c6eaa0f2969859",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "55d1480860b291cc25a651cd",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "MV7B1sWZmN0JACWokgVfhE1EvFDonBHkhulWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "get all segments for the installID"
+			},
+			"response": []
+		}
+	]
+}

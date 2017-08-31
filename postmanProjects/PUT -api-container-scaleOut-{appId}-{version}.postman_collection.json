@@ -1,0 +1,51 @@
+{
+	"variables": [],
+	"info": {
+		"name": "PUT /api/container/scaleOut/{appId}/{version}",
+		"_postman_id": "78bac432-1ab2-5a76-2a0c-720b0e4bc59a",
+		"description": "对指定版本应用扩容",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://10.10.10.176:5050/api/container/scaleOut/{appId}/{version}",
+			"request": {
+				"url": "http://10.10.10.176:5050/api/container/scaleOut/555d467660b277963a91cadd/0.2.7",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"count\":1,//实例数量\n \"memory\":256//每个实例分配内存大小，单元M\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.leap.as/2.0/api/container/scaleOut/{appId}/{version}",
+			"request": {
+				"url": "https://api.leap.as/2.0/api/container/scaleOut/553738ce60b2812d5a849f15/0.2.2",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n \"count\":1,//实例数量\n \"memory\":256//每个实例分配内存大小，单元M\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

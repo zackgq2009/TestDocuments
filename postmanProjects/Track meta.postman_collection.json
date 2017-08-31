@@ -1,0 +1,80 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Track meta",
+		"_postman_id": "503d83d4-e7b4-438e-4eb7-fcd0f9cf15c0",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://api.maxleap.cn/2.0/track/meta/{eventName}",
+			"request": {
+				"url": "https://apiuat.maxleap.cn/2.0/track/meta/CancelOrder",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-RequestSign",
+						"value": "d6dd7213a8168713d12040df68d4b416,1476152962",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "post track meta",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/track/meta",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-RequestSign",
+						"value": "d6dd7213a8168713d12040df68d4b416,1476152962",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"distinct_id\": \"string\",\n  \"time\": \"long\",\n  \"type\": \"string\",\n  \"event\":\"Signup\",\n  \"properties\": {\n    \"_deviceModel\": \"string\",\n    \"eventId\": \"string\",\n    \"appVersion\": \"string\",\n    \"os\": \"string\",\n    \"channel\": \"string\",\n    \"eventNickName\": \"string\",\n    \"language\": \"string\",\n    \"deviceId\": \"string\",\n    \"uuid\": \"string\",\n    \"resolution\": \"string\",\n    \"network\": \"string\",\n    \"carrier\": \"string\",\n    \"osVersion\": \"string\",\n    \"_eventType\": \"integer\",\n    \"appId\": \"string\",\n    \"national\": \"string\",\n    \"eventName\": \"string\",\n    \"sdkVersion\": \"string\",\n    \"_appId\": \"string\",\n    \"appUserId\": \"string\",\n    \"userId\": \"string\",\n    \"timestamp\": \"long\"\n  }\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "https://www.maxwon.cn/2.0/baidu/track/event",
+			"request": {
+				"url": "https://www.maxwon.cn/2.0/track/event",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "57f9a46d9a19d6000181f366",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

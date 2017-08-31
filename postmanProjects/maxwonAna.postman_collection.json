@@ -1,0 +1,641 @@
+{
+	"variables": [],
+	"info": {
+		"name": "maxwonAna",
+		"_postman_id": "ef3ab8de-d799-0b36-e089-af3068567ef3",
+		"description": "ana for maxwon",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "今日用户相关宏观指标",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/event?bookmarkId=1",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-10-19\",\n\"to_date\":\"2016-10-19\",\n\"unit\":\"day\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "过去一周每天活跃用户数",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/event?bookmarkId=2",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-10-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "过去一周每天注册用户数",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/event?bookmarkId=3",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-09-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "今日的用户浏览商品后转化情况",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/retention?bookmarkId=4",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-09-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "过去一周的注册用户转化情况",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/retention?bookmarkId=5",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-09-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "过去七天的不同渠道注册用户的存留情况",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/retention?bookmarkId=6",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-10-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "过去一周的用户重复购买情况",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/retention?bookmarkId=7",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-09-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "过去一周的每日有购买用户数",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/event?bookmarkId=101",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-09-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "今日的销售情况总览",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/event?bookmarkId=102",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-09-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "过去一周每日订单量",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/event?bookmarkId=103",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-09-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "本周每日总销量",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/event?bookmarkId=104",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-09-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "过去一周每日订单均价",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/event?bookmarkId=105",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-09-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "过去一周每个商品的每日浏览量",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/event?bookmarkId=201",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-09-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "过去一周每个商品的每日购买订单数",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/event?bookmarkId=202",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-09-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "过去一周每个商品的每日购买用户数",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/event?bookmarkId=203",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-09-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "过去一周每个商品的每日销售总额",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/event?bookmarkId=204",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-09-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "过去一周每个品类的每日浏览总数",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/event?bookmarkId=301",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-09-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "过去一周每个品类的每日订单总数",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/event?bookmarkId=302",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-09-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "过去一周每个品类的每日总销量",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/event?bookmarkId=303",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-09-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "过去一周每个品类的每日平均订单单价",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/event?bookmarkId=304",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-09-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "过去一周每个品类的平均每日购买用户数",
+			"request": {
+				"url": "http://{{host}}/1.0/won_ana/reports/event?bookmarkId=305",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appid}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "{{sessionToken}}",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"from_date\":\"2016-09-18\",\n\"to_date\":\"2016-10-18\",\n\"unit\":\"week\"\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}

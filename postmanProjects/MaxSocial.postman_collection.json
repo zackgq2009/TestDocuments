@@ -1,0 +1,1034 @@
+{
+	"variables": [],
+	"info": {
+		"name": "MaxSocial",
+		"_postman_id": "4c772f95-3487-cde6-2da4-ae530e063283",
+		"description": "关于maxsocial所有的接口测试",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://{server}/maxsocial/socialpass/register",
+			"request": {
+				"url": "http://{{server}}/maxsocial/socialpass/register",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"test003\",\n    \"password\":\"123456\"\n}"
+				},
+				"description": "注册用户"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/socialpass/login",
+			"request": {
+				"url": "http://{{server}}/maxsocial/socialpass/login",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"username\":\"test001\",\n    \"password\":\"123456\"\n}"
+				},
+				"description": "用户登录"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/socialpass/smsCode",
+			"request": {
+				"url": "http://{{server}}/maxsocial/socialpass/smsCode",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mobilePhone\":\"18964079527\"\n}"
+				},
+				"description": "获取短信验证码"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/socialpass/loginByMobile",
+			"request": {
+				"url": "http://{{server}}/maxsocial/socialpass/loginByMobile",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"mobilePhone\":\"18964079527\",\n    \"smsCode\":\"120317\"\n}"
+				},
+				"description": "短信验证码登录"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/comment",
+			"request": {
+				"url": "http://{{server}}/maxsocial/comment",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"userId\":\"5704e0e9667a2300015c1bd0\",\n\"content\":\"comment001comment001comment001comment001comment001comment001comment001comment001\",\n\"shuoId\":\"5705cbe8238c8f0001212a27\",\n\"zan\":true,\n\"read\":true\n}"
+				},
+				"description": "创建或者更新评论，评论id就是objectId"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/comment/objectId/{objectId}",
+			"request": {
+				"url": "http://{{server}}/maxsocial/comment/objectId/570601a2238c8f0001a80de0",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"userId\":\"\",\n\"content\":\"\",\n\"shuoId\":\"\",\n\"zan\":\"\"\n}"
+				},
+				"description": "根据objectId获得评论"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/comment/objectId/{objectId}",
+			"request": {
+				"url": "http://{{server}}/maxsocial/comment/objectId/{objectId}",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"userId\":\"\",\n\"content\":\"\",\n\"shuoId\":\"\",\n\"zan\":\"\"\n}"
+				},
+				"description": "根据objectId删除评论"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/comment/list",
+			"request": {
+				"url": "http://{{server}}/maxsocial/comment/list",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "{{appId}}",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "{{requestSign}}",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"shuoId\":\"5705cbe8238c8f0001212a27\",\n\"pageId\":0,\n\"sort\":1,\n\"asc\":false,\n\"zan\":true\n}"
+				},
+				"description": "获取评论列表\n请求可选字段：pageId 默认是0\nsort 默认是1\n1：按创建时间排序\n0：按userId排序\nasc：默认false"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/comment/unread?userId={id}",
+			"request": {
+				"url": "http://{{server}}/maxsocial/comment/unread?userId=5704e0e9667a2300015c1bd0",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "578edc609a19d600011e3f25",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"shuoId\":\"\",\n\"pageId\":\"0\",\n\"sort\":\"1\",\n\"asc\":false\n}"
+				},
+				"description": "得到未读评论"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/comment/update",
+			"request": {
+				"url": "http://{{server}}/maxsocial/comment/update",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"objectId\":\"570601a2238c8f0001a80de0\",\n\"read\":true,\n\"zan\":true\n}"
+				},
+				"description": "update评论的已读状态"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/location",
+			"request": {
+				"url": "http://{{server}}/maxsocial/location",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"userId\":\"5704e0c3667a2300015c1bce\",\n\"location\":{\n    \"type\":\"Point\",\n    \"coordinates\":[90, 20]\n}\n}"
+				},
+				"description": "创建或者更新用户和地理位置的对应关系"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/location/near",
+			"request": {
+				"url": "http://{{server}}/maxsocial/location/near",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"userId\":\"5704e0e9667a2300015c1bd0\",\n\"longitude\":90,\n\"latitude\":20,\n\"distance\":10000\n}"
+				},
+				"description": "得到指定地点指定距离内的人"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/location/objectId/{objectId}",
+			"request": {
+				"url": "http://{{server}}/maxsocial/location/objectId/5705fb21238c8f0001a80ddd",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"userId\":\"\",\n\"longitude\":50,\n\"latitude\":10,\n\"distance\":10000\n}"
+				},
+				"description": "根据objectId获得用户和地理对应关系"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/location/objectId/{objectId}",
+			"request": {
+				"url": "http://{{server}}/maxsocial/location/objectId/{objectId}",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"userId\":\"\",\n\"longitude\":50,\n\"latitude\":10,\n\"distance\":10000\n}"
+				},
+				"description": "根据objectId删除用户和地理对应关系"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/location/userId/{userId}",
+			"request": {
+				"url": "http://{{server}}/maxsocial/location/userId/5704e0c3667a2300015c1bce",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"userId\":\"\",\n\"longitude\":50,\n\"latitude\":10,\n\"distance\":10000\n}"
+				},
+				"description": "获取用户的地理信息"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/relation",
+			"request": {
+				"url": "http://{{server}}/maxsocial/relation",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"userId\":\"5704e0c3667a2300015c1bce\",\n\"followerId\":\"5704e0e9667a2300015c1bd0\",\n\"reverse\":true\n}"
+				},
+				"description": "创建或者更新用户关系表\nreverse:是否相互关注"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/relation/objectId/{objectId}",
+			"request": {
+				"url": "http://{{server}}/maxsocial/relation/objectId/5705fe65238c8f0001a80ddf",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"userId\":\"\",\n\"followerId\":\"\",\n\"reverse\":true\n}"
+				},
+				"description": "根据objectId获取relation"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/relation/status?followerId=%s&userId=%s",
+			"request": {
+				"url": "http://{{server}}/maxsocial/relation/status?followerId=5704e0e9667a2300015c1bd0&userId=5704e0c3667a2300015c1bce",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"userId\":\"\",\n\"followerId\":\"\",\n\"reverse\":true\n}"
+				},
+				"description": "获取关注状态\n1：相互关注\n0：已关注\n-1：未关注"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/relation/follows",
+			"request": {
+				"url": "http://{{server}}/maxsocial/relation/follows",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"followerId\":\"5704e0c3667a2300015c1bce\",\n\"pageId\":0,\n\"sort\":1,\n\"asc\":false\n}"
+				},
+				"description": "获取关注列表\n请求可选字段：\npageId：默认是0\nsort：默认是1\n1：按创建时间排序\n0：按userId排序\nasc：默认false"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/relation/followers",
+			"request": {
+				"url": "http://{{server}}/maxsocial/relation/followers",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"userId\":\"5704e0c3667a2300015c1bce\",\n\"pageId\":0,\n\"sort\":1,\n\"asc\":false\n}"
+				},
+				"description": "获取粉丝列表\n请求可选字段：\npageId：默认是0\nsort；默认是1\n1：按创建时间排序\n0：按userId排序\nasc:默认false"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/relation/objectId/{objectId}",
+			"request": {
+				"url": "http://{{server}}/maxsocial/relation/objectId/{objectId}",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "根据objectId删除relation"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/relation/delete?userId=%s&followerId=%s",
+			"request": {
+				"url": "http://{{server}}/maxsocial/relation/delete?userId=%s&followerId=%s",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "根据userId删除relation"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/shuo",
+			"request": {
+				"url": "http://{{server}}/maxsocial/shuo",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "578edc609a19d600011e3f25",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "cbe03dbac173721827ed7836b8b09ca7,1",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "userId",
+							"value": "76",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "user002shuo001user002shuo001user002shuo001user002shuo001user002shuo001",
+							"type": "text"
+						},
+						{
+							"key": "latitude",
+							"value": "10",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "50",
+							"type": "text"
+						},
+						{
+							"key": "file",
+							"type": "file",
+							"src": "081447_PIlC_12.jpg"
+						}
+					]
+				},
+				"description": "创建或者更新说说,\n字段：\nuserId,content,link,\nlongitude,latitude\n地理位置字段可选，\n文件，文字内容和连接不能3者都有也不能都没有"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/shuo/objectId/%s",
+			"request": {
+				"url": "http://{{server}}/maxsocial/shuo/objectId/5705cbe8238c8f0001212a27",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "",
+							"type": "file"
+						},
+						{
+							"key": "userId",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "link",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "latitude",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "根据objectId获取说说"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/shuo/objectId/%s",
+			"request": {
+				"url": "http://{{server}}/maxsocial/shuo/objectId/579040c9238c8f00014b734f",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "578edc609a19d600011e3f25",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "",
+							"type": "file"
+						},
+						{
+							"key": "userId",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "link",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "latitude",
+							"value": "",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "",
+							"type": "text"
+						}
+					]
+				},
+				"description": "根据objectId删除说说"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/shuo/list",
+			"request": {
+				"url": "http://{{server}}/maxsocial/shuo/list",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "577e037e9a19d60001562ca4",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "d7f043372dd186d82cd1e38068f77003,1",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\":\"80\",\n    \"black\":false\n}"
+				},
+				"description": "根据userId得到说说列表\n请求可选字段：\npageId：默认是0\nsort：默认是1\n1：按创建时间排序\n0：按照userId排序\nasc:默认false"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/shuo/photoslist?userId=%s&objectId=%s",
+			"request": {
+				"url": "http://{{server}}/maxsocial/shuo/photoslist?userId=5704e0c3667a2300015c1bce&objectId=5705e034238c8f0001a511d6",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\":\"\",\n    \"black\":false\n}"
+				},
+				"description": "根据userId以及objectId获取到说说的图片名列表"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/shuo/download",
+			"request": {
+				"url": "http://{{server}}/maxsocial/shuo/download",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"userId\":\"5704e0c3667a2300015c1bce\",\n    \"objectId\":\"5705cbe8238c8f0001212a27\",\n    \"fileName\":\"6e9b154a-725d-4089-9134-cb6654095410\"\n}"
+				},
+				"description": "下载图片"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/shuo/photosdelete",
+			"request": {
+				"url": "http://{{server}}/maxsocial/shuo/photosdelete",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "5704e070667a2300015c1ba5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "4001ee8e86ab2545d8ed1a6bce8f3d9d,1459936800",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"userId\":\"\",\n\"objectId\":\"\"\n}"
+				},
+				"description": "删除说说的图片"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/shuo/near",
+			"request": {
+				"url": "http://{{server}}/maxsocial/shuo/near",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "574ff56a169e7d0001a56008",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "1484f4d73b644a4a7beeea3b85f1ba7c,1464946364226",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"longitude\":50,\n\"latitude\":20,\n\"distance\":10000000\n}"
+				},
+				"description": "得到指定区域附近的说说"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/shuo/latest",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/maxsocial/shuo/latest",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-ML-AppId",
+						"value": "578edc609a19d600011e3f25",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "34fa2863045bdcc4f22ef6ad476e5fe5,1",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"pageId\":0,\n\"sort\":1,\n\"asc\":false\n}"
+				},
+				"description": "得到最新的一些说说，默认50条\npageId，sort,asc/desc"
+			},
+			"response": []
+		},
+		{
+			"name": "http://{server}/maxsocial/shuo/friendCircle",
+			"request": {
+				"url": "http://{{server}}/maxsocial/shuo/friendCircle",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "574ff56a169e7d0001a56008",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Request-Sign",
+						"value": "324ba7a329f7f8126bfb4ffc67678b12,1465206133",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"userId\":\"5704e0e9667a2300015c1bd0\"}"
+				},
+				"description": "根据userId获取朋友圈信息"
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,296 @@
+{
+	"variables": [],
+	"info": {
+		"name": "MaxPay",
+		"_postman_id": "36bfe095-4d15-1acf-3427-1a2294f50676",
+		"description": "pay rest apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "/2.0/maxpay/bill",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/maxpay/bill",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"channel\":\"ali_app\",\n\"billNum\":\"1231243431111222\",\n\"totalFee\":1212,\n\"subject\":\"maxpay\",\n\"returnUrl\":\"http://www.baidu.com\",\n\"billTimeout\":360,\n\"showUrl\":\"http://maxleap.cn\",  \n\"qrPayMode\":\"0,1,3\"\n}"
+				},
+				"description": "支付"
+			},
+			"response": []
+		},
+		{
+			"name": "/2.0/maxpay/records",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/maxpay/records",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"channel\":\"ali_app\",//string支付渠道，可选，见\"https://app.ilegendsoft.com/confluence/display/ASRV/TimeLine\" 的PaySource\n  \"billNum\":\"1231231231231111\",//string,订单号，可选.\n  \"status\":\"created\",//string,分别为created未支付，sucess已支付，refund已退款。\n  \"skip\":0,//分页参数，跳过条数。\n  \"limit\":200,//分页参数，分页大小。\n  \"order\":\"-createdAt\"\n}"
+				},
+				"description": "记录查询"
+			},
+			"response": []
+		},
+		{
+			"name": "/2.0/maxpay/channel",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/maxpay/channel",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "56936325a5ff7f0001a27b89",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"name\":\"ali\",//支付渠道，暂时只支持ali，见\"https://app.ilegendsoft.com/confluence/display/ASRV/TimeLine\" 的PaySource\n  \"partner\":\"12414124123\",//ali支付提供的partner项\n  \"seller\":\"12414124123\",//卖家账户ID\n  \"secureKey\":\"3fasr43fsadrtfr4\",//安全校验码\n  \"rsaKey\":\"aslkdihfioasyfkashdflkhsa\"  //ali的rsa，具体生成见http://doc.open.alipay.com/doc2/detail.htm?spm=0.0.0.0.CtQkzK&treeId=58&articleId=103242&docType=1。\n}"
+				},
+				"description": "添加或覆盖channel配置"
+			},
+			"response": []
+		},
+		{
+			"name": "/2.0/maxpay/channel/{name}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/maxpay/channel",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "获取渠道信息，request中url如果存在name，只返回该项的配置，如果不存在则返回所有信息的配置"
+			},
+			"response": []
+		},
+		{
+			"name": "/2.0/maxpay/channel/{name}",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/maxpay/channel/ali",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "568a12086e912100017722e5",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "1eHwAapfyKgRufiBaoKNf63vyuCt_hHlkDdGncfGhBs",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "删除渠道信息(清空支付渠道配置的所有信息)"
+			},
+			"response": []
+		},
+		{
+			"name": "/2.0/maxpay/webhook",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/maxpay/webhook",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n//   \"id\":\"\",//可选，如果添加表示修改上次的配置\n  \"pay\":true,//表示需要通知pay事件,boolean\n  \"refund\":true,//表示需要通知退款事件,boolean\n  \"mode\":\"test\",//webhook线上线下开关，test或者live\n  \"url\":\"http://maxleap/cn\"//支付的事件发生时，回调的url。\n}"
+				},
+				"description": "添加或覆盖webhook"
+			},
+			"response": []
+		},
+		{
+			"name": "/2.0/maxpay/webhook/{id}",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/maxpay/webhook/f08c312e-0395-4192-8179-28b2298a7178",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "5822a64eb1c682000163a5ae",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "1eHwAapfyKgRufiBaoKNf63vyuCt_hHlkDdGncfGhBs",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "获取hook信息，requet url中如果指定id，返回单个hook信息，未指定返回所有hook的信息。"
+			},
+			"response": []
+		},
+		{
+			"name": "/2.0/maxpay/webhook/{id}",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/maxpay/webhook/24088ac3-3cf1-466a-ab89-6abdd19fa2be",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "568a12086e912100017722e5",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "1eHwAapfyKgRufiBaoKNf63vyuCt_hHlkDdGncfGhBs",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "删除对应的webhook"
+			},
+			"response": []
+		},
+		{
+			"name": "/2.0/maxpay/webhooktest",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/maxpay/webhooktest",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"event\":\"pay\",\n    \"id\":\"373fc889-f322-4927-8b28-880f183dab24\"\n}"
+				},
+				"description": "测试webhook"
+			},
+			"response": []
+		},
+		{
+			"name": "/2.0/maxpay/config",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/maxpay/config",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "568a12086e912100017722e5",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "1eHwAapfyKgRufiBaoKNf63vyuCt_hHlkDdGncfGhBs",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "删除所有配置包括hook和channel"
+			},
+			"response": []
+		}
+	]
+}

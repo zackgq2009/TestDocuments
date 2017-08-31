@@ -1,0 +1,426 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Hotload",
+		"_postman_id": "9548345a-51c8-5950-96c3-f335be94e129",
+		"description": "test the hotload project",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://hotload.maxleap.cn/apps",
+			"request": {
+				"url": "http://hotload.maxleap.cn/apps",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Hot-Session-token",
+						"value": "mzJwI9FtIPs0Ta6yeCPodU8VemD0ihHlr6NWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n    \"os\":\"android\",\n    \"productId\":\"金币\",\n    \"type\":\"inapp\",\n    \"priceAmount\":19990000,\n    \"priceCurrency\":\"USD\",\n    \"status\":0,\n    \"installationId\":\"2b138cb697c047869c3b45780c2a9769\",\n    \"appId\":\"56de2eaaa5ff7f0001a98695\",\n    \"channel\":\"google_play\",\n    \"language\":\"en\",\n    \"paySource\":\"google play\",\n    \"appVersion\":\"3.0\",\n    \"uuid\":\"23931b823594430ab6783c6cc77c3792\",\n    \"userId\":\"56de3495a5ff7f0001a98a9b\",\n    \"national\":\"us\",\n    \"transactionId\":\"147a1504-7c22-4b0a-b1a9-d05383913b34\",\n    \"sessionId\":\"49a9af14406845aa8f975f7a7936ea60\",\n    \"userCreateTime\":1450845224,\n    \"isVirtualCurrency\":\"1\",\n    \"virtualCurrencyAmount\":8000,\n    \"mission\":\"关卡1\"\n    },\n    {\n    \"os\":\"android\",\n    \"productId\":\"金币\",\n    \"type\":\"inapp\",\n    \"priceAmount\":19990000,\n    \"priceCurrency\":\"USD\",\n    \"status\":3,\n    \"installationId\":\"2b138cb697c047869c3b45780c2a9769\",\n    \"appId\":\"56de2eaaa5ff7f0001a98695\",\n    \"channel\":\"google_play\",\n    \"language\":\"en\",\n    \"paySource\":\"google play\",\n    \"appVersion\":\"3.0\",\n    \"uuid\":\"cd813bdeee454dcba1f285ceb0960791\",\n    \"userId\":\"56de3495a5ff7f0001a98a9b\",\n    \"national\":\"us\",\n    \"transactionId\":\"147a1504-7c22-4b0a-b1a9-d05383913b34\",\n    \"sessionId\":\"49a9af14406845aa8f975f7a7936ea60\",\n    \"userCreateTime\":1450845224,\n    \"isVirtualCurrency\":\"1\",\n    \"virtualCurrencyAmount\":8000,\n    \"mission\":\"关卡1\"\n    }\n]"
+				},
+				"description": "get the applications from hotload server"
+			},
+			"response": []
+		},
+		{
+			"name": "http://hotload.maxleap.cn/apps",
+			"request": {
+				"url": "http://hotload.maxleap.cn/apps",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Hot-Session-token",
+						"value": "mzJwI9FtIPs0Ta6yeCPodU8VemD0ihHlr6NWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\":\"hotloadTesting001\"\n}"
+				},
+				"description": "create one application on the hotload server"
+			},
+			"response": []
+		},
+		{
+			"name": "http://hotload.maxleap.cn/apps/{appId}",
+			"request": {
+				"url": "http://hotload.maxleap.cn/apps/56fa338ffeb7b200010d78d1",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Hot-Session-token",
+						"value": "mzJwI9FtIPs0Ta6yeCPodU8VemD0ihHlr6NWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n    \"os\":\"android\",\n    \"productId\":\"金币\",\n    \"type\":\"inapp\",\n    \"priceAmount\":19990000,\n    \"priceCurrency\":\"USD\",\n    \"status\":0,\n    \"installationId\":\"2b138cb697c047869c3b45780c2a9769\",\n    \"appId\":\"56de2eaaa5ff7f0001a98695\",\n    \"channel\":\"google_play\",\n    \"language\":\"en\",\n    \"paySource\":\"google play\",\n    \"appVersion\":\"3.0\",\n    \"uuid\":\"23931b823594430ab6783c6cc77c3792\",\n    \"userId\":\"56de3495a5ff7f0001a98a9b\",\n    \"national\":\"us\",\n    \"transactionId\":\"147a1504-7c22-4b0a-b1a9-d05383913b34\",\n    \"sessionId\":\"49a9af14406845aa8f975f7a7936ea60\",\n    \"userCreateTime\":1450845224,\n    \"isVirtualCurrency\":\"1\",\n    \"virtualCurrencyAmount\":8000,\n    \"mission\":\"关卡1\"\n    },\n    {\n    \"os\":\"android\",\n    \"productId\":\"金币\",\n    \"type\":\"inapp\",\n    \"priceAmount\":19990000,\n    \"priceCurrency\":\"USD\",\n    \"status\":3,\n    \"installationId\":\"2b138cb697c047869c3b45780c2a9769\",\n    \"appId\":\"56de2eaaa5ff7f0001a98695\",\n    \"channel\":\"google_play\",\n    \"language\":\"en\",\n    \"paySource\":\"google play\",\n    \"appVersion\":\"3.0\",\n    \"uuid\":\"cd813bdeee454dcba1f285ceb0960791\",\n    \"userId\":\"56de3495a5ff7f0001a98a9b\",\n    \"national\":\"us\",\n    \"transactionId\":\"147a1504-7c22-4b0a-b1a9-d05383913b34\",\n    \"sessionId\":\"49a9af14406845aa8f975f7a7936ea60\",\n    \"userCreateTime\":1450845224,\n    \"isVirtualCurrency\":\"1\",\n    \"virtualCurrencyAmount\":8000,\n    \"mission\":\"关卡1\"\n    }\n]"
+				},
+				"description": "get the detail info of application with this appId from hotload server"
+			},
+			"response": []
+		},
+		{
+			"name": "http://hotload.maxleap.cn/apps/{appId}",
+			"request": {
+				"url": "http://hotload.maxleap.cn/apps/56f8f739feb7b2000160a7e6",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Hot-Session-token",
+						"value": "mzJwI9FtIPs0Ta6yeCPodU8VemD0ihHlr6NWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"hotloadTesting001111111\"}"
+				},
+				"description": "upload the name of application on hotload server"
+			},
+			"response": []
+		},
+		{
+			"name": "http://hotload.maxleap.cn/apps/{appId}",
+			"request": {
+				"url": "http://hotload.maxleap.cn/apps/56f9e1f0feb7b2000160a7fc",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Hot-Session-token",
+						"value": "mzJwI9FtIPs0Ta6yeCPodU8VemD0ihHlr6NWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "delete the application on hotload server"
+			},
+			"response": []
+		},
+		{
+			"name": "http://hotload.maxleap.cn/apps/{appId}/deployments",
+			"request": {
+				"url": "http://hotload.maxleap.cn/apps/56fa338ffeb7b200010d78d1/deployments",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Hot-Session-token",
+						"value": "mzJwI9FtIPs0Ta6yeCPodU8VemD0ihHlr6NWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n    \"os\":\"android\",\n    \"productId\":\"金币\",\n    \"type\":\"inapp\",\n    \"priceAmount\":19990000,\n    \"priceCurrency\":\"USD\",\n    \"status\":0,\n    \"installationId\":\"2b138cb697c047869c3b45780c2a9769\",\n    \"appId\":\"56de2eaaa5ff7f0001a98695\",\n    \"channel\":\"google_play\",\n    \"language\":\"en\",\n    \"paySource\":\"google play\",\n    \"appVersion\":\"3.0\",\n    \"uuid\":\"23931b823594430ab6783c6cc77c3792\",\n    \"userId\":\"56de3495a5ff7f0001a98a9b\",\n    \"national\":\"us\",\n    \"transactionId\":\"147a1504-7c22-4b0a-b1a9-d05383913b34\",\n    \"sessionId\":\"49a9af14406845aa8f975f7a7936ea60\",\n    \"userCreateTime\":1450845224,\n    \"isVirtualCurrency\":\"1\",\n    \"virtualCurrencyAmount\":8000,\n    \"mission\":\"关卡1\"\n    },\n    {\n    \"os\":\"android\",\n    \"productId\":\"金币\",\n    \"type\":\"inapp\",\n    \"priceAmount\":19990000,\n    \"priceCurrency\":\"USD\",\n    \"status\":3,\n    \"installationId\":\"2b138cb697c047869c3b45780c2a9769\",\n    \"appId\":\"56de2eaaa5ff7f0001a98695\",\n    \"channel\":\"google_play\",\n    \"language\":\"en\",\n    \"paySource\":\"google play\",\n    \"appVersion\":\"3.0\",\n    \"uuid\":\"cd813bdeee454dcba1f285ceb0960791\",\n    \"userId\":\"56de3495a5ff7f0001a98a9b\",\n    \"national\":\"us\",\n    \"transactionId\":\"147a1504-7c22-4b0a-b1a9-d05383913b34\",\n    \"sessionId\":\"49a9af14406845aa8f975f7a7936ea60\",\n    \"userCreateTime\":1450845224,\n    \"isVirtualCurrency\":\"1\",\n    \"virtualCurrencyAmount\":8000,\n    \"mission\":\"关卡1\"\n    }\n]"
+				},
+				"description": "get the applications from hotload server"
+			},
+			"response": []
+		},
+		{
+			"name": "http://hotload.maxleap.cn/apps/{appId}/deployments",
+			"request": {
+				"url": "http://hotload.maxleap.cn/apps/56f892edfeb7b2000160a7bf/deployments",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Hot-Session-token",
+						"value": "mzJwI9FtIPs0Ta6yeCPodU8VemD0ihHlr6NWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"deploymentTesting001\"}"
+				},
+				"description": "create an deployment for the application on hotload server"
+			},
+			"response": []
+		},
+		{
+			"name": "http://hotload.maxleap.cn/apps/{appId}/deployments/{deploymentId}",
+			"request": {
+				"url": "http://hotload.maxleap.cn/apps/56f892edfeb7b2000160a7bf/deployments/56f9e65ffeb7b2000160a7ff",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Hot-Session-token",
+						"value": "mzJwI9FtIPs0Ta6yeCPodU8VemD0ihHlr6NWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\": \"deploymentTesting00111111111111111\"\n}"
+				},
+				"description": "upload the name of the deployment for the application on hotload server"
+			},
+			"response": []
+		},
+		{
+			"name": "http://hotload.maxleap.cn/apps/{appId}/deployments/{deploymentId}",
+			"request": {
+				"url": "http://hotload.maxleap.cn/apps/56fa338ffeb7b200010d78d1/deployments/56fa338ffeb7b200010d78d2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Hot-Session-token",
+						"value": "mzJwI9FtIPs0Ta6yeCPodU8VemD0ihHlr6NWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n    \"os\":\"android\",\n    \"productId\":\"金币\",\n    \"type\":\"inapp\",\n    \"priceAmount\":19990000,\n    \"priceCurrency\":\"USD\",\n    \"status\":0,\n    \"installationId\":\"2b138cb697c047869c3b45780c2a9769\",\n    \"appId\":\"56de2eaaa5ff7f0001a98695\",\n    \"channel\":\"google_play\",\n    \"language\":\"en\",\n    \"paySource\":\"google play\",\n    \"appVersion\":\"3.0\",\n    \"uuid\":\"23931b823594430ab6783c6cc77c3792\",\n    \"userId\":\"56de3495a5ff7f0001a98a9b\",\n    \"national\":\"us\",\n    \"transactionId\":\"147a1504-7c22-4b0a-b1a9-d05383913b34\",\n    \"sessionId\":\"49a9af14406845aa8f975f7a7936ea60\",\n    \"userCreateTime\":1450845224,\n    \"isVirtualCurrency\":\"1\",\n    \"virtualCurrencyAmount\":8000,\n    \"mission\":\"关卡1\"\n    },\n    {\n    \"os\":\"android\",\n    \"productId\":\"金币\",\n    \"type\":\"inapp\",\n    \"priceAmount\":19990000,\n    \"priceCurrency\":\"USD\",\n    \"status\":3,\n    \"installationId\":\"2b138cb697c047869c3b45780c2a9769\",\n    \"appId\":\"56de2eaaa5ff7f0001a98695\",\n    \"channel\":\"google_play\",\n    \"language\":\"en\",\n    \"paySource\":\"google play\",\n    \"appVersion\":\"3.0\",\n    \"uuid\":\"cd813bdeee454dcba1f285ceb0960791\",\n    \"userId\":\"56de3495a5ff7f0001a98a9b\",\n    \"national\":\"us\",\n    \"transactionId\":\"147a1504-7c22-4b0a-b1a9-d05383913b34\",\n    \"sessionId\":\"49a9af14406845aa8f975f7a7936ea60\",\n    \"userCreateTime\":1450845224,\n    \"isVirtualCurrency\":\"1\",\n    \"virtualCurrencyAmount\":8000,\n    \"mission\":\"关卡1\"\n    }\n]"
+				},
+				"description": "get the applications from hotload server"
+			},
+			"response": []
+		},
+		{
+			"name": "http://hotload.maxleap.cn/apps/{appId}/deployments/{deploymentId}",
+			"request": {
+				"url": "http://hotload.maxleap.cn/apps/56f892edfeb7b2000160a7bf/deployments/56f9e65ffeb7b2000160a7ff",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-Hot-Session-token",
+						"value": "mzJwI9FtIPs0Ta6yeCPodU8VemD0ihHlr6NWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"description": "delete the deployment of the application on hotload server"
+			},
+			"response": []
+		},
+		{
+			"name": "http://hotload.maxleap.cn/apps/{appId}/deployments/{deploymentId}/deploymentKeys",
+			"request": {
+				"url": "http://hotload.maxleap.cn/apps/56f892edfeb7b2000160a7bf/deployments/56f892edfeb7b2000160a7c1/deploymentKeys",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Hot-Session-token",
+						"value": "mzJwI9FtIPs0Ta6yeCPodU8VemD0ihHlr6NWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n    \"os\":\"android\",\n    \"productId\":\"金币\",\n    \"type\":\"inapp\",\n    \"priceAmount\":19990000,\n    \"priceCurrency\":\"USD\",\n    \"status\":0,\n    \"installationId\":\"2b138cb697c047869c3b45780c2a9769\",\n    \"appId\":\"56de2eaaa5ff7f0001a98695\",\n    \"channel\":\"google_play\",\n    \"language\":\"en\",\n    \"paySource\":\"google play\",\n    \"appVersion\":\"3.0\",\n    \"uuid\":\"23931b823594430ab6783c6cc77c3792\",\n    \"userId\":\"56de3495a5ff7f0001a98a9b\",\n    \"national\":\"us\",\n    \"transactionId\":\"147a1504-7c22-4b0a-b1a9-d05383913b34\",\n    \"sessionId\":\"49a9af14406845aa8f975f7a7936ea60\",\n    \"userCreateTime\":1450845224,\n    \"isVirtualCurrency\":\"1\",\n    \"virtualCurrencyAmount\":8000,\n    \"mission\":\"关卡1\"\n    },\n    {\n    \"os\":\"android\",\n    \"productId\":\"金币\",\n    \"type\":\"inapp\",\n    \"priceAmount\":19990000,\n    \"priceCurrency\":\"USD\",\n    \"status\":3,\n    \"installationId\":\"2b138cb697c047869c3b45780c2a9769\",\n    \"appId\":\"56de2eaaa5ff7f0001a98695\",\n    \"channel\":\"google_play\",\n    \"language\":\"en\",\n    \"paySource\":\"google play\",\n    \"appVersion\":\"3.0\",\n    \"uuid\":\"cd813bdeee454dcba1f285ceb0960791\",\n    \"userId\":\"56de3495a5ff7f0001a98a9b\",\n    \"national\":\"us\",\n    \"transactionId\":\"147a1504-7c22-4b0a-b1a9-d05383913b34\",\n    \"sessionId\":\"49a9af14406845aa8f975f7a7936ea60\",\n    \"userCreateTime\":1450845224,\n    \"isVirtualCurrency\":\"1\",\n    \"virtualCurrencyAmount\":8000,\n    \"mission\":\"关卡1\"\n    }\n]"
+				},
+				"description": "get the applications from hotload server"
+			},
+			"response": []
+		},
+		{
+			"name": "http://hotload.maxleap.cn/apps/{appId}/deployments/{deploymentId}/packageHistory",
+			"request": {
+				"url": "http://hotload.maxleap.cn/apps/56fa338ffeb7b200010d78d1/deployments/56fa338ffeb7b200010d78d3/packageHistory",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Hot-Session-token",
+						"value": "mzJwI9FtIPs0Ta6yeCPodU8VemD0ihHlr6NWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n    \"os\":\"android\",\n    \"productId\":\"金币\",\n    \"type\":\"inapp\",\n    \"priceAmount\":19990000,\n    \"priceCurrency\":\"USD\",\n    \"status\":0,\n    \"installationId\":\"2b138cb697c047869c3b45780c2a9769\",\n    \"appId\":\"56de2eaaa5ff7f0001a98695\",\n    \"channel\":\"google_play\",\n    \"language\":\"en\",\n    \"paySource\":\"google play\",\n    \"appVersion\":\"3.0\",\n    \"uuid\":\"23931b823594430ab6783c6cc77c3792\",\n    \"userId\":\"56de3495a5ff7f0001a98a9b\",\n    \"national\":\"us\",\n    \"transactionId\":\"147a1504-7c22-4b0a-b1a9-d05383913b34\",\n    \"sessionId\":\"49a9af14406845aa8f975f7a7936ea60\",\n    \"userCreateTime\":1450845224,\n    \"isVirtualCurrency\":\"1\",\n    \"virtualCurrencyAmount\":8000,\n    \"mission\":\"关卡1\"\n    },\n    {\n    \"os\":\"android\",\n    \"productId\":\"金币\",\n    \"type\":\"inapp\",\n    \"priceAmount\":19990000,\n    \"priceCurrency\":\"USD\",\n    \"status\":3,\n    \"installationId\":\"2b138cb697c047869c3b45780c2a9769\",\n    \"appId\":\"56de2eaaa5ff7f0001a98695\",\n    \"channel\":\"google_play\",\n    \"language\":\"en\",\n    \"paySource\":\"google play\",\n    \"appVersion\":\"3.0\",\n    \"uuid\":\"cd813bdeee454dcba1f285ceb0960791\",\n    \"userId\":\"56de3495a5ff7f0001a98a9b\",\n    \"national\":\"us\",\n    \"transactionId\":\"147a1504-7c22-4b0a-b1a9-d05383913b34\",\n    \"sessionId\":\"49a9af14406845aa8f975f7a7936ea60\",\n    \"userCreateTime\":1450845224,\n    \"isVirtualCurrency\":\"1\",\n    \"virtualCurrencyAmount\":8000,\n    \"mission\":\"关卡1\"\n    }\n]"
+				},
+				"description": "get the applications from hotload server"
+			},
+			"response": []
+		},
+		{
+			"name": "http://hotload.maxleap.cn/apps/{appId}/deployments/{deploymentId}/package",
+			"request": {
+				"url": "http://hotload.maxleap.cn/apps/56f892edfeb7b2000160a7bf/deployments/56f892edfeb7b2000160a7c1/package",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-Hot-Session-token",
+						"value": "mzJwI9FtIPs0Ta6yeCPodU8VemD0ihHlr6NWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "packageInfo",
+							"value": "{\"description\":\"first postman release an package\",\"label\":\"v13\",\"appVersion\":\"1.0.0\",\"isMandatory\":true}",
+							"type": "text"
+						},
+						{
+							"key": "package",
+							"type": "file",
+							"src": "a8d29d927d0047a1ae0bd3235ab8b1d4"
+						}
+					]
+				},
+				"description": "release package for the application on hotload server"
+			},
+			"response": []
+		},
+		{
+			"name": "http://hotload.maxleap.cn/apps/{appId}/deployments/{deploymentId}/rollback",
+			"request": {
+				"url": "http://hotload.maxleap.cn/apps/56f892edfeb7b2000160a7bf/deployments/56f892edfeb7b2000160a7c1/rollback",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Hot-Session-token",
+						"value": "mzJwI9FtIPs0Ta6yeCPodU8VemD0ihHlr6NWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "rollback the label of the application on hotload server"
+			},
+			"response": []
+		},
+		{
+			"name": "http://hotload.maxleap.cn/apps/{appId}/deployments/{deploymentId}/rollback",
+			"request": {
+				"url": "http://hotload.maxleap.cn/apps/56f892edfeb7b2000160a7bf/deployments/56f892edfeb7b2000160a7c1/promote/56f892edfeb7b2000160a7c0",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Hot-Session-token",
+						"value": "mzJwI9FtIPs0Ta6yeCPodU8VemD0ihHlr6NWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "rollback to an specific label of the application on hotload server"
+			},
+			"response": []
+		},
+		{
+			"name": "http://hotload.maxleap.cn/apps/{appId}/deployments/{deployId}/metrics",
+			"request": {
+				"url": "http://hotload.maxleap.cn/apps/56f892edfeb7b2000160a7bf/deployments/56f892edfeb7b2000160a7c1/metrics",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Hot-Session-token",
+						"value": "mzJwI9FtIPs0Ta6yeCPodU8VemD0ihHlr6NWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n    \"os\":\"android\",\n    \"productId\":\"金币\",\n    \"type\":\"inapp\",\n    \"priceAmount\":19990000,\n    \"priceCurrency\":\"USD\",\n    \"status\":0,\n    \"installationId\":\"2b138cb697c047869c3b45780c2a9769\",\n    \"appId\":\"56de2eaaa5ff7f0001a98695\",\n    \"channel\":\"google_play\",\n    \"language\":\"en\",\n    \"paySource\":\"google play\",\n    \"appVersion\":\"3.0\",\n    \"uuid\":\"23931b823594430ab6783c6cc77c3792\",\n    \"userId\":\"56de3495a5ff7f0001a98a9b\",\n    \"national\":\"us\",\n    \"transactionId\":\"147a1504-7c22-4b0a-b1a9-d05383913b34\",\n    \"sessionId\":\"49a9af14406845aa8f975f7a7936ea60\",\n    \"userCreateTime\":1450845224,\n    \"isVirtualCurrency\":\"1\",\n    \"virtualCurrencyAmount\":8000,\n    \"mission\":\"关卡1\"\n    },\n    {\n    \"os\":\"android\",\n    \"productId\":\"金币\",\n    \"type\":\"inapp\",\n    \"priceAmount\":19990000,\n    \"priceCurrency\":\"USD\",\n    \"status\":3,\n    \"installationId\":\"2b138cb697c047869c3b45780c2a9769\",\n    \"appId\":\"56de2eaaa5ff7f0001a98695\",\n    \"channel\":\"google_play\",\n    \"language\":\"en\",\n    \"paySource\":\"google play\",\n    \"appVersion\":\"3.0\",\n    \"uuid\":\"cd813bdeee454dcba1f285ceb0960791\",\n    \"userId\":\"56de3495a5ff7f0001a98a9b\",\n    \"national\":\"us\",\n    \"transactionId\":\"147a1504-7c22-4b0a-b1a9-d05383913b34\",\n    \"sessionId\":\"49a9af14406845aa8f975f7a7936ea60\",\n    \"userCreateTime\":1450845224,\n    \"isVirtualCurrency\":\"1\",\n    \"virtualCurrencyAmount\":8000,\n    \"mission\":\"关卡1\"\n    }\n]"
+				},
+				"description": "get the metrics of the application on hotload server"
+			},
+			"response": []
+		},
+		{
+			"name": "http://hotload.maxleap.cn/updateCheck?deploymentKey={deploymentKey}&appVersion={appVersion}&label={label}",
+			"request": {
+				"url": "http://hotload.maxleap.cn/updateCheck?deploymentKey=730c0560f48a11e5afa356847afe9799&appVersion=1.0.0&label=v16",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-Hot-Session-token",
+						"value": "mzJwI9FtIPs0Ta6yeCPodU8VemD0ihHlr6NWhHr-l5k",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "[\n    {\n    \"os\":\"android\",\n    \"productId\":\"金币\",\n    \"type\":\"inapp\",\n    \"priceAmount\":19990000,\n    \"priceCurrency\":\"USD\",\n    \"status\":0,\n    \"installationId\":\"2b138cb697c047869c3b45780c2a9769\",\n    \"appId\":\"56de2eaaa5ff7f0001a98695\",\n    \"channel\":\"google_play\",\n    \"language\":\"en\",\n    \"paySource\":\"google play\",\n    \"appVersion\":\"3.0\",\n    \"uuid\":\"23931b823594430ab6783c6cc77c3792\",\n    \"userId\":\"56de3495a5ff7f0001a98a9b\",\n    \"national\":\"us\",\n    \"transactionId\":\"147a1504-7c22-4b0a-b1a9-d05383913b34\",\n    \"sessionId\":\"49a9af14406845aa8f975f7a7936ea60\",\n    \"userCreateTime\":1450845224,\n    \"isVirtualCurrency\":\"1\",\n    \"virtualCurrencyAmount\":8000,\n    \"mission\":\"关卡1\"\n    },\n    {\n    \"os\":\"android\",\n    \"productId\":\"金币\",\n    \"type\":\"inapp\",\n    \"priceAmount\":19990000,\n    \"priceCurrency\":\"USD\",\n    \"status\":3,\n    \"installationId\":\"2b138cb697c047869c3b45780c2a9769\",\n    \"appId\":\"56de2eaaa5ff7f0001a98695\",\n    \"channel\":\"google_play\",\n    \"language\":\"en\",\n    \"paySource\":\"google play\",\n    \"appVersion\":\"3.0\",\n    \"uuid\":\"cd813bdeee454dcba1f285ceb0960791\",\n    \"userId\":\"56de3495a5ff7f0001a98a9b\",\n    \"national\":\"us\",\n    \"transactionId\":\"147a1504-7c22-4b0a-b1a9-d05383913b34\",\n    \"sessionId\":\"49a9af14406845aa8f975f7a7936ea60\",\n    \"userCreateTime\":1450845224,\n    \"isVirtualCurrency\":\"1\",\n    \"virtualCurrencyAmount\":8000,\n    \"mission\":\"关卡1\"\n    }\n]"
+				},
+				"description": "SDK check the update of the application on hotload server"
+			},
+			"response": []
+		},
+		{
+			"name": "http://hotload.maxleap.cn/reportStatus/download",
+			"request": {
+				"url": "http://hotload.maxleap.cn/reportStatus/download",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Hot-Session-token",
+						"value": "mzJwI9FtIPs0Ta6yeCPodU8VemD0ihHlr6NWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"clientUniqueId\":\"1ae09b8dd8da8af62345\",\n    \"deploymentKey\":\"730c0560f48a11e5afa356847afe9799\",\n    \"label\":\"v9\"\n}"
+				},
+				"description": "downloand the package"
+			},
+			"response": []
+		},
+		{
+			"name": "http://hotload.maxleap.cn/reportStatus/deploy",
+			"request": {
+				"url": "http://hotload.maxleap.cn/reportStatus/deploy",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-Hot-Session-token",
+						"value": "mzJwI9FtIPs0Ta6yeCPodU8VemD0ihHlr6NWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"appVersion\": \"1.0.0\",\n  \"deploymentKey\": \"730c0560f48a11e5afa356847afe9799\",\n  \"clientUniqueId\": \"1ae09b8dd8da8af62345\",\n  \"label\": \"v9\",\n  \"status\": \"DeploymentSucceeded\",\n  \"previousLabelOrAppVersion\": \"1.0.0\",\n  \"previousDeploymentKey\": \"730c0560f48a11e5afa356847afe9799\"\n}"
+				},
+				"description": "SDK deploy the deployment"
+			},
+			"response": []
+		}
+	]
+}

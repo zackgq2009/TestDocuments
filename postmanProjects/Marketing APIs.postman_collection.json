@@ -1,0 +1,554 @@
+{
+	"variables": [],
+	"info": {
+		"name": "Marketing APIs",
+		"_postman_id": "9e8055b2-5bb2-e478-00cf-f42d198e3231",
+		"description": "针对所有关于营销推广的接口",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://api.maxleap.as/2.0/marketing",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/marketing",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "获取所有的campaign"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/marketing",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/marketing",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n      \"subscribers\": 0,\n      \"criteria\": \"\",\n      \"start\": -1,\n      \"title\": \"推送004\",\n      \"type\": \"1\",\n      \"platform\": \"0\",\n      \"targetPer\": 100,\n      \"sends\": 0,\n      \"creativeCount\": 1,\n      \"archived\": false,\n      \"createdAt\": \"2016-02-16T04:32:32.082Z\",\n      \"wasEverActive\": true,\n      \"score\": 10000,\n      \"slaverName\": \"push.agent.slaver2\",\n      \"creativeList\": {\n        \"A\": {\n          \"title\": \"test\",\n          \"data\": {\n            \"aps\": {\n              \"alert\": \"test\"\n            }\n          }\n        }\n      },\n      \"campaignResult\": {\n        \"click\": 0,\n        \"impression\": 0,\n        \"send\": 0,\n        \"session\": 0\n      },\n      \"appId\": \"56c13790a5ff7f0001e2b127\",\n      \"scheduling\": \"0\",\n      \"end\": -1,\n      \"sendMode\": \"100\",\n      \"status\": \"5\",\n      \"updatedAt\": \"2016-02-16T07:29:43.008Z\"\n    }"
+				},
+				"description": "推送一个新的campaign"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.cn/2.0/marketing/push/msg",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/marketing/push/msg",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"criteria\": {\n    \"deviceToken\": \"string\"\n  },\n  \"creativeList\": {\n    \"A\": {\n      \"data\": {\n        \"alert\": \"string\",\n        \"aps\": {\n          \"alert\": \"string\",\n          \"badge\": 0,\n          \"sound\": \"string\",\n          \"content-available\": 0\n        }\n      }\n    }\n  }\n}"
+				},
+				"description": "通过google service进行消息推送"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/marketing/{objectId}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/marketing/56c3d612513f4900018f42ee",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "删除某一个marketing task"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/marketing/{objectId}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/marketing/56c154e0513f490001152425",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "获取某一个marketing tesk"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/marketing/{objectId}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/marketing/56c3d60b2b89a20001656879",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"subscribers\": 0,\n  \"start\": -1,\n  \"title\": \"推送004444444\",\n  \"type\": \"1\",\n  \"platform\": \"0\",\n  \"targetPer\": 100,\n  \"sends\": 0,\n  \"creativeCount\": 1,\n  \"createdAt\": \"2016-02-16T04:32:32.082Z\",\n  \"archived\": false,\n  \"wasEverActive\": true,\n  \"score\": 10000,\n  \"slaverName\": \"push.agent.slaver2\",\n  \"creativeList\": {\n    \"A\": {\n      \"title\": \"test\",\n      \"data\": {\n        \"aps\": {\n          \"alert\": \"test\"\n        }\n      }\n    }\n  },\n  \"campaignResult\": {\n    \"click\": 0,\n    \"impression\": 0,\n    \"send\": 0,\n    \"session\": 0\n  },\n  \"appId\": \"56c13790a5ff7f0001e2b127\",\n  \"scheduling\": \"0\",\n  \"end\": -1,\n  \"sendMode\": \"100\",\n  \"updatedAt\": \"2016-02-16T07:29:43.008Z\",\n  \"status\": \"0\"\n}"
+				},
+				"description": "更新某一个marketing tesk"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/marketing/{objectId}/{status}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/marketing/56c3d60b2b89a20001656879/1",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"description": "更新某一个marketing tesk的status状态"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.cn/2.0/marketing/archived/{objectId}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/marketing/archived/56c154e0513f490001152425",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"description": "存档某一个marketing task"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.cn/2.0/marketing/un-archived/{objectId}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/marketing/un-archived/56c154e0513f490001152425",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{}"
+				},
+				"description": "非存档某一个marketing task"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/marketing/in-app",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/marketing/in-app",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"installId\": \"56c2db1aa5ff7f0001c2e51d\"\n}"
+				},
+				"description": "根据installId获取适用的应用内消息"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/marketing/count?where={}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/marketing/count",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "根据查询条件统计出符合的marketing campaign"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/installations/count?where={}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/installations/count?where={}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "根据查询条件统计出符合的installations"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/marketing/stat",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/marketing/stat",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"uuid\": \"1231423423423\",\n  \"campaignId\": \"56c154e0513f490001152425\",\n  \"osVersion\": \"10.0.0\",\n  \"appVersion\": \"1.0.0\",\n  \"title\": \"abc\",\n  \"appUserId\": \"56c2db85169e7d00011c2ed2\",\n  \"creative\": \"A\",\n  \"campaignType\": \"1\",\n  \"eventType\": \"0\"\n}"
+				},
+				"description": "sdk send the event to analysis api"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/marketing/push/setting",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/marketing/push/setting",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"appleConfig\": {\n    \"key\": \"dipBMjq4F2A+RpDO/krLjeutwrmCU/5+AuFA4EfLc\"\n  },\n  \"gcmConfig\": {\n    \"apiKey\": \"AIzaSyCqTrEtoxyNvwtU6K_JgrBNTPFR2dVc5lI\",\n    \"senderId\": \"\"\n  }\n}"
+				},
+				"description": "更新application push config"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/marketing/all",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/marketing/all",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "--D2nEBcrbXT8beEvwM4ECJNAEBwoxHlhh9WhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "获取所有campaign，需要sys admin权限"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.as/2.0/gopush/server/get?k={}&p={}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/gopush/server/get?k=5b8f2f6b779e3de3d46834f371fff06f&p=2",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "获取comet\nk为MD5(appId + installId).toHexString()\np为连接协议p=2,wsProto = 1, tcpProto = 2"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.cn/2.0/gopush/msg/get?k={}&m={}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/gopush/msg/get?k=5b8f2f6b779e3de3d46834f371fff06f&m=0",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "获取离线消息\nm为时间序列\nm=0 获取所有离线消息"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.cn/2.0/gopush/time/get?cb={}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/gopush/time/get?cb={}",
+				"method": "GET",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "CchNJ1A-yo9X6nY2HNaCU3yJ3qCtTxHljTFWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "获取服务器时间"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.cn/2.0/marketing/duplicate/{objectId}",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/marketing/duplicate/56c154e0513f490001152425",
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "--D2nEBcrbXT8beEvwM4ECJNAEBwoxHlhh9WhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56c13790a5ff7f0001e2b127",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"name\":\"copyTest\"}"
+				},
+				"description": "复制一个marketing campaign"
+			},
+			"response": []
+		}
+	]
+}

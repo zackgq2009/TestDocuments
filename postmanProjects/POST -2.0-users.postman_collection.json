@@ -1,0 +1,41 @@
+{
+	"variables": [],
+	"info": {
+		"name": "POST /2.0/users",
+		"_postman_id": "32ef6ca7-67c5-928a-cfd8-872008ee0f71",
+		"description": "新建、注册 user\n\nlogin or register with AuthData\n\n\nRequest\n{\"username\":\"yyu\",\"password\":\"123456\"}\n \nResponse\n{\n  \"sessionToken\" : \"d0Fjf3wGEii0Oai5Sc-3w0UKPyDx3hHjnhU8FcK-tXg\",\n  \"username\" : \"yyu\",\n  \"objectId\" : \"539918bd300465e77f7461d8\",\n  \"installationIds\":[\"xxx\"],\n  \"isNew\":true\n}",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://apidev.leap.as/2.0/users",
+			"request": {
+				"url": "http://45.32.73.139:10086/2.0/users",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "56ce6d2e46182919755052a7",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "AgZdWbWj85qBwMrMxEf5wd_7F7dQpEhDj8GodFEHguc",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\"username\":\"test\",\"password\":\"123456\"}"
+				},
+				"description": "\nRequest\n{\"username\":\"yyu\",\"password\":\"123456\"}\n \nResponse\n{\n  \"sessionToken\" : \"d0Fjf3wGEii0Oai5Sc-3w0UKPyDx3hHjnhU8FcK-tXg\",\n  \"username\" : \"yyu\",\n  \"objectId\" : \"539918bd300465e77f7461d8\",\n  \"installationIds\":[\"xxx\"],\n  \"isNew\":true\n}"
+			},
+			"response": []
+		}
+	]
+}

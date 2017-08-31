@@ -1,0 +1,121 @@
+{
+	"variables": [],
+	"info": {
+		"name": "ClassRestAPI",
+		"_postman_id": "b549019f-5e32-25ee-7a2e-1e330d87c251",
+		"description": "Edit someone Class and some objects",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "http://api.leap.as/2.0/classes/{className}",
+			"request": {
+				"url": "http://api.leap.as/2.0/classes/_classTest",
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "55d1480860b291cc25a651cd",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "MV7B1sWZmN0JACWokgVfhE1EvFDonBHkhulWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "del all objects in this class"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apidev.leap.as/2.0/classes/{className}/{objectId}",
+			"request": {
+				"url": "http://45.32.73.139:10086/2.0/classes/clouddatatest/56ce78e946182919d6c4a7df",
+				"method": "GET",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "56ce6d2e46182919755052a7",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-APIKey",
+						"value": "SHRjSTRWTTBBbWJmTkJ6T3FZX1g4dw",
+						"description": ""
+					}
+				],
+				"body": {},
+				"description": "查找object"
+			},
+			"response": []
+		},
+		{
+			"name": "http://apidev.leap.as/2.0/classes/{className}/{objectId}",
+			"request": {
+				"url": "http://45.32.73.139:10086/2.0/classes/clouddatatest/56ce78e946182919d6c4a7df",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-AppId",
+						"value": "56ce6d2e46182919755052a7",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-APIKey",
+						"value": "SHRjSTRWTTBBbWJmTkJ6T3FZX1g4dw",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"name\":\"private040\"\n}"
+				},
+				"description": "更新object"
+			},
+			"response": []
+		},
+		{
+			"name": "https://api.maxleap.cn/2.0/classes/{className}",
+			"request": {
+				"url": "https://45.32.73.139:10086/2.0/classes/clouddatatest",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-LAS-AppId",
+						"value": "56ce6d2e46182919755052a7",
+						"description": ""
+					},
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "AgZdWbWj85qBwMrMxEf5wd_7F7dQpEhDj8GodFEHguc",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "file",
+							"value": "",
+							"type": "file"
+						}
+					]
+				},
+				"description": "创建新的数据"
+			},
+			"response": []
+		}
+	]
+}

@@ -1,0 +1,36 @@
+{
+	"variables": [],
+	"info": {
+		"name": "BillingRestAPI",
+		"_postman_id": "10a6be7a-3900-b267-e1f0-e6346080b655",
+		"description": "开发人员可以定制化billing的内容",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://api.maxleap.cn/2.0/billing/level/",
+			"request": {
+				"url": "https://api.maxleap.cn/2.0/billing/level",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "X-LAS-Session-Token",
+						"value": "K3vXHO_rXuQogX8nLBucYrKebvB2EBHlrkRWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"mau\":\"MAU:MONTHLY:10000:1000:1500\",\n\"cds\":\"CLOUD_DATA_STORAGE:MONTHLY:10737418240:1000:0\",\n\"fs\":\"FILE_STORAGE:MONTHLY:10737418240:1000:0\",\n\"ft\":\"FILE_TRANSFER:MONTHLY:16106127360:1073741824:90\"\n}"
+				},
+				"description": "get and put the contents of billing"
+			},
+			"response": []
+		}
+	]
+}

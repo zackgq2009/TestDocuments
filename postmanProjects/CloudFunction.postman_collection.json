@@ -1,0 +1,41 @@
+{
+	"variables": [],
+	"info": {
+		"name": "CloudFunction",
+		"_postman_id": "cf7ed445-4cbb-54c0-ff9c-945814221b6c",
+		"description": "我们上传并部署了Ninja这个function，通过调用此function，我们可以查看相应的function",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "https://api.leap.as/2.0/functions",
+			"request": {
+				"url": "http://apiuat.maxleap.cn/2.0/functions/helloNinja",
+				"method": "POST",
+				"header": [
+					{
+						"key": "X-ML-AppId",
+						"value": "582438c5b1c68200015028d5",
+						"description": ""
+					},
+					{
+						"key": "X-ML-Session-Token",
+						"value": "p5nlLL8-4c-uA87cqcRMoBQqFrCnJRHmoAVWhHr-l5k",
+						"description": ""
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n\"name\" : \"asdf\"\n}"
+				},
+				"description": "check the cloudfunctions"
+			},
+			"response": []
+		}
+	]
+}
