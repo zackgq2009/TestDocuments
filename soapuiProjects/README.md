@@ -78,9 +78,50 @@ SOAPUI中各个层级模块之间的关系，以及层级的作用。
 9. `Properties TestStep`是一种比较特殊的`testStep`，所以在这边补充说明一下。在`Properties TestStep`中我们可以添加任意参数，并且这些参数可以调用`Project`、`TestSuite`以及`TestCase`中定义好的参数。但由于它隶属于`testStep`，所以`Properties TestStep`的作用域是“它以后的所有testStep”。  
 10. 在SoapUI中，不管是哪个模块都可以调用本地系统环境变量，调用方法是：`${#System#name}`
 
+## SoapUI来实现Mock
 
-## REST-APIs
+在之前的工作中会遇到前端开发跟后端开发的进度不一致的情况，当后端先发布功能，我们可以通过接口进行测试，但当前端先发布了功能或者后端发布的功能存在严重缺陷的时候，我们就需要通过mock的手段来测试前端所发布的功能。这个时候我们就需要一个`Mock Server`来帮助我们继续下去。
 
-## Test-Suite
+## Assertion
+  对于测试人员来说，断言才是我们最最关注的地方，因为在不同的环境，不同的时间，不同的功能版本中，入参可能会有变化，出参可能也有变化，但如何让机器帮我们判断这个接口是否正常，就需要对断言进行更准确的定义，例如：我们需要关注response会包含哪些字段，返回的字段中是否有长度的判断，如果想更灵活的进行断言，我们还可以借助数据库中的数据与response中的字段内容进行匹配。说了这么多，接下来我就把我常用的几种断言方法给大家们说一下。
+  1. Valid HTTP Status Codes/Invalid HTTP Status Codes
+      所有的请求都会有状态码，10x，20x，30x，40x，50x，当我们对于请求的接口有一定的了解后，可以提前判定返回的状态码是什么，我们就可以通过valid HTTP Status Codes来判断返回的结果是否正常。但是存在缓存，所以当反复请求同一个接口时，状态码也会有所变化，这个时候我们就需要保证它返回的状态不是40x\50x
+  2. Contains/Not Contains
+      对于Get、Post两个方法的请求，返回的结果中都包含一些字段内容，我们可以通过某一个或某几个字符来判断结果是否正常，例如：{result: true}/{result: false}，分别代表请求的结果是成功还是失败，我们可以通过true跟false两个字段来判断结果。
+  3. JsonPath Count
+      当返回的内容为Json String，我们可以通过JsonPath Count来判断返回的结果是否符合我们的要求，例如：{status:1; content{1:xx; 2:xx; 3:xx}}，我们可以通过统计$.content的长度是否符合我们的要求。
+  4. JsonPath Match
+      当返回的结果中，某一个字符的内容起到决定性作用，我们就可以通过JsonPath Match来判断请求是否正常，例如：{status:1; content{xxx}; result:success}, 我们可以通过$.result是否等于success来判断结果
+  5. XPath Match
+      XPath Match跟JsonPath Match的用法基本一致，都是通过判断某一个字节内容是否符合要求来断言(soapui中不经常使用xpath，所以xpath的语法还不是很熟悉)
+  6. Script Assertion
+  `// check for the amazon id header
+    assert messageExchange.responseHeaders["x-amz-id-1"] != null
+  // check that response time is less than 400 ms
+    assert messageExchange.timeTaken < 400
+  // check that we received 2 attachments
+    assert messageExchange.responseAttachments.length == 2
+  // check for RequestId element in response
+    def holder = new XmlHolder( messageExchange.responseContentAsXml )
+    assert holder["//ns1:RequestId"] != null` 
+      
+
 
 ## SoapUI-Groovy-Scripts
+  我们在SoapUI中使用groovy script最多的场景是在assertion以及添加的groovy script teststep中，但在这两个场景中com.eviware.soapui包中的一些类并不是通用的，有些只能在groovy assertion中使用，有些只能在groovy script teststep中使用。接下来我详细说一下我遇到的这些特殊的类以及相应的用法
+  1. `com.eviware.soapui.model.testSuite.TestRunner`，这个类只能在`groovy script`中使用，可以通过`testRunner.testCase`来返回一个`testCase`的对象，这个`testCase`对象就是`groovy script`所在的`testCase`，还可以通过`testRunner.testCase.testSuite`来返回一个`testSuite`对象，这个`testSuite`对象就是`groovy script`所在的`testSuite`，还可以通过`testRunner.testCase.testSuite.project`来返回一个`project`对象，这个`project`对象就是我们创建的项目对象，得到这些对象后我们就可以通过`.getPropertyValue("xxx")`来获取相应的属性, 通过`.setPropertyValue("xxx",yyy)`来设置相应的属性。
+    def test = testRunner.testCase.project.getPropertyValue(“xxxxxx”)
+    def test = testRunner.testCase.testSuite.getPropertyValue(“xxxxxx")
+    def test = testRunner.testCase.getPropertyValue(“xxxxxx")
+    def test = testRunner.testCase.testSteps[“xxxxxx”].getPropertyValue(“xxxxxx")
+    **要想在script assertion中使用testRunner这个类，不能直接使用，如果直接使用会提示（[No such property: testRunner for class: Script1]）**
+
+  3. `com.eviware.soapui.model.iface.MessageExchange`，这个类只能在`groovy assertion`中使用，通过`messageExchange.modelItem`可以返回一个对象，这个对象的作用与`testRunner`是一致的（我们在script assertion中只能直接使用messageExchange这个对象，所以我们可以通过def testCase = messageExchange.modelItem.testCase;获取到testCase这个对象，然后我们在testCase这个对象的基础上做相应的处理），接下来我们可以通过`.testCase.testSuite.project`来获取不同作用域范围的对象。而且可以使用`messageExchange.getResponseContent()`方法直接获取所在`testStep`的`response`返回内容。然后使用`new JsonUtil().parseTrimmedText(response)`把`response`解析成`json String`.
+  7. com.eviware.soapui.model.iface.SubmitContext，此接口下拥有多个SubInterface，我们在soapui中可以直接使用context来获取当前testCase对象或其他对象，例如：
+    context.getCurrentStep()
+    context.getTestCase()
+    context.getTestCase().getTestSuite()
+    context.getTestCase().getTestSuite().getProject().getName()) //Get the name of the soapUI project
+    context.getProperty(“测试步骤的名称”,"属性名称（例如：Request, Response, id，userId）")
+    context.setProperty(“属性的名称”,”属性的值")
+而且在groovy scripts中我们可以直接使用def xxxxxx = context.expand(‘${#Project#XXXXXXX}')来获取某一个属性的值，使用这种方法是因为testCases中加入的Properties中的所有属性，可以直接通过${xxxxxxxxx}进行使用，这种方法可以在请求体中，以及很多断言中，但在groovy scripts以及groovy scripts断言中无法使用。
