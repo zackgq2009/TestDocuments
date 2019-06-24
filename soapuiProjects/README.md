@@ -158,8 +158,8 @@ SOAPUI中各个层级模块之间的关系，以及层级的作用。
     ``def slurperResponse = new JsonSlurper().parseText(Response)``
 
 6. 我们在test case中可以对属性值进行判断并根绝判断结果来选择继续执行的test step，soapui中有两种方法实现此功能
-    1. Conditional Goto testStep
-        ![conditionalGotoTestStep](https://github.com/zackgq2009/TestDocuments/blob/master/soapuiProjects/readmepictures/conditionalGotoTestStep.png)
+    1. Conditional Goto testStep     
+        ![conditionalGotoTestStep](https://github.com/zackgq2009/TestDocuments/blob/master/soapuiProjects/readmepictures/ConditionalGotoTestStep.png)
     2. Groovy Script
       ```
       My test case contains following steps
@@ -175,8 +175,8 @@ SOAPUI中各个层级模块之间的关系，以及层级的作用。
               testRunner.gotoStepByName( "getAsset")
               aa++
             }
-      ```
-        ![gotoStepByName](https://github.com/zackgq2009/TestDocuments/blob/master/soapuiProjects/readmepictures/gotoStepByName.png)
+      ```     
+      ![gotoStepByName](https://github.com/zackgq2009/TestDocuments/blob/master/soapuiProjects/readmepictures/gotoStepByName.png)
 
 7. 我们在test case中需要重复调用某一个接口，我们可以使用递归的方式来实现
     1. DataSource & DataSource Loop testStep
