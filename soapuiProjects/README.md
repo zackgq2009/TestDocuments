@@ -103,25 +103,84 @@ SOAPUI中各个层级模块之间的关系，以及层级的作用。
     assert messageExchange.responseAttachments.length == 2
   // check for RequestId element in response
     def holder = new XmlHolder( messageExchange.responseContentAsXml )
-    assert holder["//ns1:RequestId"] != null` 
-      
+    assert holder["//ns1:RequestId"] != null`
+
 
 
 ## SoapUI-Groovy-Scripts
   我们在SoapUI中使用groovy script最多的场景是在assertion以及添加的groovy script teststep中，但在这两个场景中com.eviware.soapui包中的一些类并不是通用的，有些只能在groovy assertion中使用，有些只能在groovy script teststep中使用。接下来我详细说一下我遇到的这些特殊的类以及相应的用法
-  1. `com.eviware.soapui.model.testSuite.TestRunner`，这个类只能在`groovy script`中使用，可以通过`testRunner.testCase`来返回一个`testCase`的对象，这个`testCase`对象就是`groovy script`所在的`testCase`，还可以通过`testRunner.testCase.testSuite`来返回一个`testSuite`对象，这个`testSuite`对象就是`groovy script`所在的`testSuite`，还可以通过`testRunner.testCase.testSuite.project`来返回一个`project`对象，这个`project`对象就是我们创建的项目对象，得到这些对象后我们就可以通过`.getPropertyValue("xxx")`来获取相应的属性, 通过`.setPropertyValue("xxx",yyy)`来设置相应的属性。
+  1. `com.eviware.soapui.model.testsuite.TestRunner`，这个类只能在`groovy script`中使用，可以通过`testRunner.testCase`来返回一个`testCase`的对象，这个`testCase`对象就是`groovy script`所在的`testCase`，还可以通过`testRunner.testCase.testSuite`来返回一个`testSuite`对象，这个`testSuite`对象就是`groovy script`所在的`testSuite`，还可以通过`testRunner.testCase.testSuite.project`来返回一个`project`对象，这个`project`对象就是我们创建的项目对象，得到这些对象后我们就可以通过`.getPropertyValue("xxx")`来获取相应的属性, 通过`.setPropertyValue("xxx",yyy)`来设置相应的属性。
+    ```
     def test = testRunner.testCase.project.getPropertyValue(“xxxxxx”)
     def test = testRunner.testCase.testSuite.getPropertyValue(“xxxxxx")
     def test = testRunner.testCase.getPropertyValue(“xxxxxx")
     def test = testRunner.testCase.testSteps[“xxxxxx”].getPropertyValue(“xxxxxx")
+    ```
     **要想在script assertion中使用testRunner这个类，不能直接使用，如果直接使用会提示（[No such property: testRunner for class: Script1]）**
 
-  3. `com.eviware.soapui.model.iface.MessageExchange`，这个类只能在`groovy assertion`中使用，通过`messageExchange.modelItem`可以返回一个对象，这个对象的作用与`testRunner`是一致的（我们在script assertion中只能直接使用messageExchange这个对象，所以我们可以通过def testCase = messageExchange.modelItem.testCase;获取到testCase这个对象，然后我们在testCase这个对象的基础上做相应的处理），接下来我们可以通过`.testCase.testSuite.project`来获取不同作用域范围的对象。而且可以使用`messageExchange.getResponseContent()`方法直接获取所在`testStep`的`response`返回内容。然后使用`new JsonUtil().parseTrimmedText(response)`把`response`解析成`json String`.
-  7. com.eviware.soapui.model.iface.SubmitContext，此接口下拥有多个SubInterface，我们在soapui中可以直接使用context来获取当前testCase对象或其他对象，例如：
+  2. `com.eviware.soapui.model.iface.MessageExchange`，这个类只能在`groovy assertion`中使用，通过`messageExchange.modelItem`可以返回一个对象，这个对象的作用与`testRunner`是一致的（我们在script assertion中只能直接使用messageExchange这个对象，所以我们可以通过def testCase = messageExchange.modelItem.testCase;获取到testCase这个对象，然后我们在testCase这个对象的基础上做相应的处理），接下来我们可以通过`.testCase.testSuite.project`来获取不同作用域范围的对象。而且可以使用`messageExchange.getResponseContent()`方法直接获取所在`testStep`的`response`返回内容。然后使用`new JsonUtil().parseTrimmedText(response)`把`response`解析成`json String`.
+
+  3. `com.eviware.soapui.model.iface.SubmitContext`，此接口下拥有多个SubInterface，我们在soapui中可以直接使用context来获取当前testCase对象或其他对象，例如：
+    ```
     context.getCurrentStep()
     context.getTestCase()
     context.getTestCase().getTestSuite()
     context.getTestCase().getTestSuite().getProject().getName()) //Get the name of the soapUI project
     context.getProperty(“测试步骤的名称”,"属性名称（例如：Request, Response, id，userId）")
     context.setProperty(“属性的名称”,”属性的值")
-而且在groovy scripts中我们可以直接使用def xxxxxx = context.expand(‘${#Project#XXXXXXX}')来获取某一个属性的值，使用这种方法是因为testCases中加入的Properties中的所有属性，可以直接通过${xxxxxxxxx}进行使用，这种方法可以在请求体中，以及很多断言中，但在groovy scripts以及groovy scripts断言中无法使用。
+    ```
+    而且在groovy scripts中我们可以直接使用def xxxxxx = context.expand(‘${#Project#XXXXXXX}')来获取某一个属性的值，使用这种方法是因为testCases中加入的Properties中的所有属性，可以直接通过${xxxxxxxxx}进行使用，这种方法可以在请求体中，以及很多断言中，但在groovy scripts以及groovy scripts断言中无法使用。
+
+  4.我们在assert的时候，或者在脚本中尝尝会获取数据，为了最快速以及最准确的获取数据，我们从本地数据库读取，这个时候我们要通过groovy sql来获取，例如：
+    ```
+    import groovy.sql.Sql
+    import com.eviware.soapui.model.testsuite.TestRunner
+    import com.eviware.soapui.support.JsonUtil
+    import com.eviware.soapui.model.iface.MessageExchange
+
+    def host = messageExchange.modelItem.testCase.testSuite.project.getPropertyValue("host")
+    def dbUrl = "jdbc:postgresql://" + host + ":port/dbName"
+    def dbUser = "userName"
+    def dbPassword = "password"
+    def dbDriver   = "org.postgresql.Driver"
+
+    def sql = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
+
+    def credential = sql.firstRow("SELECT * FROM tableName")
+
+    def credentialId = new JsonUtil().parseTrimmedText(messageExchange.getResponseContent()).credential.id
+
+    assert credentialId == credential.id
+    ```
+    groovy sql的使用方法跟JDBC基本思路是一致的
+
+5. script中对response进行json格式化
+    ``def slurperResponse = new JsonSlurper().parseText(Response)``
+
+6. 我们在test case中可以对属性值进行判断并根绝判断结果来选择继续执行的test step，soapui中有两种方法实现此功能
+    1. Conditional Goto testStep
+        ![conditionalGotoTestStep](https://github.com/zackgq2009/TestDocuments/blob/master/soapuiProjects/readmepictures/conditionalGotoTestStep.png)
+    2. Groovy Script
+      ```
+      My test case contains following steps
+          1.Soap request (getAsset)
+          2.Property transfer
+          3.soap request
+          4.Groovy script
+
+          My Script is
+            def aa =0
+            while (aa < 3)
+            {
+              testRunner.gotoStepByName( "getAsset")
+              aa++
+            }
+      ```
+        ![gotoStepByName](https://github.com/zackgq2009/TestDocuments/blob/master/soapuiProjects/readmepictures/gotoStepByName.png)
+
+7. 我们在test case中需要重复调用某一个接口，我们可以使用递归的方式来实现
+    1. DataSource & DataSource Loop testStep
+      首先datasource可以读取数据库或者任意文件，返回一个数组类型的结果（可以视为一个数据的集合），我们可以遍历它返回回来的集合，一一读取它的值，而Datasource loop则是帮我们实现遍历的步骤，它会一遍一遍的读取datasource返回的集合中的数据，并且loop中会指定遍历数据之后重复执行哪一步
+      ![DataSourceLoop](https://github.com/zackgq2009/TestDocuments/blob/master/soapuiProjects/readmepictures/DataSourceLoop.png)
+    2. Groovy Script
+      通过脚本更容易实现我们的递归，我们只需要gotoStepByName的时候选择递归的第一步骤，但需要注意在脚本中需要加入退出递归的条件判断
