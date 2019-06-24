@@ -184,3 +184,7 @@ SOAPUI中各个层级模块之间的关系，以及层级的作用。
       ![DataSourceLoop](https://github.com/zackgq2009/TestDocuments/blob/master/soapuiProjects/readmepictures/DataSourceLoop.png)
     2. Groovy Script
       通过脚本更容易实现我们的递归，我们只需要gotoStepByName的时候选择递归的第一步骤，但需要注意在脚本中需要加入退出递归的条件判断
+
+8. Assertion TestStep
+    单独断言步骤中会根据我们选择的Source以及该source下某一个属性值来自动化匹配可以添加的assertions，所以我们需要第一步选择source（test case中的某一个测试步骤），然后再选择该步骤下的某一个属性值（request，response等），然后再选择可以为这个属性值添加的assertions     
+    ![AssertionTestStep](https://github.com/zackgq2009/TestDocuments/blob/master/soapuiProjects/readmepictures/AssertionTestStep.png)
