@@ -59,7 +59,7 @@ SOAPUI中各个层级模块之间的关系，以及层级的作用。
 8. New TestStep（测试步骤是测试用例的组成部分，测试步骤的类型众多，例如：接口请求、参数设置、参数传递、脚本设置等）  
 9. New Rest MockService（MockService主要分为SOAP MockService跟REST MockService，但由于工作中主要接触restful api，所以我以Rest MockService为例进行介绍）  
 10. New Mock Action（每一个MockService下可以创建多个Mock Action，每一个Mock Action具有自己的HTTP Method跟HTTP Path）  
-11. New Mock Response（在每一个Mock Action下用户又可以设置多个Mock Response，每一个Mock Response下都可以设置自己独特的HTTP Status Code、HTTP Header、Response Content。**而且还需要强调下，同一个Mock Action下的所有Mock Response是由触发逻辑控制的，可以‘sequence’或者‘script’进行触发的**）
+11. New Mock Response（在每一个Mock Action下用户又可以设置多个Mock Response，每一个Mock Response下都可以设置自己独特的HTTP Status Code、HTTP Header、Response Content。**而且还需要强调下，同一个Mock Action下的所有Mock Response是由触发逻辑控制的，可以‘sequence’或者‘script’进行触发的**） 
 
 当我们了解了soapui中各个模块的关系后，就可以根据自己的需求创建相关REST API的项目  
 通常的做法就是我们先把要用的所有接口通过`Resource--Method--Request`创建出来，然后在这些模块的基础上，我们创建testsuite以及testcase，在testcase中我们可以根据`request`模块来创建具体的request teststeps，在steps中我们可以加入Property Transfer，Property Transfer中我们可以针对已有的step的参数、属性来传递之间的值，主要就是在response中取出特定的值，然后传下去。针对于不同格式的response，SOAPUI具有XPATH、XQuery、JSONPath等。**（本来我在使用selenium的时候，主要用xpath进行元素的查找，到了soapui发现JsonPath用起来更顺手）**  
@@ -76,7 +76,18 @@ SOAPUI中各个层级模块之间的关系，以及层级的作用。
 7. 在`testCase`层级上，配置参数的方法跟`testSuite`一样，除了这里参数的作用域小于`testSuite`之外，其他基本无差别。调用的方法是：`${#TestCase#name}`  
 8. `testStep`的内容跟`request`的内容基本无差别。所以我们在这里就像配置`request`一样进行参数的配置。只是在`testStep`中可以调用`testSuite`以及`testCase`中的参数。  
 9. `Properties TestStep`是一种比较特殊的`testStep`，所以在这边补充说明一下。在`Properties TestStep`中我们可以添加任意参数，并且这些参数可以调用`Project`、`TestSuite`以及`TestCase`中定义好的参数。但由于它隶属于`testStep`，所以`Properties TestStep`的作用域是“它以后的所有testStep”。  
-10. 在SoapUI中，不管是哪个模块都可以调用本地系统环境变量，调用方法是：`${#System#name}`
+10. 在SoapUI中，不管是哪个模块都可以调用本地系统环境变量，调用方法是：`${#System#name}`   
+
+## SoapUI常用的变量
+  1. ``uuid: ${=UUID.randomUUID()}``
+  2. ``timeStamp: ${=System.currentTimeMillis()}``
+  3. ``randomString: ${=org.apache.commons.lang.RandomStringUtils.random(24, charset.toCharArray())}``
+  4. ``randomInteger: ${=random.randint(0,100)}  ||  ${=(int)(Math.random()*1000)}  ||  ${=Math.round(100*Math.random())}``
+  5. ````
+  6. ````
+  7. ````
+  8. ````
+  9. ````
 
 ## SoapUI来实现Mock
 
