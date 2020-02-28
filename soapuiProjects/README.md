@@ -199,3 +199,467 @@ SOAPUI中各个层级模块之间的关系，以及层级的作用。
 8. Assertion TestStep
     单独断言步骤中会根据我们选择的Source以及该source下某一个属性值来自动化匹配可以添加的assertions，所以我们需要第一步选择source（test case中的某一个测试步骤），然后再选择该步骤下的某一个属性值（request，response等），然后再选择可以为这个属性值添加的assertions     
     ![AssertionTestStep](https://github.com/zackgq2009/TestDocuments/blob/master/soapuiProjects/readmepictures/AssertionTestStep.png)
+
+
+9. Assertion DB
+    import groovy.sql.Sql
+    import com.eviware.soapui.model.testsuite.TestRunner
+    import com.eviware.soapui.support.JsonUtil
+    import com.eviware.soapui.model.iface.MessageExchange
+
+    def host = messageExchange.modelItem.testCase.testSuite.project.getPropertyValue("host")
+    def dbUrl = "jdbc:postgresql://" + host + ":5432/phoenixdb"
+    def dbUser = "phoenix"
+    def dbPassword = "J23lMBSo5DQ!"
+    def dbDriver   = "org.postgresql.Driver"
+
+    def sql = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
+
+    def deviceId = messageExchange.modelItem.testCase.testSuite.getPropertyValue("Windows-DeviceId")
+
+    def data = sql.rows("SELECT * FROM ph_device Where ph_device.id = " + deviceId)
+
+    log.info(data.size())
+    assert data.size == 0
+
+
+10. Pattern in Assertion
+    import java.util.regex.Matcher
+    import java.util.regex.Pattern
+    import java.net.URLEncoder
+    import groovy.sql.Sql
+    import com.eviware.soapui.support.JsonUtil
+    import com.eviware.soapui.model.iface.MessageExchange
+
+    def host = messageExchange.modelItem.testCase.testSuite.project.getPropertyValue("host")
+    def dbUrl = "jdbc:postgresql://" + host + ":5432/phoenixdb"
+    def dbUser = "phoenix"
+    def dbPassword = "J23lMBSo5DQ!"
+    def dbDriver   = "org.postgresql.Driver"
+
+    def sql = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
+
+    def devices = sql.rows("Select ph_device.discover_method, ph_device.name, ph_device.version, ph_device.os_edition, ph_device.id From ph_device Where ph_device.access_ip = '${#Project#device1}'")
+
+    //Select count(ph_device.id) as countDevice
+    //From ph_device
+    //Where ph_device.id In (Select ph_group_item.item_id From ph_group_item
+    //  Where ph_group_item.group_id In (Select ph_group.id From ph_group
+    //    Where ph_group.natural_id = 'PH_SYS_DEVICE_WINDOWS_SERVER'))
+
+    def response = testRunner.testCase.testSteps["PostLogin"].getPropertyValue("Response")
+    log.info(testRunner.testCase.getTestStepByName("PostLogin").testRequest.response.responseHeaders)
+    def cookie
+
+    Pattern pattern = Pattern.compile('id="javax.faces.ViewState">(.*)</update>')
+    Matcher matcher = pattern.matcher(response)
+    if(matcher.find()) {
+        log.info(matcher.group(1))
+        def responseCode = java.net.URLEncoder.encode(matcher.group(1), "UTF-8")
+        testRunner.testCase.testSteps["Properties"].setPropertyValue("ViewState",responseCode)
+    }
+    testRunner.testCase.getTestStepByName("PostLogin").testRequest.response.responseHeaders.each { 
+      if (it.key == "Set-Cookie"){
+          cookie = it.value
+          Pattern patternTwo = Pattern.compile("JSESSIONID=(.*?);")
+          Matcher matcherTwo = patternTwo.matcher(cookie[0])
+          log.info(cookie[0])
+          if(matcherTwo.find()) {
+            log.info("test information")
+          testRunner.testCase.testSuite.project.setPropertyValue("cookie","JSESSIONID="+matcherTwo.group(1))
+          }
+        }
+    }
+
+
+11. testRunner.gotoStepByName()
+    import com.eviware.soapui.model.testsuite.TestRunner
+    import groovy.json.JsonSlurper
+
+    def response = testRunner.testCase.testSteps["Get-Credential-Associations"].getPropertyValue("Response")
+    //log.info(response)
+    def jsonResponse = new JsonSlurper().parseText(response)
+    log.info(jsonResponse.size())
+
+    //def testCase = testRunner.testCase;
+    //def testStepBack = testCase.testSteps["Get-Credentials"];
+    //def testStepNext = testCase.testSteps["Logout"];
+
+    if(jsonResponse.size() > 1){
+    //	testStepBack.run(testRunner, context)
+      testRunner.gotoStepByName("Get-Credential-Associations");
+    } else {
+    //	testStepNext.run(testRunner, context)
+      testRunner.gotoStepByName("Get-Credentials");
+    }
+
+
+12. Update the content of RequestBody or Response
+    import groovy.sql.Sql
+    import com.eviware.soapui.model.testsuite.TestRunner
+    import com.eviware.soapui.support.JsonUtil
+    import com.eviware.soapui.model.iface.MessageExchange
+
+    def reportRequestBody = context.expand('${#TestSuite#queryReportRequestBody}')
+    def reportResponse = context.expand('${#TestSuite#queryReportResponse}')
+    log.info(reportRequestBody)
+    log.info(reportResponse)
+
+    def responseJSON = new JsonUtil().parseTrimmedText(reportResponse)
+    def requestJSON = new JsonUtil().parseTrimmedText(reportRequestBody)
+    log.info(responseJSON.report)
+
+    responseJSON.put("report", requestJSON)
+    context.getTestCase().getTestSuite().setPropertyValue("reportResultRequestBody", responseJSON.toString())
+
+
+13. Get random one data from DB
+    Select *  From ph_event_attr_type
+    ORDER BY RANDOM() 
+    LIMIT 1
+
+
+14.   import com.eviware.soapui.model.testsuite.TestRunner
+      import com.eviware.soapui.support.JsonUtil
+      import com.eviware.soapui.model.iface.MessageExchange
+
+      def response = messageExchange.getResponseContent()
+      log.info(response)
+      def responseJSON = new JsonUtil().parseTrimmedText(response)
+      log.info(responseJSON)
+
+      def objectTypeName = responseJSON.headerData.objectTypeName
+      log.info(objectTypeName)
+
+      if(objectTypeName.toString() == '"status"' ){
+          log.info(responseJSON.lightValueObjects[0].data[0])
+          assert responseJSON.lightValueObjects[0].data[0].toString() == '"No report results found."'
+        }
+      else if(objectTypeName.toString() == '"results"'){
+          log.info(messageExchange.modelItem.testCase.testSuite.getPropertyValue("reportCount"))
+          assert responseJSON.lightValueObjects.size() == messageExchange.modelItem.testCase.testSuite.getPropertyValue("reportCount").toInteger()
+        }
+
+15.   import groovy.sql.Sql
+      import com.eviware.soapui.model.testsuite.TestRunner
+      import com.eviware.soapui.support.JsonUtil
+      import com.eviware.soapui.model.iface.MessageExchange
+
+      def host = testRunner.testCase.testSuite.project.getPropertyValue("host")
+      def dbUrl = "jdbc:postgresql://" + host + ":5432/phoenixdb"
+      def dbUser = "phoenix"
+      def dbPassword = "J23lMBSo5DQ!"
+      def dbDriver   = "org.postgresql.Driver"
+      def sql = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
+
+      def parentId = testRunner.testCase.testSteps["GetGroup"].getPropertyValue("ph_group_parent_id")
+      log.info(parentId)
+      def path = testRunner.testCase.testSteps["GetGroup"].getPropertyValue("ph_group_display_name")
+      //log.info(path)
+      path = "/" + path;
+
+      if(parentId == null){
+      //		testRunner.cancel("Do not need to get Group")
+          testRunner.gotoStepByName("Property Transfer 5")
+        }
+      else {
+        log.info(path)
+        while(parentId != null) {
+            def parent = sql.firstRow("SELECT * FROM ph_group WHERE id = " + parentId)
+      //			log.info(parent)
+            parentId = parent.parent_id
+            path = "/" + parent.display_name + path
+            log.info(path)
+          }
+        testRunner.testCase.testSuite.setPropertyValue("groupPath", path)
+        }
+
+
+16. import groovy.sql.Sql
+    import com.eviware.soapui.model.testsuite.TestRunner
+    import com.eviware.soapui.support.JsonUtil
+    import com.eviware.soapui.model.iface.MessageExchange
+
+    //def response = messageExchange.getResponseContent()
+    def userAgent = new JsonUtil().parseTrimmedText(messageExchange.getResponseContent()).userAgent.textValue()
+    def dbUserAgent = messageExchange.modelItem.testCase.testSuite.getPropertyValue("userAgentUserAgent")
+    log.info(userAgent)
+    log.info(dbUserAgent)
+    assert dbUserAgent.equals(userAgent)
+
+
+    17.  import groovy.sql.Sql
+          import com.eviware.soapui.model.testsuite.TestRunner
+          import com.eviware.soapui.support.JsonUtil
+          import com.eviware.soapui.model.iface.MessageExchange
+
+          //def response = messageExchange.getResponseContent()
+          def scriptContent = new JsonUtil().parseTrimmedText(messageExchange.getResponseContent()).scriptContent.textValue()
+          def dbScriptContent = messageExchange.modelItem.testCase.testSuite.getPropertyValue("remediationScriptContent")
+          log.info(scriptContent)
+          log.info(dbScriptContent)
+          //Pattern p = Pattern.compile('\\s*|\t|\r|\n')
+          //Matcher m = p.matcher(scriptContent)
+          //def test111 = m.replaceAll("")
+          def updateScriptContent=scriptContent.replaceAll(" ", "").replaceAll("\t", "").replaceAll("\r", "").replaceAll("\n", "")
+          def updateDBScriptContent=dbScriptContent.replaceAll(" ", "").replaceAll("\t", "").replaceAll("\r", "").replaceAll("\n", "")
+          log.info(updateScriptContent)
+          log.info(updateDBScriptContent)
+          //log.info(test111)
+          assert updateScriptContent.equals(updateDBScriptContent)
+
+18. import groovy.sql.Sql
+    import com.eviware.soapui.model.testsuite.TestRunner
+    import com.eviware.soapui.support.JsonUtil
+    import com.eviware.soapui.model.iface.MessageExchange
+    import java.util.regex.Matcher;
+    import java.util.regex.Pattern;
+    import java.net.URLEncoder
+    import com.ph.phoenix.commons.Utils
+    import java.util.Arrays
+
+    def widgets = messageExchange.modelItem.testCase.testSteps["GetWidgetsIdByDashboardGroup"].getPropertyValue("ph_dashboard_widget_order")
+    log.info(widgets)
+    def response = messageExchange.getResponseContent()
+    log.info(response)
+
+    if (widgets == null) {
+    //	log.info("null")
+      assert response.equals('[]')
+      }
+    else {
+    //	log.info("not null")
+      def widgetSize = widgets.split(',').size()
+      log.info(widgetSize)
+      def widgetOrder = new JsonUtil().parseTrimmedText(response)
+      def widgetOrderString = widgetOrder.toString()
+      def widgetOrderSize = widgetOrder.size()
+      log.info(widgetOrderSize)
+      assert widgetSize.equals(widgetOrderSize)
+      for(def one in widgets.split(',')) {
+          assert widgetOrderString.contains(one)
+        }
+      }
+
+19. $.[?(@.name=="storage_type")].value[0]
+
+20. import groovy.sql.Sql
+    import com.eviware.soapui.model.testsuite.TestRunner
+    import com.eviware.soapui.support.JsonUtil
+    import com.eviware.soapui.model.iface.MessageExchange
+    import com.eviware.soapui.model.iface.SubmitContext
+
+    def response = context.getProperty("Response")
+    def responseJSON = new JsonUtil().parseTrimmedText(response)
+    log.info(responseJSON)
+
+    for(def item : responseJSON){
+      def itemName = item.name.toString()
+      if (itemName == '"storage_type"' ) {
+          if(item.value.toString() != '"elastic"' ) {
+              testRunner.testCase.testSuite.setPropertyValue("isES", "false")
+              testRunner.cancel("it is not ES")
+            }
+          else if(item.value.toString() == '"elastic"' ) {
+              testRunner.testCase.testSuite.setPropertyValue("isES", "true")
+            }
+        }
+      else if (itemName == '"cluster_name"' ) {
+          if(item.value != null) {
+              testRunner.testCase.testSuite.setPropertyValue("EScluster_name", item.value.toString().replace('\"', ''))
+            }
+        }
+      else if (itemName == '"cluster_ip"' ) {
+          if(item.value != null) {
+              testRunner.testCase.testSuite.setPropertyValue("EScluster_ip", item.value.toString().replace('\"', ''))
+            }
+        }
+      else if (itemName == '"http_port"' ) {
+          if(item.value != null) {
+              def httpPort = item.value.toString().replace('\"', '')
+              httpPort = httpPort.substring(0, httpPort.lastIndexOf("."))
+              log.info(httpPort)
+              testRunner.testCase.testSuite.setPropertyValue("EShttp_port", httpPort)
+              
+            }
+        }
+      else if (itemName == '"java_port"' ) {
+          if(item.value != null) {
+              def javaPort = item.value.toString().replace('\"', '')
+              javaPort = javaPort.substring(0, javaPort.lastIndexOf("."))
+              log.info(javaPort)
+              testRunner.testCase.testSuite.setPropertyValue("ESjava_port", javaPort)
+            }
+        }
+      }
+    //log.info(context.testRunner)
+
+
+21. import groovy.sql.Sql
+    import com.eviware.soapui.model.testsuite.TestRunner
+    import com.eviware.soapui.support.JsonUtil
+    import com.eviware.soapui.model.iface.MessageExchange
+    import java.util.regex.Matcher;
+    import java.util.regex.Pattern;
+    import java.net.URLEncoder
+    import com.ph.phoenix.commons.Utils
+    import java.util.Arrays
+
+    def host = messageExchange.modelItem.testCase.testSuite.project.getPropertyValue("host")
+    def databaseDB = messageExchange.modelItem.testCase.testSuite.project.getPropertyValue("databaseDB")
+    def databaseUsername = messageExchange.modelItem.testCase.testSuite.project.getPropertyValue("databaseUsername")
+    def databasePassword = messageExchange.modelItem.testCase.testSuite.project.getPropertyValue("databasePassword")
+    def dbUrl = "jdbc:postgresql://" + host + ":5432/"+databaseDB
+    def dbUser = databaseUsername
+    def dbPassword = databasePassword
+    def dbDriver   = "org.postgresql.Driver"
+
+    def sql = Sql.newInstance(dbUrl, dbUser, dbPassword, dbDriver)
+
+    def type = sql.firstRow("Select ph_sys_conf.value From ph_sys_conf Where property = 'storage_type'")
+    log.info(type)
+
+    def response = context.getProperty("Response")
+    //log.info(response)
+    def responseJSON = new JsonUtil().parseTrimmedText(response)
+    log.info(responseJSON)
+    //log.info(type.value.toString())
+    //check the storage type
+    if (type.value.toString() == "nfs") {
+      def mountPoint = sql.firstRow("Select ph_sys_conf.value From ph_sys_conf Where property = 'mount_point'")
+      def serverIP = sql.firstRow("Select ph_sys_conf.value From ph_sys_conf Where property = 'server_ip'")
+    //	log.info(mountPoint)
+    //	log.info(serverIP)
+      messageExchange.modelItem.testCase.testSuite.setPropertyValue("mount_point", mountPoint.value.toString())
+      messageExchange.modelItem.testCase.testSuite.setPropertyValue("server_ip", serverIP.value.toString())
+
+      for (def item : responseJSON) {
+        def itemName = item.name.toString()
+        def itemValue =  item.value.toString()
+    //		log.info(itemName)
+        if (itemName == '"mount_point"') {
+          def dbValue = '"' + mountPoint.value.toString() + '"'
+          assert dbValue.equals(itemValue)
+          }
+        if (itemName == '"server_ip"') {
+    //			log.info(item.value.toString())
+          def dbValue = '"' + serverIP.value.toString() + '"'
+          assert dbValue.equals(itemValue)
+          }
+        }
+      }
+
+    if (type.value.toString() == "elastic") {
+      def clientType = sql.firstRow("Select ph_sys_conf.value From ph_sys_conf Where property = 'client_type'")
+      def dynamicShard = sql.firstRow("Select ph_sys_conf.value From ph_sys_conf Where property = 'dynamic_shard'")
+      def numberShards = sql.firstRow("Select ph_sys_conf.value From ph_sys_conf Where property = 'number_of_shards'")
+      def numberReplicas = sql.firstRow("Select ph_sys_conf.value From ph_sys_conf Where property = 'number_of_replicas'")
+      def userName = sql.firstRow("Select ph_sys_conf.value From ph_sys_conf Where property = 'user_name'")
+      def password = sql.firstRow("Select ph_sys_conf.value From ph_sys_conf Where property = 'password'")
+      def clusterName = sql.firstRow("Select ph_sys_conf.value From ph_sys_conf Where property = 'cluster_name'")
+      def clusterIP = sql.firstRow("Select ph_sys_conf.value From ph_sys_conf Where property = 'cluster_ip'")
+      def httpPort = sql.firstRow("Select ph_sys_conf.value From ph_sys_conf Where property = 'http_port'")
+      def javaPort = sql.firstRow("Select ph_sys_conf.value From ph_sys_conf Where property = 'java_port'")
+      def indexPerCustomer = sql.firstRow("Select ph_sys_conf.value From ph_sys_conf Where property = 'index_per_customer'")
+      def esVersion = sql.firstRow("Select ph_sys_conf.value From ph_sys_conf Where property = 'es_version'")
+
+      messageExchange.modelItem.testCase.testSuite.setPropertyValue("client_type", clientType.value.toString())
+      messageExchange.modelItem.testCase.testSuite.setPropertyValue("dynamic_shard", dynamicShard.value.toString())
+      messageExchange.modelItem.testCase.testSuite.setPropertyValue("number_of_shards", numberShards.value.toString())
+      messageExchange.modelItem.testCase.testSuite.setPropertyValue("number_of_replicas", numberReplicas.value.toString())
+      messageExchange.modelItem.testCase.testSuite.setPropertyValue("user_name", userName.value.toString())
+      messageExchange.modelItem.testCase.testSuite.setPropertyValue("password", password.value.toString())
+      messageExchange.modelItem.testCase.testSuite.setPropertyValue("cluster_name", clusterName.value.toString())
+      messageExchange.modelItem.testCase.testSuite.setPropertyValue("cluster_ip", clusterIP.value.toString())
+      messageExchange.modelItem.testCase.testSuite.setPropertyValue("http_port", httpPort.value.toString())
+      messageExchange.modelItem.testCase.testSuite.setPropertyValue("java_port", javaPort.value.toString())
+      messageExchange.modelItem.testCase.testSuite.setPropertyValue("index_per_customer", indexPerCustomer.value.toString())
+      messageExchange.modelItem.testCase.testSuite.setPropertyValue("es_version", esVersion.value.toString())
+
+      for (def item : responseJSON) {
+        def itemName = item.name.toString()
+        def itemValue =  item.value.toString()
+    //		log.info(itemName)
+    //		log.info(itemName.getClass().getName())
+        if (itemName == '"client_type"') {
+    //			log.info(item.value.toString())
+          def dbValue = '"' + clientType.value.toString() + '"'
+          assert dbValue.equals(itemValue)
+          }
+        if (itemName == '"dynamic_shard"') {
+    //			log.info(item.value.toString())
+          def dbValue = '"' + dynamicShard.value.toString() + '"'
+          assert dbValue.equals(itemValue)
+          }
+        if (itemName == '"number_of_shards"') {
+    //			log.info(item.value.toString())
+          def dbValue = '"' + numberShards.value.toString() + '"'
+          assert dbValue.equals(itemValue)
+          }
+        if (itemName == '"number_of_replicas"') {
+    //			log.info(item.value.toString())
+          def dbValue = '"' + numberReplicas.value.toString() + '"'
+          assert dbValue.equals(itemValue)
+          }
+        if (itemName == '"user_name"') {
+    //			log.info(item.value.toString())
+          def dbValue = '"' + userName.value.toString() + '"'
+          assert dbValue.equals(itemValue)
+          }
+        if (itemName == '"password"') {
+    //			log.info(item.value.toString())
+          def dbValue = '"' + password.value.toString() + '"'
+          assert dbValue.equals(itemValue)
+          }
+        if (itemName == '"cluster_name"') {
+    //			log.info(item.value.toString())
+          def dbValue = '"' + clusterName.value.toString() + '"'
+          assert dbValue.equals(itemValue)
+          }
+        if (itemName == '"cluster_ip"') {
+    //			log.info(item.value.toString())
+          def dbValue = '"' + clusterIP.value.toString() + '"'
+          assert dbValue.equals(itemValue)
+          }
+        if (itemName == '"http_port"') {
+    //			log.info(item.value.toString())
+          def dbValue = '"' + httpPort.value.toString() + '"'
+          assert dbValue.equals(itemValue)
+          }
+        if (itemName == '"java_port"') {
+    //			log.info(item.value.toString())
+          def dbValue = '"' + javaPort.value.toString() + '"'
+          assert dbValue.equals(itemValue)
+          }
+        if (itemName == '"index_per_customer"') {
+    //			log.info(item.value.toString())
+          def dbValue = '"' + indexPerCustomer.value.toString() + '"'
+          assert dbValue.equals(itemValue)
+          }
+        if (itemName == '"es_version"') {
+    //			log.info(item.value.toString())
+          def dbValue = '"' + esVersion.value.toString() + '"'
+          assert dbValue.equals(itemValue)
+          }
+        }
+      }
+
+    if (type.value.toString() == "local") {
+      def diskName = sql.firstRow("Select ph_sys_conf.value From ph_sys_conf Where property = 'disk_name'")
+      messageExchange.modelItem.testCase.testSuite.setPropertyValue("disk_name", diskName.value.toString())
+
+        for (def item : responseJSON) {
+        def itemName = item.name.toString()
+        def itemValue =  item.value.toString()
+    //		log.info(itemName)
+        if (itemName == '"disk_name"') {
+    //			log.info(item.value.toString())
+          def dbValue = '"' + diskName.value.toString() + '"'
+          assert dbValue.equals(itemValue)
+          }
+        }
+      }
+
+22. t${=System.currentTimeMillis()}
+    ${hexString}
+    ${#Project#cookie}; ${#Project#cookieS}
