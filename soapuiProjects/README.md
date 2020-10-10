@@ -442,6 +442,7 @@ SOAPUI中各个层级模块之间的关系，以及层级的作用。
       }
 
 19. $.[?(@.name=="storage_type")].value[0]
+    $['lightValueObjects'][?(@.data[1]=="${cloneReportName}")].objectId[0]
 
 20. import groovy.sql.Sql
     import com.eviware.soapui.model.testsuite.TestRunner
